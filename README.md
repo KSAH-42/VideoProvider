@@ -12,7 +12,7 @@ So here, we have the following projects :
 
 | Project name                 | Description                               |
 | ---------------------------- | ----------------------------------------- |
-| VideoProvider.dll            | the COM API                               |
+| VideoProvider.dll            | the server COM API                        |
 | VideoProviderLabs.exe        | the application for debug purposes        |
 
 
