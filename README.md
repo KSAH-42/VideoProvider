@@ -1,6 +1,4 @@
-# VideoProvider
-
-# Goals
+# Introduction
 
 So here it's a personnal project written in C++. Just go back in times, an returns to C++ using the famous MS COM framework called ATL (Active Template Library). I have decided to used here C++, because I love this programming the fantastic C# language. Here clearly recommand to use C#, because ATL is highly complex framework and require a lot of efforts. I will problably make a version of this API in C# in near feature.
 
