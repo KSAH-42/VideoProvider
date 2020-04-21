@@ -2,7 +2,7 @@
 
 # Goals
 
-So here it's a personnal project written in C++. Just go back in times, an returns to C++ using the famous MS COM framework called ATL (Active Template Library). I have decided to used here C++, because I love this programming as C# as well. Here clearly recommand to use C#, ATL is complex framework and require a lot of efforts. I will problably make a version of this API in C# in near feature.
+So here it's a personnal project written in C++. Just go back in times, an returns to C++ using the famous MS COM framework called ATL (Active Template Library). I have decided to used here C++, because I love this programming the fantastic C# language. Here clearly recommand to use C#, because ATL is highly complex framework and require a lot of efforts. I will problably make a version of this API in C# in near feature.
 
 So what really represent this project ? I have written a COM API that turn you computer in to video server. Here the goal is to retrieve the video stream of a local web camera and distribute multiple copy of one or multiple video stream from any type of video capture like your webcam.
 
