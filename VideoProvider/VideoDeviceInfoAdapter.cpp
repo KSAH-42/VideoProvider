@@ -4,17 +4,17 @@
 
 STDMETHODIMP CVideoDeviceInfoAdapter::Adapt(IMoniker* moniker, IVideoDeviceInfo** out_result)
 {
-	if ( NULL == moniker )
-	{
-		return S_FALSE;
-	}
-
 	if ( NULL == out_result )
 	{
 		return S_FALSE;
 	}
 
 	*out_result = NULL;
+
+	if ( NULL == moniker )
+	{
+		return S_FALSE;
+	}
 
 	CComPtr<IVideoDeviceInfo> deviceInfo;
 
