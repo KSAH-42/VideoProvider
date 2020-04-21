@@ -37,16 +37,11 @@ STDMETHODIMP CBackgroundThread::get_Identifier(ULONG* pVal)
 
 	*pVal = 0;
 
-	if ( NULL == this->m_hHandle )
+	if ( NULL == this->m_hHandle || NULL == this->m_hExit )
 	{
 		return S_OK;
 	}
-
-	if ( NULL == this->m_hExit )
-	{
-		return S_OK;
-	}
-
+	 
 	*pVal = this->m_identifer;
 
 	return S_OK;
@@ -60,14 +55,7 @@ STDMETHODIMP CBackgroundThread::IsStarted(VARIANT_BOOL* out_result)
 		return E_POINTER;
 	}
 
-	*out_result = VARIANT_FALSE;
-
-	if ( NULL == this->m_hHandle )
-	{
-		return S_OK;
-	}
-
-	*out_result = VARIANT_TRUE;
+	*out_result = ( NULL != this->m_hHandle ) ? VARIANT_TRUE : VARIANT_FALSE;
 
 	return S_OK;
 }
@@ -89,7 +77,7 @@ STDMETHODIMP CBackgroundThread::IsAlive(VARIANT_BOOL* out_result)
 		
 	DWORD dwResult = 0;
 
-	if ( TRUE != ::GetExitCodeThread( this->m_hHandle , &dwResult ) )
+	if ( ! ::GetExitCodeThread( this->m_hHandle , &dwResult ) )
 	{
 		return S_OK;
 	}
@@ -191,12 +179,7 @@ STDMETHODIMP CBackgroundThread::CanContinue(ULONG ulTimeout, VARIANT_BOOL* out_r
 
 	*out_result = VARIANT_FALSE;
 	
-	if ( NULL == this->m_hHandle )
-	{
-		return S_OK;
-	}
-		
-	if ( NULL == this->m_hExit )
+	if ( NULL == this->m_hHandle || NULL == this->m_hExit )
 	{
 		return S_OK;
 	}
