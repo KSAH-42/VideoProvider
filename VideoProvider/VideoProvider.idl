@@ -18,12 +18,12 @@ interface IBackgroundThread : IDispatch
 	[propget, id(1)]    HRESULT Handle          ([out, retval]	ULONG*						pVal);
 	[propget, id(2)]    HRESULT HandleEventExit ([out, retval]	ULONG*						pVal);
 	[propget, id(3)]    HRESULT Identifier      ([out, retval]	ULONG*						pVal);
-	[id(4)]				HRESULT IsStarted       ([out,retval]	VARIANT_BOOL*				out_result);
-	[id(5)]				HRESULT IsAlive         ([out,retval]	VARIANT_BOOL*				out_result);
-	[id(6),local]		HRESULT Start           ([in]			void*						lpRoutine ,			[in]		 void*			lpRoutineArg		, [out,retval]	 VARIANT_BOOL*	out_result);
-	[id(7)]				HRESULT Stop            (void);
-	[id(8)]				HRESULT CanContinue     ([in]			ULONG						timeout,			[out,retval] VARIANT_BOOL*	out_result);
-	[id(9)]				HRESULT PumpEvents      (void);
+	[id(4)]             HRESULT IsStarted       ([out,retval]	VARIANT_BOOL*				out_result);
+	[id(5)]             HRESULT IsAlive         ([out,retval]	VARIANT_BOOL*				out_result);
+	[id(6),local]       HRESULT Start           ([in]			void*						lpRoutine ,			[in]		 void*			lpRoutineArg		, [out,retval]	 VARIANT_BOOL*	out_result);
+	[id(7)]             HRESULT Stop            (void);
+	[id(8)]             HRESULT CanContinue     ([in]			ULONG						timeout,			[out,retval] VARIANT_BOOL*	out_result);
+	[id(9)]             HRESULT PumpEvents      (void);
 };
 
 //******************************************************************************************
@@ -300,8 +300,8 @@ library VideoProviderLib
     //**************************************************************************************
     interface IVideoPlayer;
 
-	//**************************************************************************************
-    // COM OBJECTS
+    //**************************************************************************************
+    // COM OBJECT
     //**************************************************************************************
     [
 		uuid(8A072813-842C-47A9-BC25-A278EDF627A1)		
@@ -311,8 +311,8 @@ library VideoProviderLib
 		[default] interface IBackgroundThread;
 	};
 	
-	//**************************************************************************************
-    // COM OBJECTS
+    //**************************************************************************************
+    // COM OBJECT
     //**************************************************************************************
     [
 		uuid(75089B6B-F287-490E-B2E8-A1B3DE278C89)		
@@ -322,8 +322,8 @@ library VideoProviderLib
 		[default] interface IVideoGraphConfiguration;
 	};
 	
-	//**************************************************************************************
-    // COM OBJECTS
+    //**************************************************************************************
+    // COM OBJECT
     //**************************************************************************************
     [
 		uuid(F5B6FC19-9FF7-425F-B10A-72918122E774)		
@@ -333,8 +333,8 @@ library VideoProviderLib
 		[default] interface IVideoGraph;
 	};
 	
-	//**************************************************************************************
-    // COM OBJECTS
+    //**************************************************************************************
+    // COM OBJECT
     //**************************************************************************************
     [
 		uuid(313574A2-BEAD-44C4-A48F-B13AB1AB6E81)		
@@ -344,8 +344,8 @@ library VideoProviderLib
 		[default] interface IMediaMonikerStore;
 	};
 	
-	//**************************************************************************************
-    // COM OBJECTS
+    //**************************************************************************************
+    // COM OBJECT
     //**************************************************************************************
     [
 		uuid(77E06CE8-8CE8-4A8D-9635-5D0543EB557E)		
@@ -355,8 +355,8 @@ library VideoProviderLib
 		[default] interface IMediaMonikerList;
 	};
 	
-	//**************************************************************************************
-    // COM OBJECTS
+    //**************************************************************************************
+    // COM OBJECT
     //**************************************************************************************
     [
 		uuid(5E8B2161-B1B3-422F-BC81-325B6D871C04)		
@@ -366,8 +366,8 @@ library VideoProviderLib
 		[default] interface IVideoDeviceInfo;
 	};
 	
-	//**************************************************************************************
-    // COM OBJECTS
+    //**************************************************************************************
+    // COM OBJECT
     //**************************************************************************************
     [
 		uuid(1D30B373-AE66-4E57-AFCD-BBA251A6A97F)		
@@ -377,8 +377,8 @@ library VideoProviderLib
 		[default] interface IVideoDeviceInfoList;
 	};
 	
-	//**************************************************************************************
-    // COM OBJECTS
+    //**************************************************************************************
+    // COM OBJECT
     //**************************************************************************************
     [
 		uuid(AD974153-B805-43B3-8342-DC3ECF5A88FE)		
@@ -388,8 +388,8 @@ library VideoProviderLib
 		[default] interface IVideoDeviceInfoAdapter;
 	};
 	
-	//**************************************************************************************
-    // COM OBJECTS
+    //**************************************************************************************
+    // COM OBJECT
     //**************************************************************************************
     [
 		uuid(3A9CE378-1148-4254-9BD7-7BE00A218D21)		
@@ -399,8 +399,8 @@ library VideoProviderLib
 		[default] interface IVideoDeviceInfoDiscovery;
 	};
 	
-	//**************************************************************************************
-    // COM OBJECTS
+    //**************************************************************************************
+    // COM OBJECT
     //**************************************************************************************
     [
 		uuid(7D04D386-38DD-45E7-8C13-B70E474E63AF)		

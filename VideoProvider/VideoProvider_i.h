@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Tue Apr 21 21:45:48 2020
+/* at Tue Apr 21 21:48:26 2020
  */
 /* Compiler settings for VideoProvider.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
