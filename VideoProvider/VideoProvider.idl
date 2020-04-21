@@ -15,15 +15,15 @@ import "shobjidl.idl";
 ]
 interface IBackgroundThread : IDispatch
 {
-	[propget, id(1)]	HRESULT Handle			([out, retval]	ULONG*						pVal);
-	[propget, id(2)]	HRESULT HandleEventExit	([out, retval]	ULONG*						pVal);
-	[propget, id(3)]	HRESULT Identifier		([out, retval]	ULONG*						pVal);
-	[id(4)]				HRESULT IsStarted		([out,retval]	VARIANT_BOOL*				out_result);
-	[id(5)]				HRESULT IsAlive			([out,retval]	VARIANT_BOOL*				out_result);
-	[id(6),local]		HRESULT Start			([in]			void*						lpRoutine ,			[in]		 void*			lpRoutineArg		, [out,retval]	 VARIANT_BOOL*	out_result);
-	[id(7)]				HRESULT Stop			(void);
-	[id(8)]				HRESULT CanContinue		([in]			ULONG						timeout,			[out,retval] VARIANT_BOOL*	out_result);
-	[id(9)]				HRESULT PumpEvents		(void);
+	[propget, id(1)]    HRESULT Handle          ([out, retval]	ULONG*						pVal);
+	[propget, id(2)]    HRESULT HandleEventExit ([out, retval]	ULONG*						pVal);
+	[propget, id(3)]    HRESULT Identifier      ([out, retval]	ULONG*						pVal);
+	[id(4)]				HRESULT IsStarted       ([out,retval]	VARIANT_BOOL*				out_result);
+	[id(5)]				HRESULT IsAlive         ([out,retval]	VARIANT_BOOL*				out_result);
+	[id(6),local]		HRESULT Start           ([in]			void*						lpRoutine ,			[in]		 void*			lpRoutineArg		, [out,retval]	 VARIANT_BOOL*	out_result);
+	[id(7)]				HRESULT Stop            (void);
+	[id(8)]				HRESULT CanContinue     ([in]			ULONG						timeout,			[out,retval] VARIANT_BOOL*	out_result);
+	[id(9)]				HRESULT PumpEvents      (void);
 };
 
 //******************************************************************************************
@@ -261,13 +261,9 @@ interface ITest : IDispatch
 	[id(1)] HRESULT Run   (void);
 };
 
-
-
 //******************************************************************************************
-// LIBRARY
+// INTERFACE DEFINITION
 //******************************************************************************************
-
-
 
 [
 	object,
@@ -276,20 +272,30 @@ interface ITest : IDispatch
 	nonextensible,
 	pointer_default(unique)
 ]
-interface IVideoGraphRunner : IDispatch{
-	[id(1)] HRESULT IsStarted([out,retval] VARIANT_BOOL* out_result);
-	[id(2)] HRESULT Start([in] IVideoGraph* graph, [out,retval] VARIANT_BOOL* out_result);
-	[id(3)] HRESULT Stop(void);
+interface IVideoGraphRunner : IDispatch
+{
+	[id(1)] HRESULT IsStarted    ([out,retval] VARIANT_BOOL* out_result);
+	[id(2)] HRESULT Start        ([in] IVideoGraph* graph, [out,retval] VARIANT_BOOL* out_result);
+	[id(3)] HRESULT Stop         (void);
 };
+
+
+//******************************************************************************************
+// LIBRARY
+//******************************************************************************************
+
+
+
+
 [
 	uuid(93C65461-1197-476A-BF43-E7267C5BD30A),
 	version(1.0),
 ]
 library VideoProviderLib
 {
-	importlib("stdole2.tlb");
+    importlib("stdole2.tlb");
 	
-	//**************************************************************************************
+    //**************************************************************************************
     // EXPORTED INTERFACES
     //**************************************************************************************
     interface IVideoPlayer;
