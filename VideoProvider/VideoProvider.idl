@@ -1,0 +1,423 @@
+import "oaidl.idl";
+import "ocidl.idl";
+import "shobjidl.idl";
+
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
+	uuid(942603F1-4744-4C1A-B35B-0D4164E82B9E),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IBackgroundThread : IDispatch
+{
+	[propget, id(1)]	HRESULT Handle			([out, retval]	ULONG*						pVal);
+	[propget, id(2)]	HRESULT HandleEventExit	([out, retval]	ULONG*						pVal);
+	[propget, id(3)]	HRESULT Identifier		([out, retval]	ULONG*						pVal);
+	[id(4)]				HRESULT IsStarted		([out,retval]	VARIANT_BOOL*				out_result);
+	[id(5)]				HRESULT IsAlive			([out,retval]	VARIANT_BOOL*				out_result);
+	[id(6),local]		HRESULT Start			([in]			void*						lpRoutine ,			[in]		 void*			lpRoutineArg		, [out,retval]	 VARIANT_BOOL*	out_result);
+	[id(7)]				HRESULT Stop			(void);
+	[id(8)]				HRESULT CanContinue		([in]			ULONG						timeout,			[out,retval] VARIANT_BOOL*	out_result);
+	[id(9)]				HRESULT PumpEvents		(void);
+};
+
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
+	uuid(EA91DC21-25EA-44C7-AD60-0428D8B6C40B),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IVideoGraphConfiguration : IDispatch
+{
+	[propget, id(1)] HRESULT Window        ([out, retval] OLE_HANDLE* pVal);
+	[propput, id(1)] HRESULT Window        ([in]          OLE_HANDLE newVal);
+	[propget, id(2)] HRESULT UseGrabber    ([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(2)] HRESULT UseGrabber    ([in]          VARIANT_BOOL newVal);
+	[propget, id(3)] HRESULT FormatID      ([out, retval] BSTR* pVal);
+	[propput, id(3)] HRESULT FormatID      ([in]          BSTR newVal);
+	[propget, id(4)] HRESULT DeviceName    ([out, retval] BSTR* pVal);
+	[propput, id(4)] HRESULT DeviceName    ([in]          BSTR newVal);
+	[propget, id(5)] HRESULT FileSource    ([out, retval] BSTR* pVal);
+	[propput, id(5)] HRESULT FileSource    ([in]          BSTR newVal);
+	[id(6)]          HRESULT Reset         (void);
+};
+
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
+	uuid(B108EF2A-39AC-43D7-A027-923333C2ECA7),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IVideoGraph : IDispatch
+{
+	[propget, id(1)] HRESULT Configuration               ([out,retval] IVideoGraphConfiguration** pVal);
+	[id(2)]          HRESULT Create                      ([out,retval] VARIANT_BOOL* out_result);
+	[id(3)]          HRESULT Destroy                     (void);
+	[id(4)]          HRESULT SelectDevice                ([out,retval] VARIANT_BOOL* out_result);
+	[id(5)]          HRESULT SelectDeviceFormat          ([out,retval] VARIANT_BOOL* out_result);
+	[id(6)]          HRESULT AddDeviceFilter             ([out,retval] VARIANT_BOOL* out_result);
+	[id(7)]          HRESULT AddFileSourceFilter         ([out,retval] VARIANT_BOOL* out_result);
+	[id(8)]          HRESULT AddGrabberFilter            ([out,retval] VARIANT_BOOL* out_result);
+	[id(10)]         HRESULT RenderDeviceStream          ([in] BSTR pinCategoryId , [out,retval] VARIANT_BOOL* out_result);
+	[id(11)]         HRESULT RenderDeviceCaptureStream   ([out,retval] VARIANT_BOOL* out_result);
+	[id(12)]         HRESULT RenderDevicePreviewStream   ([out,retval] VARIANT_BOOL* out_result);
+	[id(13)]         HRESULT RenderFileStream            ([out,retval] VARIANT_BOOL* out_result);
+	[id(14)]         HRESULT SetupWindow                 ([out,retval] VARIANT_BOOL* out_result);
+	[id(16)]         HRESULT CloseWindow                 (void);
+	[id(17)]         HRESULT IsRunning                   ([out,retval] VARIANT_BOOL* out_result);
+	[id(18)]         HRESULT Run                         ([out,retval] VARIANT_BOOL* out_result);
+	[id(19)]         HRESULT Shutdown                    (void);
+	[id(20)]         HRESULT PumpsEvents                 (void);
+	[id(21)]         HRESULT Resize                      (void);
+};
+
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
+	uuid(185643D0-1786-47F1-8AE6-95125CC35C81),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IMediaMonikerList : IDispatch
+{
+	[propget, id(1)] HRESULT Count      ([out,retval] LONG* pVal);
+	[propget, id(2)] HRESULT IsEmpty    ([out,retval] VARIANT_BOOL* pVal);
+	[propget, id(3)] HRESULT IsFull     ([out,retval] VARIANT_BOOL* pVal);
+	[id(4)]          HRESULT Any        ([out,retval] VARIANT_BOOL* out_result);
+	[id(5)]          HRESULT Contains   ([in] IMoniker* moniker, VARIANT_BOOL* out_result);
+	[id(6)]          HRESULT Add        ([in] IMoniker* moniker, VARIANT_BOOL* out_result);
+	[id(7)]          HRESULT FindAt     ([in] LONG index, [out,retval] IMoniker** out_result);
+	[id(8)]          HRESULT RemoveAt   ([in] LONG index, [out,retval] VARIANT_BOOL* out_result);
+	[id(9)]          HRESULT Remove     ([in] IMoniker* moniker, VARIANT_BOOL* out_result);
+	[id(10)]         HRESULT Clear      (void);
+};
+
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
+	uuid(C2B43E1F-B6A6-4C3E-BEE9-5B9053E8A748),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IMediaMonikerStore : IDispatch
+{
+	[id(1)] HRESULT FindAll             ([out,retval] IMediaMonikerList** out_result);
+	[id(2)] HRESULT FindByName          ([in] BSTR deviceName, [out,retval] IMoniker** out_result);
+};
+
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
+	uuid(3DEBBEEF-7996-4D4F-B2D6-C5E25D759709),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IVideoDeviceInfo : IDispatch
+{
+	[propget, id(1)] HRESULT Name          ([out, retval] BSTR* pVal);
+	[propput, id(1)] HRESULT Name          ([in] BSTR newVal);
+	[propget, id(2)] HRESULT Description   ([out, retval] BSTR* pVal);
+	[propput, id(2)] HRESULT Description   ([in] BSTR newVal);
+	[propget, id(3)] HRESULT Path          ([out, retval] BSTR* pVal);
+	[propput, id(3)] HRESULT Path          ([in] BSTR newVal);
+	[id(4)]          HRESULT Validate      ([out,retval] VARIANT_BOOL* out_result);
+};
+
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
+	uuid(7987D343-C893-411A-A467-204648E4259B),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IVideoDeviceInfoList : IDispatch
+{
+	[propget, id(1)] HRESULT Count      ([out,retval] LONG* pVal);
+	[propget, id(2)] HRESULT IsEmpty    ([out,retval] VARIANT_BOOL* pVal);
+	[propget, id(3)] HRESULT IsFull     ([out,retval] VARIANT_BOOL* pVal);
+	[id(4)]          HRESULT Any        ([out,retval] VARIANT_BOOL* out_result);
+	[id(5)]          HRESULT Contains   ([in] IVideoDeviceInfo* deviceInfo, VARIANT_BOOL* out_result);
+	[id(6)]          HRESULT Add        ([in] IVideoDeviceInfo* deviceInfo, VARIANT_BOOL* out_result);
+	[id(7)]          HRESULT FindAt     ([in] LONG index, [out,retval] IVideoDeviceInfo** out_result);
+	[id(8)]          HRESULT RemoveAt   ([in] LONG index, [out,retval] VARIANT_BOOL* out_result);
+	[id(9)]          HRESULT Remove     ([in] IVideoDeviceInfo* deviceInfo, VARIANT_BOOL* out_result);
+	[id(10)]         HRESULT Clear      (void);
+};
+
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
+	uuid(49500E1F-5B1C-4214-995A-98002496C894),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IVideoDeviceInfoAdapter : IDispatch
+{
+	[id(1)] HRESULT Adapt      ([in] IMoniker* moniker, [out,retval] IVideoDeviceInfo** out_result);
+};
+
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
+	uuid(BCE3117A-8B93-4E27-95E5-ACF6FEF3EEF8),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IVideoDeviceInfoDiscovery : IDispatch
+{
+	[id(1)] HRESULT SearchDevices     ([out,retval] IVideoDeviceInfoList** out_result);
+};
+
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
+	uuid(B4584341-EC02-4084-8E53-76F388363A8C),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IVideoPlayer : IDispatch
+{
+	[propget, id(1)] HRESULT Window      ([out,retval] OLE_HANDLE* pVal);
+	[propput, id(1)] HRESULT Window      ([in]         OLE_HANDLE  newVal);
+	[id(2)]          HRESULT IsPlaying   ([out,retval] VARIANT_BOOL* out_result);
+	[id(3)]          HRESULT Play        ([out,retval] VARIANT_BOOL* out_result);
+	[id(4)]          HRESULT Stop        ();
+	[id(5)]          HRESULT Refresh     ();
+};
+
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
+	uuid(2A240A41-CA05-43D7-8D22-F8DCA58F6B8B),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IDeviceVideoPlayer : IDispatch
+{
+	[propget, id(1)] HRESULT DeviceName   ([out, retval] BSTR* pVal);
+	[propput, id(1)] HRESULT DeviceName   ([in]          BSTR  newVal);
+};
+
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
+	uuid(36522271-0168-4B6E-82F4-C83C2C22AAEE),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ITest : IDispatch
+{
+	[id(1)] HRESULT Run   (void);
+};
+
+
+
+//******************************************************************************************
+// LIBRARY
+//******************************************************************************************
+
+
+
+[
+	object,
+	uuid(744465B7-9EC6-4E77-AD7A-7AAFDCCA339D),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IVideoGraphRunner : IDispatch{
+	[id(1)] HRESULT IsStarted([out,retval] VARIANT_BOOL* out_result);
+	[id(2)] HRESULT Start([in] IVideoGraph* graph, [out,retval] VARIANT_BOOL* out_result);
+	[id(3)] HRESULT Stop(void);
+};
+[
+	uuid(93C65461-1197-476A-BF43-E7267C5BD30A),
+	version(1.0),
+]
+library VideoProviderLib
+{
+	importlib("stdole2.tlb");
+	
+	//**************************************************************************************
+    // EXPORTED INTERFACES
+    //**************************************************************************************
+    interface IVideoPlayer;
+
+	//**************************************************************************************
+    // COM OBJECTS
+    //**************************************************************************************
+    [
+		uuid(8A072813-842C-47A9-BC25-A278EDF627A1)		
+	]
+	coclass BackgroundThread
+	{
+		[default] interface IBackgroundThread;
+	};
+	
+	//**************************************************************************************
+    // COM OBJECTS
+    //**************************************************************************************
+    [
+		uuid(75089B6B-F287-490E-B2E8-A1B3DE278C89)		
+	]
+	coclass VideoGraphConfiguration
+	{
+		[default] interface IVideoGraphConfiguration;
+	};
+	
+	//**************************************************************************************
+    // COM OBJECTS
+    //**************************************************************************************
+    [
+		uuid(F5B6FC19-9FF7-425F-B10A-72918122E774)		
+	]
+	coclass VideoGraph
+	{
+		[default] interface IVideoGraph;
+	};
+	
+	//**************************************************************************************
+    // COM OBJECTS
+    //**************************************************************************************
+    [
+		uuid(313574A2-BEAD-44C4-A48F-B13AB1AB6E81)		
+	]
+	coclass MediaMonikerStore
+	{
+		[default] interface IMediaMonikerStore;
+	};
+	
+	//**************************************************************************************
+    // COM OBJECTS
+    //**************************************************************************************
+    [
+		uuid(77E06CE8-8CE8-4A8D-9635-5D0543EB557E)		
+	]
+	coclass MediaMonikerList
+	{
+		[default] interface IMediaMonikerList;
+	};
+	
+	//**************************************************************************************
+    // COM OBJECTS
+    //**************************************************************************************
+    [
+		uuid(5E8B2161-B1B3-422F-BC81-325B6D871C04)		
+	]
+	coclass VideoDeviceInfo
+	{
+		[default] interface IVideoDeviceInfo;
+	};
+	
+	//**************************************************************************************
+    // COM OBJECTS
+    //**************************************************************************************
+    [
+		uuid(1D30B373-AE66-4E57-AFCD-BBA251A6A97F)		
+	]
+	coclass VideoDeviceInfoList
+	{
+		[default] interface IVideoDeviceInfoList;
+	};
+	
+	//**************************************************************************************
+    // COM OBJECTS
+    //**************************************************************************************
+    [
+		uuid(AD974153-B805-43B3-8342-DC3ECF5A88FE)		
+	]
+	coclass VideoDeviceInfoAdapter
+	{
+		[default] interface IVideoDeviceInfoAdapter;
+	};
+	
+	//**************************************************************************************
+    // COM OBJECTS
+    //**************************************************************************************
+    [
+		uuid(3A9CE378-1148-4254-9BD7-7BE00A218D21)		
+	]
+	coclass VideoDeviceInfoDiscovery
+	{
+		[default] interface IVideoDeviceInfoDiscovery;
+	};
+	
+	//**************************************************************************************
+    // COM OBJECTS
+    //**************************************************************************************
+    [
+		uuid(7D04D386-38DD-45E7-8C13-B70E474E63AF)		
+	]
+	coclass DeviceVideoPlayer
+	{
+		[default] interface IDeviceVideoPlayer;
+		          interface IVideoPlayer;
+	};
+	
+	[
+		uuid(5178F473-FB35-48A1-B6E5-119F682446E0)		
+	]
+	coclass Test
+	{
+		[default] interface ITest;
+	};
+	
+	[
+		uuid(702D508C-EA39-4EE1-B7D2-B52C48A8C3C6)		
+	]
+	coclass VideoGraphRunner
+	{
+		[default] interface IVideoGraphRunner;
+	};
+};

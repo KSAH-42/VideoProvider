@@ -1,0 +1,26 @@
+HKCR
+{
+	VideoProvider.VideoDeviceInfoAdapter.1 = s 'VideoDeviceInfoAdapter Class'
+	{
+		CLSID = s '{AD974153-B805-43B3-8342-DC3ECF5A88FE}'
+	}
+	VideoProvider.VideoDeviceInfoAdapter = s 'VideoDeviceInfoAdapter Class'
+	{		
+		CurVer = s 'VideoProvider.VideoDeviceInfoAdapter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {AD974153-B805-43B3-8342-DC3ECF5A88FE} = s 'VideoDeviceInfoAdapter Class'
+		{
+			ProgID = s 'VideoProvider.VideoDeviceInfoAdapter.1'
+			VersionIndependentProgID = s 'VideoProvider.VideoDeviceInfoAdapter'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			TypeLib = s '{93C65461-1197-476A-BF43-E7267C5BD30A}'
+			Version = s '1.0'
+		}
+	}
+}

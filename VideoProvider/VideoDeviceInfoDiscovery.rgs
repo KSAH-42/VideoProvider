@@ -1,0 +1,26 @@
+HKCR
+{
+	VideoProvider.VideoDeviceInfoDiscover.1 = s 'VideoDeviceInfoDiscovery Class'
+	{
+		CLSID = s '{3A9CE378-1148-4254-9BD7-7BE00A218D21}'
+	}
+	VideoProvider.VideoDeviceInfoDiscovery = s 'VideoDeviceInfoDiscovery Class'
+	{		
+		CurVer = s 'VideoProvider.VideoDeviceInfoDiscover.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3A9CE378-1148-4254-9BD7-7BE00A218D21} = s 'VideoDeviceInfoDiscovery Class'
+		{
+			ProgID = s 'VideoProvider.VideoDeviceInfoDiscover.1'
+			VersionIndependentProgID = s 'VideoProvider.VideoDeviceInfoDiscovery'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			TypeLib = s '{93C65461-1197-476A-BF43-E7267C5BD30A}'
+			Version = s '1.0'
+		}
+	}
+}

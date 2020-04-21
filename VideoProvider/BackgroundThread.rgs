@@ -1,0 +1,26 @@
+HKCR
+{
+	VideoProvider.BackgroundThread.1 = s 'BackgroundThread Class'
+	{
+		CLSID = s '{8A072813-842C-47A9-BC25-A278EDF627A1}'
+	}
+	VideoProvider.BackgroundThread = s 'BackgroundThread Class'
+	{		
+		CurVer = s 'VideoProvider.BackgroundThread.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8A072813-842C-47A9-BC25-A278EDF627A1} = s 'BackgroundThread Class'
+		{
+			ProgID = s 'VideoProvider.BackgroundThread.1'
+			VersionIndependentProgID = s 'VideoProvider.BackgroundThread'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			TypeLib = s '{93C65461-1197-476A-BF43-E7267C5BD30A}'
+			Version = s '1.0'
+		}
+	}
+}

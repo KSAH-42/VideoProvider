@@ -1,0 +1,26 @@
+HKCR
+{
+	VideoProvider.VideoGraphRunner.1 = s 'VideoGraphRunner Class'
+	{
+		CLSID = s '{702D508C-EA39-4EE1-B7D2-B52C48A8C3C6}'
+	}
+	VideoProvider.VideoGraphRunner = s 'VideoGraphRunner Class'
+	{		
+		CurVer = s 'VideoProvider.VideoGraphRunner.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {702D508C-EA39-4EE1-B7D2-B52C48A8C3C6} = s 'VideoGraphRunner Class'
+		{
+			ProgID = s 'VideoProvider.VideoGraphRunner.1'
+			VersionIndependentProgID = s 'VideoProvider.VideoGraphRunner'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			TypeLib = s '{93C65461-1197-476A-BF43-E7267C5BD30A}'
+			Version = s '1.0'
+		}
+	}
+}

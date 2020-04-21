@@ -1,0 +1,26 @@
+HKCR
+{
+	VideoProvider.Test.1 = s 'Test Class'
+	{
+		CLSID = s '{5178F473-FB35-48A1-B6E5-119F682446E0}'
+	}
+	VideoProvider.Test = s 'Test Class'
+	{		
+		CurVer = s 'VideoProvider.Test.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5178F473-FB35-48A1-B6E5-119F682446E0} = s 'Test Class'
+		{
+			ProgID = s 'VideoProvider.Test.1'
+			VersionIndependentProgID = s 'VideoProvider.Test'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			TypeLib = s '{93C65461-1197-476A-BF43-E7267C5BD30A}'
+			Version = s '1.0'
+		}
+	}
+}

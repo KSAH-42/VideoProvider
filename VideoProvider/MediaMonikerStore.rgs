@@ -1,0 +1,26 @@
+HKCR
+{
+	VideoProvider.MediaMonikerStore.1 = s 'MediaMonikerStore Class'
+	{
+		CLSID = s '{313574A2-BEAD-44C4-A48F-B13AB1AB6E81}'
+	}
+	VideoProvider.MediaMonikerStore = s 'MediaMonikerStore Class'
+	{		
+		CurVer = s 'VideoProvider.MediaMonikerStore.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {313574A2-BEAD-44C4-A48F-B13AB1AB6E81} = s 'MediaMonikerStore Class'
+		{
+			ProgID = s 'VideoProvider.MediaMonikerStore.1'
+			VersionIndependentProgID = s 'VideoProvider.MediaMonikerStore'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			TypeLib = s '{93C65461-1197-476A-BF43-E7267C5BD30A}'
+			Version = s '1.0'
+		}
+	}
+}
