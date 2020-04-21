@@ -91,9 +91,9 @@ STDMETHODIMP CTest::Run(void)
 	{
 		(void) MsgWaitForMultipleObjects( 0, NULL, FALSE, 100, QS_ALLEVENTS);
 
-		while ( TRUE == ::PeekMessageA( &msg , NULL , 0 , 0 , PM_REMOVE ) )
+		while ( TRUE == ::PeekMessage( &msg , NULL , 0 , 0 , PM_REMOVE ) )
 		{
-			(void)::DispatchMessageW( &msg );
+			(void)::DispatchMessage( &msg );
 			(void)::TranslateMessage( &msg );
 		}
 	}
