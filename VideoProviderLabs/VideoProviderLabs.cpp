@@ -7,6 +7,11 @@
 using namespace std;
 using namespace ATL;
 
+
+//------------------------------------------------------------------------
+// COM Initalizer
+//------------------------------------------------------------------------
+
 class CCoInitializer sealed
 {
 
@@ -29,6 +34,11 @@ public:
 
 };
 
+
+//------------------------------------------------------------------------
+// Application entry point
+//------------------------------------------------------------------------
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	CCoInitializer coInitialize;
@@ -39,8 +49,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	if ( NULL == test.p )
 	{
-		wprintf_s( L"Please make that the com libray is installed\n" );
-		wprintf_s( L"Make sure that the current process is running under administrator account with elevated privileges\n" );
+		wprintf_s( L"Please make sure that the COM VideoProvider.dll is registered \n" );
 		getch();
 		return -1;
 	}
