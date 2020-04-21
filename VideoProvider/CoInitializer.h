@@ -4,6 +4,10 @@
 
 class CCoInitializer
 {
+
+private:
+	bool m_isInitialized;
+
 public:
 	CCoInitializer(void);
 	~CCoInitializer(void);

@@ -3,12 +3,21 @@
 
 
 CCoInitializer::CCoInitializer(void)
+	:m_isInitialized( false )
 {
-	::CoInitializeEx( NULL , COINIT_MULTITHREADED );
+	HRESULT hr = ::CoInitializeEx( NULL , COINIT_MULTITHREADED );
+
+	if ( SUCCEEDED( hr ) )
+	{
+		m_isInitialized = true;
+	}
 }
 
 
 CCoInitializer::~CCoInitializer(void)
 {
-	::CoUninitialize();
+	if ( m_isInitialized )
+	{
+		::CoUninitialize();
+	}
 }
