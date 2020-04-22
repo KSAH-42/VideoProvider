@@ -57,6 +57,8 @@ STDMETHODIMP CMediaMonikerStore::FindAll(IMediaMonikerList** out_result)
 		VARIANT_BOOL boolResult = VARIANT_FALSE;
 
 		(void) monikers->Add( moniker , &boolResult );
+
+		(void) moniker.Release();
 	}
 
 	return S_OK;
@@ -111,9 +113,16 @@ STDMETHODIMP CMediaMonikerStore::FindByName(BSTR deviceName, IMoniker** out_resu
 			continue;
 		}
 
+		CComPtr<IMoniker> currentMoniker( moniker.Detach() );
+
+		if ( NULL == currentMoniker.p )
+		{
+			continue;
+		}
+
 		CComPtr<IPropertyBag> propertyBag;
 
-		hr = moniker->BindToStorage( 0 , 0 , IID_PPV_ARGS( &propertyBag.p ) );
+		hr = currentMoniker->BindToStorage( 0 , 0 , IID_PPV_ARGS( &propertyBag.p ) );
 
 		if ( S_OK != hr )
 		{
@@ -132,7 +141,7 @@ STDMETHODIMP CMediaMonikerStore::FindByName(BSTR deviceName, IMoniker** out_resu
 			continue;
 		}
 
-		return moniker.CopyTo( out_result );
+		return currentMoniker.CopyTo( out_result );
 	}
 
 	return S_FALSE;
