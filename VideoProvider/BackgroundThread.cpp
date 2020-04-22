@@ -95,17 +95,17 @@ STDMETHODIMP CBackgroundThread::IsAlive(VARIANT_BOOL* out_result)
 
 STDMETHODIMP CBackgroundThread::Start(void* lpRoutine, void* lpRoutineArg, VARIANT_BOOL* out_result)
 {
-	if ( NULL == lpRoutine )
-	{
-		return E_INVALIDARG;
-	}
-
 	if ( NULL == out_result )
 	{
 		return E_POINTER;
 	}
 
 	*out_result = VARIANT_FALSE;
+
+	if ( NULL == lpRoutine )
+	{
+		return E_INVALIDARG;
+	}
 
 	if ( NULL != this->m_hHandle )
 	{
