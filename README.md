@@ -2,7 +2,7 @@
 
 So here it's a personnal project written in C++. Just go back in times, an returns to C++ using the famous MS COM framework called ATL (Active Template Library). I have decided to used here C++, because I love this programming language. I will problably make a version of this API in C# in near feature. Here, I recommand to use the incredible C# language, because ATL is highly complex framework and require a lot of efforts, and you must be really confortable in C++ COM and DirectX programming. COM was used to improve interoperability between software component. And especialy, IDispach COM interface was design to interact with managed code like .net but also with glue code using the late binding invocation. If you don't known about the popularity of C++ COM, just take a look on the so called XPCOM used by FireFox, has clearly inspired from Microsoft COM.  
 
-So what really represent this project ? I have written a COM API that turn you computer in to video server. Here the goal is to retrieve the video stream of any type of video capture like your webcam, and to distribute multiple copy of a video stream from under network.
+So what really represent this project ? I have written a COM API that turn you computer into a video server. Here the goal is to retrieve the video stream of any type of video capture like your webcam which are connected to your computer, and to distribute multiple copy of a video stream from under network.
 
 You also need the followings tools :
 
