@@ -4,6 +4,12 @@ So here it's a personnal project written in C++. Just go back in times, an retur
 
 So what really represent this project ? I have written a COM API that turn you computer in to video server. Here the goal is to retrieve the video stream of a local web camera and distribute multiple copy of one or multiple video stream from any type of video capture like your webcam.
 
+You also need the followings tools :
+
+* Visual Studio 2010
+* ATL
+* DirectX 10 or higher installed on computer (used dxDiag on command prompt)
+
 # Project structure
 
 So here, we have the following projects :
