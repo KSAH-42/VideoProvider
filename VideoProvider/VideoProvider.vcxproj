@@ -124,6 +124,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Frame.cpp" />
+    <ClCompile Include="FrameBuffer.cpp" />
     <ClCompile Include="MediaMonikerList.cpp" />
     <ClCompile Include="MediaMonikerStore.cpp" />
     <ClCompile Include="Setting.cpp" />
@@ -134,6 +136,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Test.cpp" />
+    <ClCompile Include="VideoChannelList.cpp" />
     <ClCompile Include="VideoDeviceInfo.cpp" />
     <ClCompile Include="VideoDeviceInfoAdapter.cpp" />
     <ClCompile Include="VideoDeviceInfoDiscovery.cpp" />
@@ -166,6 +169,8 @@
     <ClInclude Include="DataConverter.h" />
     <ClInclude Include="DeviceVideoPlayer.h" />
     <ClInclude Include="dllmain.h" />
+    <ClInclude Include="Frame.h" />
+    <ClInclude Include="FrameBuffer.h" />
     <ClInclude Include="MediaMonikerList.h" />
     <ClInclude Include="MediaMonikerStore.h" />
     <ClInclude Include="Resource.h" />
@@ -176,6 +181,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Test.h" />
+    <ClInclude Include="VideoChannelList.h" />
     <ClInclude Include="VideoDeviceInfo.h" />
     <ClInclude Include="VideoDeviceInfoAdapter.h" />
     <ClInclude Include="VideoDeviceInfoDiscovery.h" />
@@ -187,6 +193,7 @@
     <ClInclude Include="VideoProvider_i.h" />
     <ClInclude Include="xdlldata.h" />
     <ClInclude Include="_ISettingListEvents_CP.h" />
+    <ClInclude Include="_IVideoChannelListEvents_CP.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VideoProvider.rc" />
@@ -194,6 +201,8 @@
   <ItemGroup>
     <None Include="BackgroundThread.rgs" />
     <None Include="DeviceVideoPlayer.rgs" />
+    <None Include="Frame.rgs" />
+    <None Include="FrameBuffer.rgs" />
     <None Include="MediaMonikerList.rgs" />
     <None Include="MediaMonikerStore.rgs" />
     <None Include="ReadMe.txt" />
@@ -201,6 +210,7 @@
     <None Include="SettingFactory.rgs" />
     <None Include="SettingList.rgs" />
     <None Include="Test.rgs" />
+    <None Include="VideoChannelList.rgs" />
     <None Include="VideoDeviceInfo.rgs" />
     <None Include="VideoDeviceInfoAdapter.rgs" />
     <None Include="VideoDeviceInfoDiscovery.rgs" />

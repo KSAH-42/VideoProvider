@@ -88,6 +88,15 @@
     <ClCompile Include="SettingFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Frame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VideoChannelList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -168,6 +177,18 @@
     <ClInclude Include="SettingFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Frame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_IVideoChannelListEvents_CP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VideoChannelList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VideoProvider.rc">
@@ -225,6 +246,15 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="SettingFactory.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Frame.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="FrameBuffer.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="VideoChannelList.rgs">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

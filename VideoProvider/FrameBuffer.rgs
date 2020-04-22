@@ -1,0 +1,26 @@
+HKCR
+{
+	VideoProvider.FrameBuffer.1 = s 'FrameBuffer Class'
+	{
+		CLSID = s '{F7372E85-17D5-435B-A276-A37FE6CC1A34}'
+	}
+	VideoProvider.FrameBuffer = s 'FrameBuffer Class'
+	{		
+		CurVer = s 'VideoProvider.FrameBuffer.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F7372E85-17D5-435B-A276-A37FE6CC1A34} = s 'FrameBuffer Class'
+		{
+			ProgID = s 'VideoProvider.FrameBuffer.1'
+			VersionIndependentProgID = s 'VideoProvider.FrameBuffer'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			TypeLib = s '{93C65461-1197-476A-BF43-E7267C5BD30A}'
+			Version = s '1.0'
+		}
+	}
+}

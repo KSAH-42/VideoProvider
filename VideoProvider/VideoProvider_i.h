@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Wed Apr 22 14:43:41 2020
+/* at Wed Apr 22 20:42:23 2020
  */
 /* Compiler settings for VideoProvider.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
@@ -147,10 +147,40 @@ typedef interface ISettingFactory ISettingFactory;
 #endif 	/* __ISettingFactory_FWD_DEFINED__ */
 
 
+#ifndef __IFrame_FWD_DEFINED__
+#define __IFrame_FWD_DEFINED__
+typedef interface IFrame IFrame;
+#endif 	/* __IFrame_FWD_DEFINED__ */
+
+
+#ifndef __IFrameBuffer_FWD_DEFINED__
+#define __IFrameBuffer_FWD_DEFINED__
+typedef interface IFrameBuffer IFrameBuffer;
+#endif 	/* __IFrameBuffer_FWD_DEFINED__ */
+
+
+#ifndef __IVideoChannel_FWD_DEFINED__
+#define __IVideoChannel_FWD_DEFINED__
+typedef interface IVideoChannel IVideoChannel;
+#endif 	/* __IVideoChannel_FWD_DEFINED__ */
+
+
+#ifndef __IVideoChannelList_FWD_DEFINED__
+#define __IVideoChannelList_FWD_DEFINED__
+typedef interface IVideoChannelList IVideoChannelList;
+#endif 	/* __IVideoChannelList_FWD_DEFINED__ */
+
+
 #ifndef __IVideoPlayer_FWD_DEFINED__
 #define __IVideoPlayer_FWD_DEFINED__
 typedef interface IVideoPlayer IVideoPlayer;
 #endif 	/* __IVideoPlayer_FWD_DEFINED__ */
+
+
+#ifndef __IVideoChannel_FWD_DEFINED__
+#define __IVideoChannel_FWD_DEFINED__
+typedef interface IVideoChannel IVideoChannel;
+#endif 	/* __IVideoChannel_FWD_DEFINED__ */
 
 
 #ifndef __BackgroundThread_FWD_DEFINED__
@@ -339,6 +369,48 @@ typedef struct SettingFactory SettingFactory;
 #endif 	/* __SettingFactory_FWD_DEFINED__ */
 
 
+#ifndef __Frame_FWD_DEFINED__
+#define __Frame_FWD_DEFINED__
+
+#ifdef __cplusplus
+typedef class Frame Frame;
+#else
+typedef struct Frame Frame;
+#endif /* __cplusplus */
+
+#endif 	/* __Frame_FWD_DEFINED__ */
+
+
+#ifndef __FrameBuffer_FWD_DEFINED__
+#define __FrameBuffer_FWD_DEFINED__
+
+#ifdef __cplusplus
+typedef class FrameBuffer FrameBuffer;
+#else
+typedef struct FrameBuffer FrameBuffer;
+#endif /* __cplusplus */
+
+#endif 	/* __FrameBuffer_FWD_DEFINED__ */
+
+
+#ifndef ___IVideoChannelListEvents_FWD_DEFINED__
+#define ___IVideoChannelListEvents_FWD_DEFINED__
+typedef interface _IVideoChannelListEvents _IVideoChannelListEvents;
+#endif 	/* ___IVideoChannelListEvents_FWD_DEFINED__ */
+
+
+#ifndef __VideoChannelList_FWD_DEFINED__
+#define __VideoChannelList_FWD_DEFINED__
+
+#ifdef __cplusplus
+typedef class VideoChannelList VideoChannelList;
+#else
+typedef struct VideoChannelList VideoChannelList;
+#endif /* __cplusplus */
+
+#endif 	/* __VideoChannelList_FWD_DEFINED__ */
+
+
 /* header files for imported files */
 #include "oaidl.h"
 #include "ocidl.h"
@@ -348,6 +420,20 @@ typedef struct SettingFactory SettingFactory;
 extern "C"{
 #endif 
 
+
+/* interface __MIDL_itf_VideoProvider_0000_0000 */
+/* [local] */ 
+
+typedef 
+enum VIDEO_CHANNEL_TYPES
+    {	VIDEO_CHANNEL_TYPES_UNKWNOWN	= 0,
+	VIDEO_CHANNEL_CAMERA	= ( VIDEO_CHANNEL_TYPES_UNKWNOWN + 1 ) 
+    } 	VIDEO_CHANNEL_TYPES;
+
+
+
+extern RPC_IF_HANDLE __MIDL_itf_VideoProvider_0000_0000_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_VideoProvider_0000_0000_v0_0_s_ifspec;
 
 #ifndef __IInitializer_INTERFACE_DEFINED__
 #define __IInitializer_INTERFACE_DEFINED__
@@ -3278,12 +3364,709 @@ EXTERN_C const IID IID_ISettingFactory;
 #endif 	/* __ISettingFactory_INTERFACE_DEFINED__ */
 
 
+#ifndef __IFrame_INTERFACE_DEFINED__
+#define __IFrame_INTERFACE_DEFINED__
+
+/* interface IFrame */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IFrame;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("21EB9E48-F9D0-432C-9D99-D4DAFC857125")
+    IFrame : public IDispatch
+    {
+    public:
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Size( 
+            /* [retval][out] */ LONG *pVal) = 0;
+        
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_IsEmpty( 
+            /* [retval][out] */ VARIANT_BOOL *pVal) = 0;
+        
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Values( 
+            /* [retval][out] */ BYTE **pVal) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE IsCreated( 
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Create( 
+            /* [in] */ LONG size,
+            /* [in] */ VARIANT_BOOL initToZero,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE CopyFrom( 
+            /* [in] */ BYTE *values,
+            /* [in] */ LONG size,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE GetAt( 
+            /* [in] */ LONG index,
+            /* [retval][out] */ BYTE *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE SetAt( 
+            /* [in] */ LONG index,
+            /* [in] */ BYTE value,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Clear( void) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Destroy( void) = 0;
+        
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct IFrameVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IFrame * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IFrame * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IFrame * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            IFrame * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            IFrame * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            IFrame * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            IFrame * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Size )( 
+            IFrame * This,
+            /* [retval][out] */ LONG *pVal);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsEmpty )( 
+            IFrame * This,
+            /* [retval][out] */ VARIANT_BOOL *pVal);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Values )( 
+            IFrame * This,
+            /* [retval][out] */ BYTE **pVal);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *IsCreated )( 
+            IFrame * This,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Create )( 
+            IFrame * This,
+            /* [in] */ LONG size,
+            /* [in] */ VARIANT_BOOL initToZero,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *CopyFrom )( 
+            IFrame * This,
+            /* [in] */ BYTE *values,
+            /* [in] */ LONG size,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetAt )( 
+            IFrame * This,
+            /* [in] */ LONG index,
+            /* [retval][out] */ BYTE *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *SetAt )( 
+            IFrame * This,
+            /* [in] */ LONG index,
+            /* [in] */ BYTE value,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
+            IFrame * This);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Destroy )( 
+            IFrame * This);
+        
+        END_INTERFACE
+    } IFrameVtbl;
+
+    interface IFrame
+    {
+        CONST_VTBL struct IFrameVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IFrame_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IFrame_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IFrame_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IFrame_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define IFrame_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define IFrame_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define IFrame_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#define IFrame_get_Size(This,pVal)	\
+    ( (This)->lpVtbl -> get_Size(This,pVal) ) 
+
+#define IFrame_get_IsEmpty(This,pVal)	\
+    ( (This)->lpVtbl -> get_IsEmpty(This,pVal) ) 
+
+#define IFrame_get_Values(This,pVal)	\
+    ( (This)->lpVtbl -> get_Values(This,pVal) ) 
+
+#define IFrame_IsCreated(This,out_result)	\
+    ( (This)->lpVtbl -> IsCreated(This,out_result) ) 
+
+#define IFrame_Create(This,size,initToZero,out_result)	\
+    ( (This)->lpVtbl -> Create(This,size,initToZero,out_result) ) 
+
+#define IFrame_CopyFrom(This,values,size,out_result)	\
+    ( (This)->lpVtbl -> CopyFrom(This,values,size,out_result) ) 
+
+#define IFrame_GetAt(This,index,out_result)	\
+    ( (This)->lpVtbl -> GetAt(This,index,out_result) ) 
+
+#define IFrame_SetAt(This,index,value,out_result)	\
+    ( (This)->lpVtbl -> SetAt(This,index,value,out_result) ) 
+
+#define IFrame_Clear(This)	\
+    ( (This)->lpVtbl -> Clear(This) ) 
+
+#define IFrame_Destroy(This)	\
+    ( (This)->lpVtbl -> Destroy(This) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IFrame_INTERFACE_DEFINED__ */
+
+
+#ifndef __IFrameBuffer_INTERFACE_DEFINED__
+#define __IFrameBuffer_INTERFACE_DEFINED__
+
+/* interface IFrameBuffer */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IFrameBuffer;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("D9E6DB72-ADF0-4605-BF0F-9007D9D3D7E8")
+    IFrameBuffer : public IDispatch
+    {
+    public:
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Limit( 
+            /* [retval][out] */ LONG *pVal) = 0;
+        
+        virtual /* [id][propput] */ HRESULT STDMETHODCALLTYPE put_Limit( 
+            /* [in] */ LONG newVal) = 0;
+        
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Size( 
+            /* [retval][out] */ LONG *pVal) = 0;
+        
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_IsEmpty( 
+            /* [retval][out] */ VARIANT_BOOL *pVal) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Read( 
+            /* [retval][out] */ IFrame **out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Write( 
+            /* [in] */ IFrame *frame,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Clear( void) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Synchronize( 
+            /* [in] */ ULONG timeout,
+            /* [in] */ ULONG cancelationHandle,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct IFrameBufferVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IFrameBuffer * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IFrameBuffer * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IFrameBuffer * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            IFrameBuffer * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            IFrameBuffer * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            IFrameBuffer * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            IFrameBuffer * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Limit )( 
+            IFrameBuffer * This,
+            /* [retval][out] */ LONG *pVal);
+        
+        /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Limit )( 
+            IFrameBuffer * This,
+            /* [in] */ LONG newVal);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Size )( 
+            IFrameBuffer * This,
+            /* [retval][out] */ LONG *pVal);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsEmpty )( 
+            IFrameBuffer * This,
+            /* [retval][out] */ VARIANT_BOOL *pVal);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Read )( 
+            IFrameBuffer * This,
+            /* [retval][out] */ IFrame **out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Write )( 
+            IFrameBuffer * This,
+            /* [in] */ IFrame *frame,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
+            IFrameBuffer * This);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Synchronize )( 
+            IFrameBuffer * This,
+            /* [in] */ ULONG timeout,
+            /* [in] */ ULONG cancelationHandle,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        END_INTERFACE
+    } IFrameBufferVtbl;
+
+    interface IFrameBuffer
+    {
+        CONST_VTBL struct IFrameBufferVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IFrameBuffer_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IFrameBuffer_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IFrameBuffer_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IFrameBuffer_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define IFrameBuffer_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define IFrameBuffer_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define IFrameBuffer_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#define IFrameBuffer_get_Limit(This,pVal)	\
+    ( (This)->lpVtbl -> get_Limit(This,pVal) ) 
+
+#define IFrameBuffer_put_Limit(This,newVal)	\
+    ( (This)->lpVtbl -> put_Limit(This,newVal) ) 
+
+#define IFrameBuffer_get_Size(This,pVal)	\
+    ( (This)->lpVtbl -> get_Size(This,pVal) ) 
+
+#define IFrameBuffer_get_IsEmpty(This,pVal)	\
+    ( (This)->lpVtbl -> get_IsEmpty(This,pVal) ) 
+
+#define IFrameBuffer_Read(This,out_result)	\
+    ( (This)->lpVtbl -> Read(This,out_result) ) 
+
+#define IFrameBuffer_Write(This,frame,out_result)	\
+    ( (This)->lpVtbl -> Write(This,frame,out_result) ) 
+
+#define IFrameBuffer_Clear(This)	\
+    ( (This)->lpVtbl -> Clear(This) ) 
+
+#define IFrameBuffer_Synchronize(This,timeout,cancelationHandle,out_result)	\
+    ( (This)->lpVtbl -> Synchronize(This,timeout,cancelationHandle,out_result) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IFrameBuffer_INTERFACE_DEFINED__ */
+
+
+#ifndef __IVideoChannel_INTERFACE_DEFINED__
+#define __IVideoChannel_INTERFACE_DEFINED__
+
+/* interface IVideoChannel */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IVideoChannel;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("A72909B5-4EE3-4FB9-A009-AE1FDFA141ED")
+    IVideoChannel : public IDispatch
+    {
+    public:
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Type( 
+            /* [retval][out] */ VIDEO_CHANNEL_TYPES *pVal) = 0;
+        
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_UniqueID( 
+            /* [retval][out] */ BSTR *pVal) = 0;
+        
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Buffer( 
+            /* [retval][out] */ IFrameBuffer **pVal) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE IsStarted( 
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Start( 
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Stop( void) = 0;
+        
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct IVideoChannelVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IVideoChannel * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IVideoChannel * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IVideoChannel * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            IVideoChannel * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            IVideoChannel * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            IVideoChannel * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            IVideoChannel * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Type )( 
+            IVideoChannel * This,
+            /* [retval][out] */ VIDEO_CHANNEL_TYPES *pVal);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_UniqueID )( 
+            IVideoChannel * This,
+            /* [retval][out] */ BSTR *pVal);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Buffer )( 
+            IVideoChannel * This,
+            /* [retval][out] */ IFrameBuffer **pVal);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *IsStarted )( 
+            IVideoChannel * This,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Start )( 
+            IVideoChannel * This,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Stop )( 
+            IVideoChannel * This);
+        
+        END_INTERFACE
+    } IVideoChannelVtbl;
+
+    interface IVideoChannel
+    {
+        CONST_VTBL struct IVideoChannelVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IVideoChannel_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IVideoChannel_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IVideoChannel_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IVideoChannel_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define IVideoChannel_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define IVideoChannel_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define IVideoChannel_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#define IVideoChannel_get_Type(This,pVal)	\
+    ( (This)->lpVtbl -> get_Type(This,pVal) ) 
+
+#define IVideoChannel_get_UniqueID(This,pVal)	\
+    ( (This)->lpVtbl -> get_UniqueID(This,pVal) ) 
+
+#define IVideoChannel_get_Buffer(This,pVal)	\
+    ( (This)->lpVtbl -> get_Buffer(This,pVal) ) 
+
+#define IVideoChannel_IsStarted(This,out_result)	\
+    ( (This)->lpVtbl -> IsStarted(This,out_result) ) 
+
+#define IVideoChannel_Start(This,out_result)	\
+    ( (This)->lpVtbl -> Start(This,out_result) ) 
+
+#define IVideoChannel_Stop(This)	\
+    ( (This)->lpVtbl -> Stop(This) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IVideoChannel_INTERFACE_DEFINED__ */
+
+
+#ifndef __IVideoChannelList_INTERFACE_DEFINED__
+#define __IVideoChannelList_INTERFACE_DEFINED__
+
+/* interface IVideoChannelList */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IVideoChannelList;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("38C6334A-8DB6-4BD2-B14E-2387F4354EAC")
+    IVideoChannelList : public IDispatch
+    {
+    public:
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct IVideoChannelListVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IVideoChannelList * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IVideoChannelList * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IVideoChannelList * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            IVideoChannelList * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            IVideoChannelList * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            IVideoChannelList * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            IVideoChannelList * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        END_INTERFACE
+    } IVideoChannelListVtbl;
+
+    interface IVideoChannelList
+    {
+        CONST_VTBL struct IVideoChannelListVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IVideoChannelList_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IVideoChannelList_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IVideoChannelList_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IVideoChannelList_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define IVideoChannelList_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define IVideoChannelList_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define IVideoChannelList_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IVideoChannelList_INTERFACE_DEFINED__ */
+
+
 
 #ifndef __VideoProviderLib_LIBRARY_DEFINED__
 #define __VideoProviderLib_LIBRARY_DEFINED__
 
 /* library VideoProviderLib */
 /* [version][uuid] */ 
+
 
 
 
@@ -3514,6 +4297,137 @@ EXTERN_C const CLSID CLSID_SettingFactory;
 
 class DECLSPEC_UUID("3A3D84A3-2417-4506-A07A-C44F434A88E8")
 SettingFactory;
+#endif
+
+EXTERN_C const CLSID CLSID_Frame;
+
+#ifdef __cplusplus
+
+class DECLSPEC_UUID("FC2663D7-CA8D-4FDA-830A-F83EFDC08AEF")
+Frame;
+#endif
+
+EXTERN_C const CLSID CLSID_FrameBuffer;
+
+#ifdef __cplusplus
+
+class DECLSPEC_UUID("F7372E85-17D5-435B-A276-A37FE6CC1A34")
+FrameBuffer;
+#endif
+
+#ifndef ___IVideoChannelListEvents_DISPINTERFACE_DEFINED__
+#define ___IVideoChannelListEvents_DISPINTERFACE_DEFINED__
+
+/* dispinterface _IVideoChannelListEvents */
+/* [uuid] */ 
+
+
+EXTERN_C const IID DIID__IVideoChannelListEvents;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+
+    MIDL_INTERFACE("FAD0E5E2-C398-476D-B447-DD01CDE70FAE")
+    _IVideoChannelListEvents : public IDispatch
+    {
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct _IVideoChannelListEventsVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            _IVideoChannelListEvents * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            _IVideoChannelListEvents * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            _IVideoChannelListEvents * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            _IVideoChannelListEvents * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            _IVideoChannelListEvents * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            _IVideoChannelListEvents * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            _IVideoChannelListEvents * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        END_INTERFACE
+    } _IVideoChannelListEventsVtbl;
+
+    interface _IVideoChannelListEvents
+    {
+        CONST_VTBL struct _IVideoChannelListEventsVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define _IVideoChannelListEvents_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define _IVideoChannelListEvents_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define _IVideoChannelListEvents_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define _IVideoChannelListEvents_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define _IVideoChannelListEvents_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define _IVideoChannelListEvents_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define _IVideoChannelListEvents_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+#endif 	/* ___IVideoChannelListEvents_DISPINTERFACE_DEFINED__ */
+
+
+EXTERN_C const CLSID CLSID_VideoChannelList;
+
+#ifdef __cplusplus
+
+class DECLSPEC_UUID("DEF3397A-EF27-4B96-AFC0-9DB8AD492268")
+VideoChannelList;
 #endif
 #endif /* __VideoProviderLib_LIBRARY_DEFINED__ */
 
