@@ -126,6 +126,8 @@
     </ClCompile>
     <ClCompile Include="MediaMonikerList.cpp" />
     <ClCompile Include="MediaMonikerStore.cpp" />
+    <ClCompile Include="Setting.cpp" />
+    <ClCompile Include="SettingList.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -167,6 +169,8 @@
     <ClInclude Include="MediaMonikerStore.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SampleGrabber.h" />
+    <ClInclude Include="Setting.h" />
+    <ClInclude Include="SettingList.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Test.h" />
@@ -180,6 +184,7 @@
     <ClInclude Include="VideoGraphScope.h" />
     <ClInclude Include="VideoProvider_i.h" />
     <ClInclude Include="xdlldata.h" />
+    <ClInclude Include="_ISettingListEvents_CP.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VideoProvider.rc" />
@@ -190,6 +195,8 @@
     <None Include="MediaMonikerList.rgs" />
     <None Include="MediaMonikerStore.rgs" />
     <None Include="ReadMe.txt" />
+    <None Include="Setting.rgs" />
+    <None Include="SettingList.rgs" />
     <None Include="Test.rgs" />
     <None Include="VideoDeviceInfo.rgs" />
     <None Include="VideoDeviceInfoAdapter.rgs" />

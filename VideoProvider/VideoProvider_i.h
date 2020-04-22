@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Tue Apr 21 21:48:26 2020
+/* at Wed Apr 22 13:43:03 2020
  */
 /* Compiler settings for VideoProvider.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
@@ -44,6 +44,12 @@
 #endif
 
 /* Forward Declarations */ 
+
+#ifndef __IInitializer_FWD_DEFINED__
+#define __IInitializer_FWD_DEFINED__
+typedef interface IInitializer IInitializer;
+#endif 	/* __IInitializer_FWD_DEFINED__ */
+
 
 #ifndef __IBackgroundThread_FWD_DEFINED__
 #define __IBackgroundThread_FWD_DEFINED__
@@ -121,6 +127,18 @@ typedef interface ITest ITest;
 #define __IVideoGraphRunner_FWD_DEFINED__
 typedef interface IVideoGraphRunner IVideoGraphRunner;
 #endif 	/* __IVideoGraphRunner_FWD_DEFINED__ */
+
+
+#ifndef __ISetting_FWD_DEFINED__
+#define __ISetting_FWD_DEFINED__
+typedef interface ISetting ISetting;
+#endif 	/* __ISetting_FWD_DEFINED__ */
+
+
+#ifndef __ISettingList_FWD_DEFINED__
+#define __ISettingList_FWD_DEFINED__
+typedef interface ISettingList ISettingList;
+#endif 	/* __ISettingList_FWD_DEFINED__ */
 
 
 #ifndef __IVideoPlayer_FWD_DEFINED__
@@ -273,6 +291,36 @@ typedef struct VideoGraphRunner VideoGraphRunner;
 #endif 	/* __VideoGraphRunner_FWD_DEFINED__ */
 
 
+#ifndef __Setting_FWD_DEFINED__
+#define __Setting_FWD_DEFINED__
+
+#ifdef __cplusplus
+typedef class Setting Setting;
+#else
+typedef struct Setting Setting;
+#endif /* __cplusplus */
+
+#endif 	/* __Setting_FWD_DEFINED__ */
+
+
+#ifndef ___ISettingListEvents_FWD_DEFINED__
+#define ___ISettingListEvents_FWD_DEFINED__
+typedef interface _ISettingListEvents _ISettingListEvents;
+#endif 	/* ___ISettingListEvents_FWD_DEFINED__ */
+
+
+#ifndef __SettingList_FWD_DEFINED__
+#define __SettingList_FWD_DEFINED__
+
+#ifdef __cplusplus
+typedef class SettingList SettingList;
+#else
+typedef struct SettingList SettingList;
+#endif /* __cplusplus */
+
+#endif 	/* __SettingList_FWD_DEFINED__ */
+
+
 /* header files for imported files */
 #include "oaidl.h"
 #include "ocidl.h"
@@ -281,6 +329,85 @@ typedef struct VideoGraphRunner VideoGraphRunner;
 #ifdef __cplusplus
 extern "C"{
 #endif 
+
+
+#ifndef __IInitializer_INTERFACE_DEFINED__
+#define __IInitializer_INTERFACE_DEFINED__
+
+/* interface IInitializer */
+/* [unique][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IInitializer;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("961F1178-D82B-49AC-A4FE-687FCEF999A8")
+    IInitializer : public IUnknown
+    {
+    public:
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Intialize( 
+            /* [in] */ VARIANT data) = 0;
+        
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct IInitializerVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IInitializer * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IInitializer * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IInitializer * This);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Intialize )( 
+            IInitializer * This,
+            /* [in] */ VARIANT data);
+        
+        END_INTERFACE
+    } IInitializerVtbl;
+
+    interface IInitializer
+    {
+        CONST_VTBL struct IInitializerVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IInitializer_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IInitializer_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IInitializer_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IInitializer_Intialize(This,data)	\
+    ( (This)->lpVtbl -> Intialize(This,data) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IInitializer_INTERFACE_DEFINED__ */
 
 
 #ifndef __IBackgroundThread_INTERFACE_DEFINED__
@@ -2552,6 +2679,464 @@ EXTERN_C const IID IID_IVideoGraphRunner;
 #endif 	/* __IVideoGraphRunner_INTERFACE_DEFINED__ */
 
 
+#ifndef __ISetting_INTERFACE_DEFINED__
+#define __ISetting_INTERFACE_DEFINED__
+
+/* interface ISetting */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_ISetting;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("10DC614F-D061-4EE7-A071-EBFEF8BC9C2B")
+    ISetting : public IDispatch
+    {
+    public:
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_UniqueID( 
+            /* [retval][out] */ BSTR *pVal) = 0;
+        
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Value( 
+            /* [retval][out] */ BSTR *pVal) = 0;
+        
+        virtual /* [id][propput] */ HRESULT STDMETHODCALLTYPE put_Value( 
+            /* [in] */ BSTR newVal) = 0;
+        
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_IsDirty( 
+            /* [retval][out] */ VARIANT_BOOL *pVal) = 0;
+        
+        virtual /* [id][propput] */ HRESULT STDMETHODCALLTYPE put_IsDirty( 
+            /* [in] */ VARIANT_BOOL newVal) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Validate( 
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Reset( void) = 0;
+        
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct ISettingVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            ISetting * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            ISetting * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            ISetting * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            ISetting * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            ISetting * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            ISetting * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            ISetting * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_UniqueID )( 
+            ISetting * This,
+            /* [retval][out] */ BSTR *pVal);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Value )( 
+            ISetting * This,
+            /* [retval][out] */ BSTR *pVal);
+        
+        /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Value )( 
+            ISetting * This,
+            /* [in] */ BSTR newVal);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsDirty )( 
+            ISetting * This,
+            /* [retval][out] */ VARIANT_BOOL *pVal);
+        
+        /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_IsDirty )( 
+            ISetting * This,
+            /* [in] */ VARIANT_BOOL newVal);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Validate )( 
+            ISetting * This,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Reset )( 
+            ISetting * This);
+        
+        END_INTERFACE
+    } ISettingVtbl;
+
+    interface ISetting
+    {
+        CONST_VTBL struct ISettingVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define ISetting_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define ISetting_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define ISetting_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define ISetting_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define ISetting_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define ISetting_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define ISetting_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#define ISetting_get_UniqueID(This,pVal)	\
+    ( (This)->lpVtbl -> get_UniqueID(This,pVal) ) 
+
+#define ISetting_get_Value(This,pVal)	\
+    ( (This)->lpVtbl -> get_Value(This,pVal) ) 
+
+#define ISetting_put_Value(This,newVal)	\
+    ( (This)->lpVtbl -> put_Value(This,newVal) ) 
+
+#define ISetting_get_IsDirty(This,pVal)	\
+    ( (This)->lpVtbl -> get_IsDirty(This,pVal) ) 
+
+#define ISetting_put_IsDirty(This,newVal)	\
+    ( (This)->lpVtbl -> put_IsDirty(This,newVal) ) 
+
+#define ISetting_Validate(This,out_result)	\
+    ( (This)->lpVtbl -> Validate(This,out_result) ) 
+
+#define ISetting_Reset(This)	\
+    ( (This)->lpVtbl -> Reset(This) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __ISetting_INTERFACE_DEFINED__ */
+
+
+#ifndef __ISettingList_INTERFACE_DEFINED__
+#define __ISettingList_INTERFACE_DEFINED__
+
+/* interface ISettingList */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_ISettingList;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("9F7032F7-82EC-44A6-840C-5D2CE1694B1F")
+    ISettingList : public IDispatch
+    {
+    public:
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Count( 
+            /* [retval][out] */ LONG *pVal) = 0;
+        
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_IsEmpty( 
+            /* [retval][out] */ VARIANT_BOOL *pVal) = 0;
+        
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_IsFull( 
+            /* [retval][out] */ VARIANT_BOOL *pVal) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Any( 
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Contains( 
+            /* [in] */ ISetting *setting,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Exists( 
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Add( 
+            /* [in] */ ISetting *setting,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE FindByID( 
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ ISetting **out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE FindAt( 
+            /* [in] */ LONG index,
+            /* [retval][out] */ ISetting **out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE GetByID( 
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ ISetting **out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE GetAt( 
+            /* [in] */ LONG index,
+            /* [retval][out] */ ISetting **out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Remove( 
+            /* [in] */ ISetting *setting,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE RemoveByID( 
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE RemoveAt( 
+            /* [in] */ LONG index,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Clear( void) = 0;
+        
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct ISettingListVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            ISettingList * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            ISettingList * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            ISettingList * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            ISettingList * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            ISettingList * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            ISettingList * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            ISettingList * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Count )( 
+            ISettingList * This,
+            /* [retval][out] */ LONG *pVal);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsEmpty )( 
+            ISettingList * This,
+            /* [retval][out] */ VARIANT_BOOL *pVal);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsFull )( 
+            ISettingList * This,
+            /* [retval][out] */ VARIANT_BOOL *pVal);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Any )( 
+            ISettingList * This,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Contains )( 
+            ISettingList * This,
+            /* [in] */ ISetting *setting,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Exists )( 
+            ISettingList * This,
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Add )( 
+            ISettingList * This,
+            /* [in] */ ISetting *setting,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *FindByID )( 
+            ISettingList * This,
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ ISetting **out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *FindAt )( 
+            ISettingList * This,
+            /* [in] */ LONG index,
+            /* [retval][out] */ ISetting **out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetByID )( 
+            ISettingList * This,
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ ISetting **out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetAt )( 
+            ISettingList * This,
+            /* [in] */ LONG index,
+            /* [retval][out] */ ISetting **out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Remove )( 
+            ISettingList * This,
+            /* [in] */ ISetting *setting,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *RemoveByID )( 
+            ISettingList * This,
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *RemoveAt )( 
+            ISettingList * This,
+            /* [in] */ LONG index,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
+            ISettingList * This);
+        
+        END_INTERFACE
+    } ISettingListVtbl;
+
+    interface ISettingList
+    {
+        CONST_VTBL struct ISettingListVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define ISettingList_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define ISettingList_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define ISettingList_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define ISettingList_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define ISettingList_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define ISettingList_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define ISettingList_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#define ISettingList_get_Count(This,pVal)	\
+    ( (This)->lpVtbl -> get_Count(This,pVal) ) 
+
+#define ISettingList_get_IsEmpty(This,pVal)	\
+    ( (This)->lpVtbl -> get_IsEmpty(This,pVal) ) 
+
+#define ISettingList_get_IsFull(This,pVal)	\
+    ( (This)->lpVtbl -> get_IsFull(This,pVal) ) 
+
+#define ISettingList_Any(This,out_result)	\
+    ( (This)->lpVtbl -> Any(This,out_result) ) 
+
+#define ISettingList_Contains(This,setting,out_result)	\
+    ( (This)->lpVtbl -> Contains(This,setting,out_result) ) 
+
+#define ISettingList_Exists(This,uniqueID,out_result)	\
+    ( (This)->lpVtbl -> Exists(This,uniqueID,out_result) ) 
+
+#define ISettingList_Add(This,setting,out_result)	\
+    ( (This)->lpVtbl -> Add(This,setting,out_result) ) 
+
+#define ISettingList_FindByID(This,uniqueID,out_result)	\
+    ( (This)->lpVtbl -> FindByID(This,uniqueID,out_result) ) 
+
+#define ISettingList_FindAt(This,index,out_result)	\
+    ( (This)->lpVtbl -> FindAt(This,index,out_result) ) 
+
+#define ISettingList_GetByID(This,uniqueID,out_result)	\
+    ( (This)->lpVtbl -> GetByID(This,uniqueID,out_result) ) 
+
+#define ISettingList_GetAt(This,index,out_result)	\
+    ( (This)->lpVtbl -> GetAt(This,index,out_result) ) 
+
+#define ISettingList_Remove(This,setting,out_result)	\
+    ( (This)->lpVtbl -> Remove(This,setting,out_result) ) 
+
+#define ISettingList_RemoveByID(This,uniqueID,out_result)	\
+    ( (This)->lpVtbl -> RemoveByID(This,uniqueID,out_result) ) 
+
+#define ISettingList_RemoveAt(This,index,out_result)	\
+    ( (This)->lpVtbl -> RemoveAt(This,index,out_result) ) 
+
+#define ISettingList_Clear(This)	\
+    ( (This)->lpVtbl -> Clear(This) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __ISettingList_INTERFACE_DEFINED__ */
+
+
 
 #ifndef __VideoProviderLib_LIBRARY_DEFINED__
 #define __VideoProviderLib_LIBRARY_DEFINED__
@@ -2658,6 +3243,129 @@ EXTERN_C const CLSID CLSID_VideoGraphRunner;
 class DECLSPEC_UUID("702D508C-EA39-4EE1-B7D2-B52C48A8C3C6")
 VideoGraphRunner;
 #endif
+
+EXTERN_C const CLSID CLSID_Setting;
+
+#ifdef __cplusplus
+
+class DECLSPEC_UUID("E9BC3B52-16A1-42B6-8D5D-5B757DD75079")
+Setting;
+#endif
+
+#ifndef ___ISettingListEvents_DISPINTERFACE_DEFINED__
+#define ___ISettingListEvents_DISPINTERFACE_DEFINED__
+
+/* dispinterface _ISettingListEvents */
+/* [uuid] */ 
+
+
+EXTERN_C const IID DIID__ISettingListEvents;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+
+    MIDL_INTERFACE("DF316BA8-D0F8-4CF4-AB63-BCC0152D178A")
+    _ISettingListEvents : public IDispatch
+    {
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct _ISettingListEventsVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            _ISettingListEvents * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            _ISettingListEvents * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            _ISettingListEvents * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            _ISettingListEvents * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            _ISettingListEvents * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            _ISettingListEvents * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            _ISettingListEvents * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        END_INTERFACE
+    } _ISettingListEventsVtbl;
+
+    interface _ISettingListEvents
+    {
+        CONST_VTBL struct _ISettingListEventsVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define _ISettingListEvents_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define _ISettingListEvents_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define _ISettingListEvents_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define _ISettingListEvents_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define _ISettingListEvents_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define _ISettingListEvents_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define _ISettingListEvents_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+#endif 	/* ___ISettingListEvents_DISPINTERFACE_DEFINED__ */
+
+
+EXTERN_C const CLSID CLSID_SettingList;
+
+#ifdef __cplusplus
+
+class DECLSPEC_UUID("9968A980-6B7B-45D4-8A5A-7B51B7C85C3A")
+SettingList;
+#endif
 #endif /* __VideoProviderLib_LIBRARY_DEFINED__ */
 
 /* Additional Prototypes for ALL interfaces */
@@ -2666,6 +3374,11 @@ unsigned long             __RPC_USER  BSTR_UserSize(     unsigned long *, unsign
 unsigned char * __RPC_USER  BSTR_UserMarshal(  unsigned long *, unsigned char *, BSTR * ); 
 unsigned char * __RPC_USER  BSTR_UserUnmarshal(unsigned long *, unsigned char *, BSTR * ); 
 void                      __RPC_USER  BSTR_UserFree(     unsigned long *, BSTR * ); 
+
+unsigned long             __RPC_USER  VARIANT_UserSize(     unsigned long *, unsigned long            , VARIANT * ); 
+unsigned char * __RPC_USER  VARIANT_UserMarshal(  unsigned long *, unsigned char *, VARIANT * ); 
+unsigned char * __RPC_USER  VARIANT_UserUnmarshal(unsigned long *, unsigned char *, VARIANT * ); 
+void                      __RPC_USER  VARIANT_UserFree(     unsigned long *, VARIANT * ); 
 
 /* end of Additional Prototypes */
 

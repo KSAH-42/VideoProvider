@@ -79,6 +79,12 @@
     <ClCompile Include="CoInitializer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Setting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -147,6 +153,15 @@
     <ClInclude Include="CoInitializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Setting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_ISettingListEvents_CP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VideoProvider.rc">
@@ -195,6 +210,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="VideoGraphRunner.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Setting.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="SettingList.rgs">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

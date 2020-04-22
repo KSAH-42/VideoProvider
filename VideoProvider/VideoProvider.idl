@@ -8,6 +8,20 @@ import "shobjidl.idl";
 
 [
 	object,
+	uuid(961F1178-D82B-49AC-A4FE-687FCEF999A8),
+	pointer_default(unique)
+]
+interface IInitializer : IUnknown
+{
+	[id(1)]   HRESULT Intialize ([in] VARIANT data );
+};
+
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
 	uuid(942603F1-4744-4C1A-B35B-0D4164E82B9E),
 	dual,
 	nonextensible,
@@ -279,12 +293,68 @@ interface IVideoGraphRunner : IDispatch
 	[id(3)] HRESULT Stop         (void);
 };
 
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
+	uuid(10DC614F-D061-4EE7-A071-EBFEF8BC9C2B),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ISetting : IDispatch
+{
+	[propget, id(1)] HRESULT UniqueID   ([out, retval] BSTR* pVal);
+	
+	[propget, id(2)] HRESULT Value      ([out, retval] BSTR* pVal);
+	
+	[propput, id(2)] HRESULT Value      ([in] BSTR newVal);
+	
+	[propget, id(3)] HRESULT IsDirty    ([out, retval] VARIANT_BOOL* pVal);
+	
+	[propput, id(3)] HRESULT IsDirty    ([in] VARIANT_BOOL newVal);
+	
+	[id(4)]          HRESULT Validate   ([out,retval] VARIANT_BOOL* out_result);
+	
+	[id(5)]          HRESULT Reset      (void);
+};
+
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
+	uuid(9F7032F7-82EC-44A6-840C-5D2CE1694B1F),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ISettingList : IDispatch
+{
+	[propget, id(1)] HRESULT Count         ([out, retval] LONG* pVal);
+	[propget, id(2)] HRESULT IsEmpty       ([out, retval] VARIANT_BOOL* pVal);
+	[propget, id(3)] HRESULT IsFull        ([out, retval] VARIANT_BOOL* pVal);
+	[id(4)]          HRESULT Any           ([out,retval]  VARIANT_BOOL* out_result);
+	[id(5)]          HRESULT Contains      ([in] ISetting* setting, [out,retval] VARIANT_BOOL* out_result);
+	[id(6)]          HRESULT Exists        ([in] BSTR uniqueID, [out,retval] VARIANT_BOOL* out_result);
+	[id(7)]          HRESULT Add           ([in] ISetting* setting, [out,retval] VARIANT_BOOL* out_result);
+	[id(8)]          HRESULT FindByID      ([in] BSTR uniqueID, [out,retval] ISetting** out_result);
+	[id(9)]          HRESULT FindAt        ([in] LONG index, [out,retval] ISetting** out_result);
+	[id(10)]         HRESULT GetByID       ([in] BSTR uniqueID, [out,retval] ISetting** out_result);
+	[id(11)]         HRESULT GetAt         ([in] LONG index, [out,retval] ISetting** out_result);
+	[id(12)]         HRESULT Remove        ([in] ISetting* setting, [out,retval] VARIANT_BOOL* out_result);
+	[id(13)]         HRESULT RemoveByID    ([in] BSTR uniqueID, [out,retval] VARIANT_BOOL* out_result);
+	[id(14)]         HRESULT RemoveAt      ([in] LONG index, [out,retval] VARIANT_BOOL* out_result);
+	[id(15)]         HRESULT Clear         (void);
+};
+
 
 //******************************************************************************************
 // LIBRARY
 //******************************************************************************************
-
-
 
 
 [
@@ -411,6 +481,9 @@ library VideoProviderLib
 		          interface IVideoPlayer;
 	};
 	
+    //**************************************************************************************
+    // COM OBJECT
+    //**************************************************************************************
 	[
 		uuid(5178F473-FB35-48A1-B6E5-119F682446E0)		
 	]
@@ -419,11 +492,51 @@ library VideoProviderLib
 		[default] interface ITest;
 	};
 	
+    //**************************************************************************************
+    // COM OBJECT
+    //**************************************************************************************
 	[
 		uuid(702D508C-EA39-4EE1-B7D2-B52C48A8C3C6)		
 	]
 	coclass VideoGraphRunner
 	{
 		[default] interface IVideoGraphRunner;
+	};
+
+    //**************************************************************************************
+    // COM OBJECT
+    //**************************************************************************************
+    [
+        uuid(E9BC3B52-16A1-42B6-8D5D-5B757DD75079)		
+	]
+	coclass Setting
+	{
+        [default] interface ISetting;
+	};
+	
+	//**************************************************************************************
+    // CONNECTION POINTS
+    //**************************************************************************************
+    [
+		uuid(DF316BA8-D0F8-4CF4-AB63-BCC0152D178A)		
+	]
+	dispinterface _ISettingListEvents
+	{
+		properties:
+		methods:
+			[id(1)] HRESULT OnAdded    ([in] BSTR uniqueID);
+			[id(2)] HRESULT OnRemoved  ([in] BSTR uniqueID);
+	};
+	
+	//**************************************************************************************
+    // COM OBJECT
+    //**************************************************************************************
+    [
+		uuid(9968A980-6B7B-45D4-8A5A-7B51B7C85C3A)		
+	]
+	coclass SettingList
+	{
+		[default] interface ISettingList;
+		[default, source] dispinterface _ISettingListEvents;
 	};
 };

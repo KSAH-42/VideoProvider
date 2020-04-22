@@ -5,6 +5,7 @@
 // This test search the local cameras installed on your computer
 // and select the first video camera 
 // Make sure that you web cam is not actually used
+
 STDMETHODIMP CTest::Run(void)
 {
 	CComPtr<IVideoDeviceInfoDiscovery> discovery;

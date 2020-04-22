@@ -1,0 +1,26 @@
+HKCR
+{
+	VideoProvider.Setting.1 = s 'Setting Class'
+	{
+		CLSID = s '{E9BC3B52-16A1-42B6-8D5D-5B757DD75079}'
+	}
+	VideoProvider.Setting = s 'Setting Class'
+	{		
+		CurVer = s 'VideoProvider.Setting.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E9BC3B52-16A1-42B6-8D5D-5B757DD75079} = s 'Setting Class'
+		{
+			ProgID = s 'VideoProvider.Setting.1'
+			VersionIndependentProgID = s 'VideoProvider.Setting'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			TypeLib = s '{93C65461-1197-476A-BF43-E7267C5BD30A}'
+			Version = s '1.0'
+		}
+	}
+}
