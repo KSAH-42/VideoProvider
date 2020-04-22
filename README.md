@@ -8,7 +8,7 @@ You also need the followings tools :
 
 * Visual Studio 2010
 * ATL
-* DirectX 10 or higher installed on computer (used dxDiag on command prompt)
+* DirectX 10 or higher installed on your computer (used dxDiag on command prompt to check this point)
 
 
 # Project structure
