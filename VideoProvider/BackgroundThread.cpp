@@ -195,6 +195,7 @@ STDMETHODIMP CBackgroundThread::CanContinue(ULONG ulTimeout, VARIANT_BOOL* out_r
 }
 
 
+// Mimic the STA message pump
 STDMETHODIMP CBackgroundThread::PumpEvents()
 {
 	MSG msg = { 0 };

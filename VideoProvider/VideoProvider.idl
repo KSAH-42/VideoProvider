@@ -13,7 +13,7 @@ import "shobjidl.idl";
 ]
 interface IInitializer : IUnknown
 {
-	[id(1)]   HRESULT Intialize ([in] VARIANT data );
+	[id(1)]   HRESULT Initialize ([in] VARIANT data );
 };
 
 //******************************************************************************************
@@ -351,6 +351,22 @@ interface ISettingList : IDispatch
 	[id(15)]         HRESULT Clear         (void);
 };
 
+//******************************************************************************************
+// INTERFACE DEFINITION
+//******************************************************************************************
+
+[
+	object,
+	uuid(01A4FD65-0791-4FAC-AC26-CEE233B7F447),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ISettingFactory : IDispatch
+{
+	[id(1)] HRESULT    CreateSetting         ([in] BSTR uniqueID, [out,retval] ISetting** out_result);
+};
+
 
 //******************************************************************************************
 // LIBRARY
@@ -538,5 +554,16 @@ library VideoProviderLib
 	{
 		[default] interface ISettingList;
 		[default, source] dispinterface _ISettingListEvents;
+	};
+	
+	//**************************************************************************************
+    // COM OBJECT
+    //**************************************************************************************
+    [
+		uuid(3A3D84A3-2417-4506-A07A-C44F434A88E8)		
+	]
+	coclass SettingFactory
+	{
+		[default] interface ISettingFactory;
 	};
 };

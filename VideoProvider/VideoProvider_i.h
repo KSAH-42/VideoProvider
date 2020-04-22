@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Wed Apr 22 13:43:03 2020
+/* at Wed Apr 22 14:43:41 2020
  */
 /* Compiler settings for VideoProvider.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
@@ -139,6 +139,12 @@ typedef interface ISetting ISetting;
 #define __ISettingList_FWD_DEFINED__
 typedef interface ISettingList ISettingList;
 #endif 	/* __ISettingList_FWD_DEFINED__ */
+
+
+#ifndef __ISettingFactory_FWD_DEFINED__
+#define __ISettingFactory_FWD_DEFINED__
+typedef interface ISettingFactory ISettingFactory;
+#endif 	/* __ISettingFactory_FWD_DEFINED__ */
 
 
 #ifndef __IVideoPlayer_FWD_DEFINED__
@@ -321,6 +327,18 @@ typedef struct SettingList SettingList;
 #endif 	/* __SettingList_FWD_DEFINED__ */
 
 
+#ifndef __SettingFactory_FWD_DEFINED__
+#define __SettingFactory_FWD_DEFINED__
+
+#ifdef __cplusplus
+typedef class SettingFactory SettingFactory;
+#else
+typedef struct SettingFactory SettingFactory;
+#endif /* __cplusplus */
+
+#endif 	/* __SettingFactory_FWD_DEFINED__ */
+
+
 /* header files for imported files */
 #include "oaidl.h"
 #include "ocidl.h"
@@ -346,7 +364,7 @@ EXTERN_C const IID IID_IInitializer;
     IInitializer : public IUnknown
     {
     public:
-        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Intialize( 
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Initialize( 
             /* [in] */ VARIANT data) = 0;
         
     };
@@ -369,7 +387,7 @@ EXTERN_C const IID IID_IInitializer;
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IInitializer * This);
         
-        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Intialize )( 
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Initialize )( 
             IInitializer * This,
             /* [in] */ VARIANT data);
         
@@ -396,8 +414,8 @@ EXTERN_C const IID IID_IInitializer;
     ( (This)->lpVtbl -> Release(This) ) 
 
 
-#define IInitializer_Intialize(This,data)	\
-    ( (This)->lpVtbl -> Intialize(This,data) ) 
+#define IInitializer_Initialize(This,data)	\
+    ( (This)->lpVtbl -> Initialize(This,data) ) 
 
 #endif /* COBJMACROS */
 
@@ -3137,6 +3155,129 @@ EXTERN_C const IID IID_ISettingList;
 #endif 	/* __ISettingList_INTERFACE_DEFINED__ */
 
 
+#ifndef __ISettingFactory_INTERFACE_DEFINED__
+#define __ISettingFactory_INTERFACE_DEFINED__
+
+/* interface ISettingFactory */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_ISettingFactory;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("01A4FD65-0791-4FAC-AC26-CEE233B7F447")
+    ISettingFactory : public IDispatch
+    {
+    public:
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE CreateSetting( 
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ ISetting **out_result) = 0;
+        
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct ISettingFactoryVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            ISettingFactory * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            ISettingFactory * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            ISettingFactory * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            ISettingFactory * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            ISettingFactory * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            ISettingFactory * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            ISettingFactory * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *CreateSetting )( 
+            ISettingFactory * This,
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ ISetting **out_result);
+        
+        END_INTERFACE
+    } ISettingFactoryVtbl;
+
+    interface ISettingFactory
+    {
+        CONST_VTBL struct ISettingFactoryVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define ISettingFactory_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define ISettingFactory_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define ISettingFactory_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define ISettingFactory_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define ISettingFactory_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define ISettingFactory_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define ISettingFactory_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#define ISettingFactory_CreateSetting(This,uniqueID,out_result)	\
+    ( (This)->lpVtbl -> CreateSetting(This,uniqueID,out_result) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __ISettingFactory_INTERFACE_DEFINED__ */
+
+
 
 #ifndef __VideoProviderLib_LIBRARY_DEFINED__
 #define __VideoProviderLib_LIBRARY_DEFINED__
@@ -3365,6 +3506,14 @@ EXTERN_C const CLSID CLSID_SettingList;
 
 class DECLSPEC_UUID("9968A980-6B7B-45D4-8A5A-7B51B7C85C3A")
 SettingList;
+#endif
+
+EXTERN_C const CLSID CLSID_SettingFactory;
+
+#ifdef __cplusplus
+
+class DECLSPEC_UUID("3A3D84A3-2417-4506-A07A-C44F434A88E8")
+SettingFactory;
 #endif
 #endif /* __VideoProviderLib_LIBRARY_DEFINED__ */
 

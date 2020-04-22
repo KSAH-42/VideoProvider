@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <conio.h>
 #include <atlbase.h>
+#include <iostream>
 
 #import <VideoProvider.dll>
 
@@ -49,7 +50,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	if ( NULL == test.p )
 	{
-		wprintf_s( L"Please make sure that the COM VideoProvider.dll is registered \n" );
+		cout << ( L"Please make sure that the COM VideoProvider.dll is registered \n" ) << endl;
 		getch();
 		return -1;
 	}

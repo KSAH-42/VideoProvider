@@ -85,6 +85,9 @@
     <ClCompile Include="SettingList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SettingFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -162,6 +165,9 @@
     <ClInclude Include="SettingList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SettingFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VideoProvider.rc">
@@ -216,6 +222,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="SettingList.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="SettingFactory.rgs">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

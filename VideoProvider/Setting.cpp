@@ -2,6 +2,26 @@
 #include "Setting.h"
 
 
+STDMETHODIMP CSetting::Initialize(VARIANT data)
+{
+	if ( ! (( VT_BSTR == data.vt ) && ( NULL != data.bstrVal )) )
+	{
+		return E_INVALIDARG;
+	}
+
+	CCritSecLock lock( m_cs );
+
+	if ( 0 < m_uniqueID.Length() )
+	{
+		return E_ABORT;
+	}
+
+	m_uniqueID = data.bstrVal;
+
+	return S_OK;
+}
+
+
 STDMETHODIMP CSetting::get_UniqueID(BSTR* pVal)
 {
 	if ( NULL == pVal )

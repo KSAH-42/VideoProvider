@@ -7,7 +7,8 @@ using namespace ATL;
 class ATL_NO_VTABLE CSetting :
 	public CComObjectRootEx<CComMultiThreadModel>,
 	public CComCoClass<CSetting, &CLSID_Setting>,
-	public IDispatchImpl<ISetting, &IID_ISetting, &LIBID_VideoProviderLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
+	public IDispatchImpl<ISetting, &IID_ISetting, &LIBID_VideoProviderLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+	public IInitializer
 {
 
 private:
@@ -32,6 +33,7 @@ public:
 	BEGIN_COM_MAP(CSetting)
 		COM_INTERFACE_ENTRY(ISetting)
 		COM_INTERFACE_ENTRY(IDispatch)
+		COM_INTERFACE_ENTRY(IInitializer)
 	END_COM_MAP()
 
 	DECLARE_PROTECT_FINAL_CONSTRUCT()
@@ -49,6 +51,8 @@ public:
 	}
 
 public:
+
+	STDMETHOD     (Initialize)    (VARIANT data);
 
 	STDMETHOD     (get_UniqueID)  (BSTR* pVal);
 	
