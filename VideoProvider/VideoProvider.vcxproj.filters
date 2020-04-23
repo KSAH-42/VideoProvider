@@ -97,6 +97,9 @@
     <ClCompile Include="VideoChannelList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NullVideoChannel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -189,6 +192,9 @@
     <ClInclude Include="VideoChannelList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="NullVideoChannel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VideoProvider.rc">
@@ -255,6 +261,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="VideoChannelList.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="NullVideoChannel.rgs">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

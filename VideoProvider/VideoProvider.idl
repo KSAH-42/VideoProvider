@@ -8,7 +8,7 @@ import "shobjidl.idl";
 
 typedef enum VIDEO_CHANNEL_TYPES
 {
-	VIDEO_CHANNEL_TYPES_UNKWNOWN = 0 ,
+	VIDEO_CHANNEL_UNKWNOWN = 0 ,
 
 	VIDEO_CHANNEL_CAMERA ,
 
@@ -444,15 +444,40 @@ interface IVideoChannel : IDispatch
 ]
 interface IVideoChannelList : IDispatch
 {
+	[propget, id(1)] HRESULT Count         ([out, retval] LONG* pVal);
+	[propget, id(2)] HRESULT IsEmpty       ([out, retval] VARIANT_BOOL* pVal);
+	[propget, id(3)] HRESULT IsFull        ([out, retval] VARIANT_BOOL* pVal);
+	[id(4)]          HRESULT Any           ([out,retval]  VARIANT_BOOL* out_result);
+	[id(5)]          HRESULT Contains      ([in] IVideoChannel* channel, [out,retval] VARIANT_BOOL* out_result);
+	[id(6)]          HRESULT Exists        ([in] BSTR uniqueID, [out,retval] VARIANT_BOOL* out_result);
+	[id(7)]          HRESULT Add           ([in] IVideoChannel* setting, [out,retval] VARIANT_BOOL* out_result);
+	[id(8)]          HRESULT FindByID      ([in] BSTR uniqueID, [out,retval] IVideoChannel** out_result);
+	[id(9)]          HRESULT FindAt        ([in] LONG index, [out,retval] IVideoChannel** out_result);
+	[id(10)]         HRESULT GetByID       ([in] BSTR uniqueID, [out,retval] IVideoChannel** out_result);
+	[id(11)]         HRESULT GetAt         ([in] LONG index, [out,retval] IVideoChannel** out_result);
+	[id(12)]         HRESULT Remove        ([in] IVideoChannel* channel, [out,retval] VARIANT_BOOL* out_result);
+	[id(13)]         HRESULT RemoveByID    ([in] BSTR uniqueID, [out,retval] VARIANT_BOOL* out_result);
+	[id(14)]         HRESULT RemoveAt      ([in] LONG index, [out,retval] VARIANT_BOOL* out_result);
+	[id(15)]         HRESULT Clear         (void);
 };
 
+//==========================================================================================
 
+[
+	object,
+	uuid(EB0FC088-C97E-4AC6-B7CA-DD975514DB48),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface INullVideoChannel : IDispatch
+{
+};
 
 
 //******************************************************************************************
 // LIBRARY
 //******************************************************************************************
-
 
 
 [
@@ -651,5 +676,15 @@ library VideoProviderLib
 	{
 		[default] interface IVideoChannelList;
 		[default, source] dispinterface _IVideoChannelListEvents;
+	};
+
+	//**************************************************************************************
+	[
+		uuid(9A8F0C4F-94DB-4EC5-94E5-A98DC2CC0208)		
+	]
+	coclass NullVideoChannel
+	{
+		[default] interface INullVideoChannel;
+		          interface IVideoChannel;
 	};
 };

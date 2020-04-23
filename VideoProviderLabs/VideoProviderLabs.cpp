@@ -8,7 +8,6 @@
 using namespace std;
 using namespace ATL;
 
-
 //------------------------------------------------------------------------
 // COM Initalizer
 //------------------------------------------------------------------------
@@ -35,7 +34,6 @@ public:
 
 };
 
-
 //------------------------------------------------------------------------
 // Application entry point
 //------------------------------------------------------------------------
@@ -51,7 +49,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	if ( NULL == test.p )
 	{
 		cout << ( L"Please make sure that the COM VideoProvider.dll is registered \n" ) << endl;
-		getch();
+		_getch();
 		return -1;
 	}
 

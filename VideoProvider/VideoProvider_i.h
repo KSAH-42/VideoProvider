@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Thu Apr 23 00:23:03 2020
+/* at Thu Apr 23 12:45:35 2020
  */
 /* Compiler settings for VideoProvider.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
@@ -169,6 +169,12 @@ typedef interface IVideoChannel IVideoChannel;
 #define __IVideoChannelList_FWD_DEFINED__
 typedef interface IVideoChannelList IVideoChannelList;
 #endif 	/* __IVideoChannelList_FWD_DEFINED__ */
+
+
+#ifndef __INullVideoChannel_FWD_DEFINED__
+#define __INullVideoChannel_FWD_DEFINED__
+typedef interface INullVideoChannel INullVideoChannel;
+#endif 	/* __INullVideoChannel_FWD_DEFINED__ */
 
 
 #ifndef __IVideoPlayer_FWD_DEFINED__
@@ -411,6 +417,18 @@ typedef struct VideoChannelList VideoChannelList;
 #endif 	/* __VideoChannelList_FWD_DEFINED__ */
 
 
+#ifndef __NullVideoChannel_FWD_DEFINED__
+#define __NullVideoChannel_FWD_DEFINED__
+
+#ifdef __cplusplus
+typedef class NullVideoChannel NullVideoChannel;
+#else
+typedef struct NullVideoChannel NullVideoChannel;
+#endif /* __cplusplus */
+
+#endif 	/* __NullVideoChannel_FWD_DEFINED__ */
+
+
 /* header files for imported files */
 #include "oaidl.h"
 #include "ocidl.h"
@@ -426,8 +444,8 @@ extern "C"{
 
 typedef 
 enum VIDEO_CHANNEL_TYPES
-    {	VIDEO_CHANNEL_TYPES_UNKWNOWN	= 0,
-	VIDEO_CHANNEL_CAMERA	= ( VIDEO_CHANNEL_TYPES_UNKWNOWN + 1 ) 
+    {	VIDEO_CHANNEL_UNKWNOWN	= 0,
+	VIDEO_CHANNEL_CAMERA	= ( VIDEO_CHANNEL_UNKWNOWN + 1 ) 
     } 	VIDEO_CHANNEL_TYPES;
 
 
@@ -3964,6 +3982,60 @@ EXTERN_C const IID IID_IVideoChannelList;
     IVideoChannelList : public IDispatch
     {
     public:
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Count( 
+            /* [retval][out] */ LONG *pVal) = 0;
+        
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_IsEmpty( 
+            /* [retval][out] */ VARIANT_BOOL *pVal) = 0;
+        
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_IsFull( 
+            /* [retval][out] */ VARIANT_BOOL *pVal) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Any( 
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Contains( 
+            /* [in] */ IVideoChannel *channel,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Exists( 
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Add( 
+            /* [in] */ IVideoChannel *setting,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE FindByID( 
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ IVideoChannel **out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE FindAt( 
+            /* [in] */ LONG index,
+            /* [retval][out] */ IVideoChannel **out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE GetByID( 
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ IVideoChannel **out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE GetAt( 
+            /* [in] */ LONG index,
+            /* [retval][out] */ IVideoChannel **out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Remove( 
+            /* [in] */ IVideoChannel *channel,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE RemoveByID( 
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE RemoveAt( 
+            /* [in] */ LONG index,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Clear( void) = 0;
+        
     };
     
 #else 	/* C style interface */
@@ -4013,6 +4085,75 @@ EXTERN_C const IID IID_IVideoChannelList;
             /* [out] */ EXCEPINFO *pExcepInfo,
             /* [out] */ UINT *puArgErr);
         
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Count )( 
+            IVideoChannelList * This,
+            /* [retval][out] */ LONG *pVal);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsEmpty )( 
+            IVideoChannelList * This,
+            /* [retval][out] */ VARIANT_BOOL *pVal);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsFull )( 
+            IVideoChannelList * This,
+            /* [retval][out] */ VARIANT_BOOL *pVal);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Any )( 
+            IVideoChannelList * This,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Contains )( 
+            IVideoChannelList * This,
+            /* [in] */ IVideoChannel *channel,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Exists )( 
+            IVideoChannelList * This,
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Add )( 
+            IVideoChannelList * This,
+            /* [in] */ IVideoChannel *setting,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *FindByID )( 
+            IVideoChannelList * This,
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ IVideoChannel **out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *FindAt )( 
+            IVideoChannelList * This,
+            /* [in] */ LONG index,
+            /* [retval][out] */ IVideoChannel **out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetByID )( 
+            IVideoChannelList * This,
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ IVideoChannel **out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetAt )( 
+            IVideoChannelList * This,
+            /* [in] */ LONG index,
+            /* [retval][out] */ IVideoChannel **out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Remove )( 
+            IVideoChannelList * This,
+            /* [in] */ IVideoChannel *channel,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *RemoveByID )( 
+            IVideoChannelList * This,
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *RemoveAt )( 
+            IVideoChannelList * This,
+            /* [in] */ LONG index,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
+            IVideoChannelList * This);
+        
         END_INTERFACE
     } IVideoChannelListVtbl;
 
@@ -4049,6 +4190,51 @@ EXTERN_C const IID IID_IVideoChannelList;
     ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
 
 
+#define IVideoChannelList_get_Count(This,pVal)	\
+    ( (This)->lpVtbl -> get_Count(This,pVal) ) 
+
+#define IVideoChannelList_get_IsEmpty(This,pVal)	\
+    ( (This)->lpVtbl -> get_IsEmpty(This,pVal) ) 
+
+#define IVideoChannelList_get_IsFull(This,pVal)	\
+    ( (This)->lpVtbl -> get_IsFull(This,pVal) ) 
+
+#define IVideoChannelList_Any(This,out_result)	\
+    ( (This)->lpVtbl -> Any(This,out_result) ) 
+
+#define IVideoChannelList_Contains(This,channel,out_result)	\
+    ( (This)->lpVtbl -> Contains(This,channel,out_result) ) 
+
+#define IVideoChannelList_Exists(This,uniqueID,out_result)	\
+    ( (This)->lpVtbl -> Exists(This,uniqueID,out_result) ) 
+
+#define IVideoChannelList_Add(This,setting,out_result)	\
+    ( (This)->lpVtbl -> Add(This,setting,out_result) ) 
+
+#define IVideoChannelList_FindByID(This,uniqueID,out_result)	\
+    ( (This)->lpVtbl -> FindByID(This,uniqueID,out_result) ) 
+
+#define IVideoChannelList_FindAt(This,index,out_result)	\
+    ( (This)->lpVtbl -> FindAt(This,index,out_result) ) 
+
+#define IVideoChannelList_GetByID(This,uniqueID,out_result)	\
+    ( (This)->lpVtbl -> GetByID(This,uniqueID,out_result) ) 
+
+#define IVideoChannelList_GetAt(This,index,out_result)	\
+    ( (This)->lpVtbl -> GetAt(This,index,out_result) ) 
+
+#define IVideoChannelList_Remove(This,channel,out_result)	\
+    ( (This)->lpVtbl -> Remove(This,channel,out_result) ) 
+
+#define IVideoChannelList_RemoveByID(This,uniqueID,out_result)	\
+    ( (This)->lpVtbl -> RemoveByID(This,uniqueID,out_result) ) 
+
+#define IVideoChannelList_RemoveAt(This,index,out_result)	\
+    ( (This)->lpVtbl -> RemoveAt(This,index,out_result) ) 
+
+#define IVideoChannelList_Clear(This)	\
+    ( (This)->lpVtbl -> Clear(This) ) 
+
 #endif /* COBJMACROS */
 
 
@@ -4058,6 +4244,117 @@ EXTERN_C const IID IID_IVideoChannelList;
 
 
 #endif 	/* __IVideoChannelList_INTERFACE_DEFINED__ */
+
+
+#ifndef __INullVideoChannel_INTERFACE_DEFINED__
+#define __INullVideoChannel_INTERFACE_DEFINED__
+
+/* interface INullVideoChannel */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_INullVideoChannel;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("EB0FC088-C97E-4AC6-B7CA-DD975514DB48")
+    INullVideoChannel : public IDispatch
+    {
+    public:
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct INullVideoChannelVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            INullVideoChannel * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            INullVideoChannel * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            INullVideoChannel * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            INullVideoChannel * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            INullVideoChannel * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            INullVideoChannel * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            INullVideoChannel * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        END_INTERFACE
+    } INullVideoChannelVtbl;
+
+    interface INullVideoChannel
+    {
+        CONST_VTBL struct INullVideoChannelVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define INullVideoChannel_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define INullVideoChannel_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define INullVideoChannel_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define INullVideoChannel_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define INullVideoChannel_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define INullVideoChannel_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define INullVideoChannel_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __INullVideoChannel_INTERFACE_DEFINED__ */
 
 
 
@@ -4428,6 +4725,14 @@ EXTERN_C const CLSID CLSID_VideoChannelList;
 
 class DECLSPEC_UUID("DEF3397A-EF27-4B96-AFC0-9DB8AD492268")
 VideoChannelList;
+#endif
+
+EXTERN_C const CLSID CLSID_NullVideoChannel;
+
+#ifdef __cplusplus
+
+class DECLSPEC_UUID("9A8F0C4F-94DB-4EC5-94E5-A98DC2CC0208")
+NullVideoChannel;
 #endif
 #endif /* __VideoProviderLib_LIBRARY_DEFINED__ */
 

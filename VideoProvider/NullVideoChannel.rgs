@@ -1,0 +1,26 @@
+HKCR
+{
+	VideoProvider.NullVideoChannel.1 = s 'NullVideoChannel Class'
+	{
+		CLSID = s '{9A8F0C4F-94DB-4EC5-94E5-A98DC2CC0208}'
+	}
+	VideoProvider.NullVideoChannel = s 'NullVideoChannel Class'
+	{		
+		CurVer = s 'VideoProvider.NullVideoChannel.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9A8F0C4F-94DB-4EC5-94E5-A98DC2CC0208} = s 'NullVideoChannel Class'
+		{
+			ProgID = s 'VideoProvider.NullVideoChannel.1'
+			VersionIndependentProgID = s 'VideoProvider.NullVideoChannel'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			TypeLib = s '{93C65461-1197-476A-BF43-E7267C5BD30A}'
+			Version = s '1.0'
+		}
+	}
+}
