@@ -25,7 +25,7 @@ public:
 
 	CCoInitializer()
 	{
-		(void)::CoInitializeEx( NULL , COINIT_APARTMENTTHREADED );
+		CoInitializeEx( NULL , COINIT_APARTMENTTHREADED );
 	}
 
 	~CCoInitializer()

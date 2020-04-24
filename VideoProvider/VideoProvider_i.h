@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Fri Apr 24 08:48:55 2020
+/* at Fri Apr 24 22:30:03 2020
  */
 /* Compiler settings for VideoProvider.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
@@ -177,6 +177,12 @@ typedef interface INullVideoChannel INullVideoChannel;
 #endif 	/* __INullVideoChannel_FWD_DEFINED__ */
 
 
+#ifndef __IService_FWD_DEFINED__
+#define __IService_FWD_DEFINED__
+typedef interface IService IService;
+#endif 	/* __IService_FWD_DEFINED__ */
+
+
 #ifndef __IVideoPlayer_FWD_DEFINED__
 #define __IVideoPlayer_FWD_DEFINED__
 typedef interface IVideoPlayer IVideoPlayer;
@@ -187,6 +193,12 @@ typedef interface IVideoPlayer IVideoPlayer;
 #define __IVideoChannel_FWD_DEFINED__
 typedef interface IVideoChannel IVideoChannel;
 #endif 	/* __IVideoChannel_FWD_DEFINED__ */
+
+
+#ifndef __IService_FWD_DEFINED__
+#define __IService_FWD_DEFINED__
+typedef interface IService IService;
+#endif 	/* __IService_FWD_DEFINED__ */
 
 
 #ifndef __BackgroundThread_FWD_DEFINED__
@@ -444,9 +456,14 @@ extern "C"{
 
 typedef 
 enum VIDEO_CHANNEL_TYPES
-    {	VIDEO_CHANNEL_UNKWNOWN	= 0,
-	VIDEO_CHANNEL_CAMERA	= ( VIDEO_CHANNEL_UNKWNOWN + 1 ) 
+    {	VIDEO_CHANNEL_UNKNOWN	= 0,
+	VIDEO_CHANNEL_CAMERA	= ( VIDEO_CHANNEL_UNKNOWN + 1 ) 
     } 	VIDEO_CHANNEL_TYPES;
+
+typedef 
+enum SERVICE_TYPES
+    {	SERVICE_UNKNOWN	= 0
+    } 	SERVICE_TYPES;
 
 
 
@@ -4387,12 +4404,92 @@ EXTERN_C const IID IID_INullVideoChannel;
 #endif 	/* __INullVideoChannel_INTERFACE_DEFINED__ */
 
 
+#ifndef __IService_INTERFACE_DEFINED__
+#define __IService_INTERFACE_DEFINED__
+
+/* interface IService */
+/* [unique][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IService;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("E2AF5585-4183-435D-9D36-307F4C4B99FE")
+    IService : public IUnknown
+    {
+    public:
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Type( 
+            /* [retval][out] */ SERVICE_TYPES *pVal) = 0;
+        
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct IServiceVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IService * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IService * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IService * This);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Type )( 
+            IService * This,
+            /* [retval][out] */ SERVICE_TYPES *pVal);
+        
+        END_INTERFACE
+    } IServiceVtbl;
+
+    interface IService
+    {
+        CONST_VTBL struct IServiceVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IService_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IService_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IService_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IService_get_Type(This,pVal)	\
+    ( (This)->lpVtbl -> get_Type(This,pVal) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IService_INTERFACE_DEFINED__ */
+
+
 
 #ifndef __VideoProviderLib_LIBRARY_DEFINED__
 #define __VideoProviderLib_LIBRARY_DEFINED__
 
 /* library VideoProviderLib */
 /* [version][uuid] */ 
+
 
 
 

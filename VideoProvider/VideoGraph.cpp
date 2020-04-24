@@ -535,7 +535,7 @@ STDMETHODIMP CVideoGraph::SetupWindow(VARIANT_BOOL* out_result)
 		return S_FALSE;
 	}
 
-	(void) m_mediaEvents->SetNotifyWindow( handle , WM_GRAPH_NOTIFY , NULL );
+	m_mediaEvents->SetNotifyWindow( handle , WM_GRAPH_NOTIFY , NULL );
 
 	m_videoWindow   = videoWindow;
 	m_currentWindow = handle;
@@ -552,9 +552,9 @@ STDMETHODIMP CVideoGraph::CloseWindow()
 
 	if ( NULL != m_videoWindow.p )
 	{
-		(void) m_videoWindow->put_Visible( OAFALSE );
-		(void) m_videoWindow->put_AutoShow( OAFALSE );
-		(void) m_videoWindow->put_Owner( NULL );
+		m_videoWindow->put_Visible( OAFALSE );
+		m_videoWindow->put_AutoShow( OAFALSE );
+		m_videoWindow->put_Owner( NULL );
 		
 		m_videoWindow.Release();
 		m_videoWindow.p = NULL;
@@ -640,7 +640,7 @@ STDMETHODIMP CVideoGraph::Shutdown()
 	
 	if ( NULL != m_mediaControl.p )
 	{
-		(void) m_mediaControl->Stop();
+		m_mediaControl->Stop();
 	}
 
 	m_isRunning = VARIANT_FALSE;
@@ -699,9 +699,9 @@ STDMETHODIMP CVideoGraph::Resize(void)
 
 	RECT rectangle = { 0 };
 
-	(void) GetClientRect( (HWND) m_currentWindow , &rectangle );
+	GetClientRect( (HWND) m_currentWindow , &rectangle );
 
-	(void) m_videoWindow->SetWindowPosition( 0 , 0 , rectangle.right , rectangle.bottom );
+	m_videoWindow->SetWindowPosition( 0 , 0 , rectangle.right , rectangle.bottom );
 	
 	return S_OK;
 }

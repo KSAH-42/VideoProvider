@@ -117,7 +117,7 @@ DWORD WINAPI CVideoGraphRunner::Processing(LPVOID lpArgs )
 
 	VARIANT_BOOL boolResult = VARIANT_FALSE;
 	
-	(void) graph->Run( &boolResult );
+	graph->Run( &boolResult );
 
 	try
 	{
@@ -136,7 +136,7 @@ DWORD WINAPI CVideoGraphRunner::Processing(LPVOID lpArgs )
 	{
 	}
 
-	(void) graph->Shutdown();
+	graph->Shutdown();
 
 	return 0;
 }

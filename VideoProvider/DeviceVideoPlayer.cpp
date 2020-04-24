@@ -111,9 +111,9 @@ STDMETHODIMP CDeviceVideoPlayer::Play( VARIANT_BOOL* out_result )
 
 STDMETHODIMP CDeviceVideoPlayer::Stop()
 {
-	(void) m_graph->Shutdown();
-	(void) m_graph->CloseWindow();
-	(void) m_graph->Destroy();
+	m_graph->Shutdown();
+	m_graph->CloseWindow();
+	m_graph->Destroy();
 	
 	return S_OK;
 }
@@ -121,7 +121,7 @@ STDMETHODIMP CDeviceVideoPlayer::Stop()
 
 STDMETHODIMP CDeviceVideoPlayer::Refresh()
 {
-	(void) m_graph->Resize();
+	m_graph->Resize();
 
 	return S_OK;
 }

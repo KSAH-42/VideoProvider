@@ -8,11 +8,16 @@ import "shobjidl.idl";
 
 typedef enum VIDEO_CHANNEL_TYPES
 {
-	VIDEO_CHANNEL_UNKWNOWN = 0 ,
+	VIDEO_CHANNEL_UNKNOWN = 0 ,
 
 	VIDEO_CHANNEL_CAMERA ,
 
 } VIDEO_CHANNEL_TYPES;
+
+typedef enum SERVICE_TYPES
+{
+	SERVICE_UNKNOWN = 0 ,
+} SERVICE_TYPES;
 
 //==========================================================================================
 //                                      INTERFACES
@@ -480,6 +485,18 @@ interface INullVideoChannel : IDispatch
 {
 };
 
+//==========================================================================================
+
+[
+	object,
+	uuid(E2AF5585-4183-435D-9D36-307F4C4B99FE),
+	pointer_default(unique)
+]
+interface IService : IUnknown
+{
+	[propget, id(1)] HRESULT Type   ([out, retval] SERVICE_TYPES* pVal);
+};
+
 
 //******************************************************************************************
 // LIBRARY
@@ -496,6 +513,7 @@ library VideoProviderLib
 	
     interface IVideoPlayer;
 	interface IVideoChannel;
+	interface IService;
 
     //**************************************************************************************
     [

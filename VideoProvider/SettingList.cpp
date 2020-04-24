@@ -279,7 +279,7 @@ STDMETHODIMP CSettingList::GetByID(BSTR uniqueID, ISetting** out_result)
 		return E_POINTER;
 	}
 
-	(void) m_nullSetting.CopyTo( out_result );
+	m_nullSetting.CopyTo( out_result );
 	
 	CCritSecLock lock( m_cs );
 
@@ -306,7 +306,7 @@ STDMETHODIMP CSettingList::GetAt(LONG index, ISetting** out_result)
 		return E_POINTER;
 	}
 
-	(void) m_nullSetting.CopyTo( out_result );
+	m_nullSetting.CopyTo( out_result );
 	
 	CCritSecLock lock( m_cs );
 

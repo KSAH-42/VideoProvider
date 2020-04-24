@@ -9,7 +9,7 @@ STDMETHODIMP CNullVideoChannel::get_Type(VIDEO_CHANNEL_TYPES* pVal)
 		return E_POINTER;
 	}
 
-	*pVal = VIDEO_CHANNEL_UNKWNOWN;
+	*pVal = VIDEO_CHANNEL_UNKNOWN;
 
 	return S_OK;
 }

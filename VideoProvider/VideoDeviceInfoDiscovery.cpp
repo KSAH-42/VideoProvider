@@ -92,7 +92,7 @@ STDMETHODIMP CVideoDeviceInfoDiscovery::SearchDevices(IVideoDeviceInfoList** out
 
 		VARIANT_BOOL boolResult = VARIANT_FALSE;
 
-		(void) devices->Add( device , &boolResult );
+		devices->Add( device , &boolResult );
 	}
 
 	return S_OK;

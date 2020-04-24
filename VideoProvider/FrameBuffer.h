@@ -54,7 +54,7 @@ public:
 
 	void FinalRelease()
 	{
-		(void) Clear();
+		Clear();
 
 		if ( NULL != m_handle )
 		{

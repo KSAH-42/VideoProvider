@@ -38,21 +38,21 @@ STDMETHODIMP CVideoDeviceInfoAdapter::Adapt(IMoniker* moniker, IVideoDeviceInfo*
 
 	if ( S_OK == propertyBag->Read( L"FriendlyName" , &value , 0 ) )
 	{
-		(void) deviceInfo->put_Name( value.bstrVal );
+		deviceInfo->put_Name( value.bstrVal );
 	}
 	
 	value.Clear();
 
 	if ( S_OK == propertyBag->Read( L"Description" , &value , 0 ) )
 	{
-		(void) deviceInfo->put_Description( value.bstrVal );
+		deviceInfo->put_Description( value.bstrVal );
 	}
 
 	value.Clear();
 
 	if ( S_OK == propertyBag->Read( L"DevicePath" , &value , 0 ) )
 	{
-		(void) deviceInfo->put_Path( value.bstrVal );
+		deviceInfo->put_Path( value.bstrVal );
 	}
 
 	return deviceInfo.CopyTo( out_result );

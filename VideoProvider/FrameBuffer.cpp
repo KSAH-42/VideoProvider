@@ -145,7 +145,7 @@ STDMETHODIMP CFrameBuffer::Read(IFrame** out_result)
 	{
 		if ( m_queue.empty() )
 		{
-			(void)::ResetEvent( m_handle );
+			ResetEvent( m_handle );
 		}
 	}
 
@@ -192,7 +192,7 @@ STDMETHODIMP CFrameBuffer::Write(IFrame* frame, VARIANT_BOOL* out_result)
 	
 		if ( NULL != m_handle )
 		{
-			(void)::SetEvent( m_handle );
+			SetEvent( m_handle );
 		}
 
 		*out_result = VARIANT_TRUE;
@@ -210,7 +210,7 @@ STDMETHODIMP CFrameBuffer::Clear(void)
 
 	if ( NULL != m_handle )
 	{
-		(void)::ResetEvent( m_handle );
+		ResetEvent( m_handle );
 	}
 
 	return S_OK;

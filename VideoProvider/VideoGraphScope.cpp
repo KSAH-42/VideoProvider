@@ -12,7 +12,7 @@ CVideoGraphScope::~CVideoGraphScope(void)
 {
 	if ( NULL != m_graph.p )
 	{
-		(void) m_graph->Destroy();
+		m_graph->Destroy();
 
 		m_graph.Release();
 		m_graph.p = NULL;

@@ -50,7 +50,7 @@ STDMETHODIMP CTest::Run(void)
 
 	CComBSTR deviceName;
 
-	(void) deviceInfo->get_Name( &deviceName );
+	deviceInfo->get_Name( &deviceName );
 
 	CComPtr<IVideoPlayer> player;
 
@@ -90,12 +90,12 @@ STDMETHODIMP CTest::Run(void)
 
 	while ( 0 == _kbhit() )
 	{
-		(void) MsgWaitForMultipleObjects( 0, NULL, FALSE, 100, QS_ALLEVENTS);
+		MsgWaitForMultipleObjects( 0, NULL, FALSE, 100, QS_ALLEVENTS);
 
 		while ( TRUE == ::PeekMessage( &msg , NULL , 0 , 0 , PM_REMOVE ) )
 		{
-			(void)::DispatchMessage( &msg );
-			(void)::TranslateMessage( &msg );
+			::DispatchMessage( &msg );
+			::TranslateMessage( &msg );
 		}
 	}
 	

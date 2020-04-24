@@ -165,11 +165,11 @@ STDMETHODIMP CVideoChannelList::Add(IVideoChannel* channel, VARIANT_BOOL* out_re
 		return S_OK;
 	}
 
-	VIDEO_CHANNEL_TYPES type = VIDEO_CHANNEL_UNKWNOWN;
+	VIDEO_CHANNEL_TYPES type = VIDEO_CHANNEL_UNKNOWN;
 
 	HRESULT hr = spVideoChannel->get_Type( &type );
 
-	if ( FAILED( hr ) || VIDEO_CHANNEL_UNKWNOWN == type )
+	if ( FAILED( hr ) || VIDEO_CHANNEL_UNKNOWN == type )
 	{
 		return S_OK;
 	}
@@ -278,7 +278,7 @@ STDMETHODIMP CVideoChannelList::GetByID(BSTR uniqueID, IVideoChannel** out_resul
 		return E_POINTER;
 	}
 
-	(void) m_nullChannel.CopyTo( out_result );
+	m_nullChannel.CopyTo( out_result );
 	
 	CCritSecLock lock( m_cs );
 
@@ -305,7 +305,7 @@ STDMETHODIMP CVideoChannelList::GetAt(LONG index, IVideoChannel** out_result)
 		return E_POINTER;
 	}
 
-	(void) m_nullChannel.CopyTo( out_result );
+	m_nullChannel.CopyTo( out_result );
 	
 	CCritSecLock lock( m_cs );
 

@@ -56,9 +56,9 @@ STDMETHODIMP CMediaMonikerStore::FindAll(IMediaMonikerList** out_result)
 
 		VARIANT_BOOL boolResult = VARIANT_FALSE;
 
-		(void) monikers->Add( moniker , &boolResult );
+		monikers->Add( moniker , &boolResult );
 
-		(void) moniker.Release();
+		moniker.Release();
 	}
 
 	return S_OK;
