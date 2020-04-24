@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <atlbase.h>
 #include <iostream>
+#include <deque>
 
 #import <VideoProvider.dll>
 

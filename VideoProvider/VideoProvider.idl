@@ -391,21 +391,27 @@ interface IFrame : IDispatch
 ]
 interface IFrameBuffer : IDispatch
 {
-	[propget, id(1)] HRESULT Limit           ([out, retval] LONG* pVal);
+	[propget, id(1)] HRESULT CanWrite        ([out, retval] VARIANT_BOOL* pVal);
 	
-	[propput, id(1)] HRESULT Limit           ([in] LONG newVal);
+	[propput, id(1)] HRESULT CanWrite        ([in] VARIANT_BOOL newVal);
+
+	[propget, id(2)] HRESULT Limit           ([out, retval] LONG* pVal);
 	
-	[propget, id(2)] HRESULT Size            ([out, retval] LONG* pVal);
+	[propput, id(2)] HRESULT Limit           ([in] LONG newVal);
 	
-	[propget, id(3)] HRESULT IsEmpty         ([out, retval] VARIANT_BOOL* pVal);
+	[propget, id(3)] HRESULT Size            ([out, retval] LONG* pVal);
 	
-	[id(4)]          HRESULT Read            ([out,retval] IFrame** out_result);
+	[propget, id(4)] HRESULT IsEmpty         ([out, retval] VARIANT_BOOL* pVal);
+
+	[propget, id(5)] HRESULT IsFull          ([out, retval] VARIANT_BOOL* pVal);
 	
-	[id(5)]          HRESULT Write           ([in] IFrame* frame, [out,retval] VARIANT_BOOL* out_result);
+	[id(6)]          HRESULT Read            ([out,retval] IFrame** out_result);
 	
-	[id(6)]          HRESULT Clear           (void);
+	[id(7)]          HRESULT Write           ([in] IFrame* frame, [out,retval] VARIANT_BOOL* out_result);
 	
-	[id(7)]          HRESULT Synchronize     ([in] ULONG timeout, [in] ULONG cancelationHandle, [out,retval] VARIANT_BOOL* out_result);
+	[id(8)]          HRESULT Clear           (void);
+	
+	[id(9)]          HRESULT Synchronize     ([in] ULONG timeout, [in] ULONG cancelationHandle, [out,retval] VARIANT_BOOL* out_result);
 
 };
 

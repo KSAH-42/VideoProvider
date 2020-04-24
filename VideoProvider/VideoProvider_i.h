@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Thu Apr 23 12:45:35 2020
+/* at Fri Apr 24 08:48:55 2020
  */
 /* Compiler settings for VideoProvider.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
@@ -3618,6 +3618,12 @@ EXTERN_C const IID IID_IFrameBuffer;
     IFrameBuffer : public IDispatch
     {
     public:
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_CanWrite( 
+            /* [retval][out] */ VARIANT_BOOL *pVal) = 0;
+        
+        virtual /* [id][propput] */ HRESULT STDMETHODCALLTYPE put_CanWrite( 
+            /* [in] */ VARIANT_BOOL newVal) = 0;
+        
         virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Limit( 
             /* [retval][out] */ LONG *pVal) = 0;
         
@@ -3628,6 +3634,9 @@ EXTERN_C const IID IID_IFrameBuffer;
             /* [retval][out] */ LONG *pVal) = 0;
         
         virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_IsEmpty( 
+            /* [retval][out] */ VARIANT_BOOL *pVal) = 0;
+        
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_IsFull( 
             /* [retval][out] */ VARIANT_BOOL *pVal) = 0;
         
         virtual /* [id] */ HRESULT STDMETHODCALLTYPE Read( 
@@ -3693,6 +3702,14 @@ EXTERN_C const IID IID_IFrameBuffer;
             /* [out] */ EXCEPINFO *pExcepInfo,
             /* [out] */ UINT *puArgErr);
         
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_CanWrite )( 
+            IFrameBuffer * This,
+            /* [retval][out] */ VARIANT_BOOL *pVal);
+        
+        /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_CanWrite )( 
+            IFrameBuffer * This,
+            /* [in] */ VARIANT_BOOL newVal);
+        
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Limit )( 
             IFrameBuffer * This,
             /* [retval][out] */ LONG *pVal);
@@ -3706,6 +3723,10 @@ EXTERN_C const IID IID_IFrameBuffer;
             /* [retval][out] */ LONG *pVal);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsEmpty )( 
+            IFrameBuffer * This,
+            /* [retval][out] */ VARIANT_BOOL *pVal);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsFull )( 
             IFrameBuffer * This,
             /* [retval][out] */ VARIANT_BOOL *pVal);
         
@@ -3763,6 +3784,12 @@ EXTERN_C const IID IID_IFrameBuffer;
     ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
 
 
+#define IFrameBuffer_get_CanWrite(This,pVal)	\
+    ( (This)->lpVtbl -> get_CanWrite(This,pVal) ) 
+
+#define IFrameBuffer_put_CanWrite(This,newVal)	\
+    ( (This)->lpVtbl -> put_CanWrite(This,newVal) ) 
+
 #define IFrameBuffer_get_Limit(This,pVal)	\
     ( (This)->lpVtbl -> get_Limit(This,pVal) ) 
 
@@ -3774,6 +3801,9 @@ EXTERN_C const IID IID_IFrameBuffer;
 
 #define IFrameBuffer_get_IsEmpty(This,pVal)	\
     ( (This)->lpVtbl -> get_IsEmpty(This,pVal) ) 
+
+#define IFrameBuffer_get_IsFull(This,pVal)	\
+    ( (This)->lpVtbl -> get_IsFull(This,pVal) ) 
 
 #define IFrameBuffer_Read(This,out_result)	\
     ( (This)->lpVtbl -> Read(This,out_result) ) 
