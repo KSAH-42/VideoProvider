@@ -36,3 +36,5 @@
 #include "CoInitializer.h"
 
 #pragma comment( lib , "Strmiids" )
+
+extern "C" const GUID ;

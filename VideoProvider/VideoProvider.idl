@@ -17,6 +17,7 @@ typedef enum VIDEO_CHANNEL_TYPES
 typedef enum SERVICE_TYPES
 {
 	SERVICE_UNKNOWN = 0 ,
+
 } SERVICE_TYPES;
 
 //==========================================================================================
@@ -490,17 +491,61 @@ interface INullVideoChannel : IDispatch
 [
 	object,
 	uuid(E2AF5585-4183-435D-9D36-307F4C4B99FE),
+	dual,
+	nonextensible,
 	pointer_default(unique)
 ]
-interface IService : IUnknown
+interface IService : IDispatch
 {
 	[propget, id(1)] HRESULT Type   ([out, retval] SERVICE_TYPES* pVal);
+};
+
+//==========================================================================================
+
+[
+	object,
+	uuid(4FED0BEB-4F27-4F2D-A4CA-70F8F812F66A),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface INullService : IDispatch
+{
+};
+
+//==========================================================================================
+
+[
+	object,
+	uuid(25B97B5F-DF9F-49AC-A0DF-A96F3E24FFB4),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IServiceList : IDispatch
+{
+	[propget, id(1)] HRESULT Count         ([out, retval] LONG* pVal);
+	[propget, id(2)] HRESULT IsEmpty       ([out, retval] VARIANT_BOOL* pVal);
+	[id(3)]          HRESULT Any           ([out,retval]  VARIANT_BOOL* out_result);
+	[id(4)]          HRESULT Contains      ([in] IService* setting, [out,retval] VARIANT_BOOL* out_result);
+	[id(5)]          HRESULT Exists        ([in] SERVICE_TYPES type, [out,retval] VARIANT_BOOL* out_result);
+	[id(6)]          HRESULT Add           ([in] IService* setting, [out,retval] VARIANT_BOOL* out_result);
+	[id(7)]          HRESULT FindByType    ([in] SERVICE_TYPES type, [out,retval] IService** out_result);
+	[id(8)]          HRESULT FindAt        ([in] LONG index, [out,retval] IService** out_result);
+	[id(9)]          HRESULT GetByType     ([in] SERVICE_TYPES type, [out,retval] IService** out_result);
+	[id(10)]         HRESULT GetAt         ([in] LONG index, [out,retval] IService** out_result);
+	[id(11)]         HRESULT Remove        ([in] IService* setting, [out,retval] VARIANT_BOOL* out_result);
+	[id(12)]         HRESULT RemoveByType  ([in] SERVICE_TYPES type, [out,retval] VARIANT_BOOL* out_result);
+	[id(13)]         HRESULT RemoveAt      ([in] LONG index, [out,retval] VARIANT_BOOL* out_result);
+	[id(14)]         HRESULT Clear         (void);
 };
 
 
 //******************************************************************************************
 // LIBRARY
 //******************************************************************************************
+
+
 
 
 [
@@ -710,5 +755,35 @@ library VideoProviderLib
 	{
 		[default] interface INullVideoChannel;
 		          interface IVideoChannel;
+	};
+	
+	//**************************************************************************************
+	[
+		uuid(890BFF23-9E26-4974-8A55-D57F9CDDC35B)		
+	]
+	coclass NullService
+	{
+		[default] interface INullService;
+	};
+
+	//**************************************************************************************
+	[
+		uuid(1169736D-92A2-4351-A53C-E69E4814D065)		
+	]
+	dispinterface _IServiceListEvents
+	{
+		properties:
+		methods:
+			[id(1)] HRESULT OnAdded    ([in] SERVICE_TYPES type);
+			[id(2)] HRESULT OnRemoved  ([in] SERVICE_TYPES type);
+	};
+
+	[
+		uuid(B9BE617D-F6C4-48E7-BFDF-507EA5DD8174)		
+	]
+	coclass ServiceList
+	{
+		[default] interface IServiceList;
+		[default, source] dispinterface _IServiceListEvents;
 	};
 };

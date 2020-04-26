@@ -128,7 +128,9 @@
     <ClCompile Include="FrameBuffer.cpp" />
     <ClCompile Include="MediaMonikerList.cpp" />
     <ClCompile Include="MediaMonikerStore.cpp" />
+    <ClCompile Include="NullService.cpp" />
     <ClCompile Include="NullVideoChannel.cpp" />
+    <ClCompile Include="ServiceList.cpp" />
     <ClCompile Include="Setting.cpp" />
     <ClCompile Include="SettingFactory.cpp" />
     <ClCompile Include="SettingList.cpp" />
@@ -174,9 +176,11 @@
     <ClInclude Include="FrameBuffer.h" />
     <ClInclude Include="MediaMonikerList.h" />
     <ClInclude Include="MediaMonikerStore.h" />
+    <ClInclude Include="NullService.h" />
     <ClInclude Include="NullVideoChannel.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SampleGrabber.h" />
+    <ClInclude Include="ServiceList.h" />
     <ClInclude Include="Setting.h" />
     <ClInclude Include="SettingFactory.h" />
     <ClInclude Include="SettingList.h" />
@@ -194,6 +198,7 @@
     <ClInclude Include="VideoGraphScope.h" />
     <ClInclude Include="VideoProvider_i.h" />
     <ClInclude Include="xdlldata.h" />
+    <ClInclude Include="_IServiceListEvents_CP.h" />
     <ClInclude Include="_ISettingListEvents_CP.h" />
     <ClInclude Include="_IVideoChannelListEvents_CP.h" />
   </ItemGroup>
@@ -207,8 +212,10 @@
     <None Include="FrameBuffer.rgs" />
     <None Include="MediaMonikerList.rgs" />
     <None Include="MediaMonikerStore.rgs" />
+    <None Include="NullService.rgs" />
     <None Include="NullVideoChannel.rgs" />
     <None Include="ReadMe.txt" />
+    <None Include="ServiceList.rgs" />
     <None Include="Setting.rgs" />
     <None Include="SettingFactory.rgs" />
     <None Include="SettingList.rgs" />
