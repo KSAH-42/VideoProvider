@@ -1,16 +1,18 @@
+#define _CRTDBG_MAP_ALLOC
+
 #include "stdafx.h"
 #include <conio.h>
 #include <atlbase.h>
 #include <iostream>
 #include <deque>
+#include <stdlib.h>
+#include <crtdbg.h>
 
 #import <VideoProvider.dll>
 
 using namespace std;
 using namespace ATL;
 
-//------------------------------------------------------------------------
-// COM Initalizer
 //------------------------------------------------------------------------
 
 class CCoInitializer sealed
@@ -36,10 +38,8 @@ public:
 };
 
 //------------------------------------------------------------------------
-// Application entry point
-//------------------------------------------------------------------------
 
-int _tmain(int argc, _TCHAR* argv[])
+void Run()
 {
 	CCoInitializer coInitialize;
 
@@ -47,15 +47,24 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	test.CoCreateInstance( __uuidof( VideoProviderLib::Test ) );
 
-	if ( NULL == test.p )
+	if ( NULL != test.p )
+	{
+		test->Run();
+	}
+	else
 	{
 		cout << ( L"Please make sure that the COM VideoProvider.dll is registered \n" ) << endl;
-		_getch();
-		return -1;
 	}
+}
 
-	test->Run();
+//------------------------------------------------------------------------
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	Run();
 	
+	_CrtDumpMemoryLeaks();
+		
 	return 0;
 }
 
