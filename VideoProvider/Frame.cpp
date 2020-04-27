@@ -2,7 +2,7 @@
 #include "Frame.h"
 
 /*
-Some part of this class can optimized
+Some part of this class can be optimized
 */
 
 STDMETHODIMP CFrame::get_Size(LONG* pVal)
@@ -116,7 +116,7 @@ STDMETHODIMP CFrame::Create( LONG size , VARIANT_BOOL initToZero , VARIANT_BOOL*
 
 	BYTE* pBuffer = NULL;
 		
-	if ( VARIANT_TRUE == initToZero )
+	if ( initToZero )
 	{
 		pBuffer = (BYTE*) ::calloc( size , sizeof( BYTE ) );
 	}
