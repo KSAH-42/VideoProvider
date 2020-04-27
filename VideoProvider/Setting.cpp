@@ -111,7 +111,7 @@ STDMETHODIMP CSetting::Validate(VARIANT_BOOL* out_result)
 
 	CCritSecLock lock( m_cs );
 
-	if ( NULL == m_value.m_str || 0 >= m_value.Length() )
+	if ( NULL == m_uniqueID.m_str || 0 >= m_uniqueID.Length() )
 	{
 		return S_OK;
 	}
