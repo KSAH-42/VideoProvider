@@ -8,7 +8,7 @@
 
 STDMETHODIMP CTest::Run(void)
 {
-	CComPtr<IVideoDeviceInfoDiscovery> discovery;
+    CComPtr<IVideoDeviceInfoDiscovery> discovery;
 
 	HRESULT hr = discovery.CoCreateInstance( CLSID_VideoDeviceInfoDiscovery );
 
@@ -90,7 +90,7 @@ STDMETHODIMP CTest::Run(void)
 
 	while ( 0 == _kbhit() )
 	{
-		MsgWaitForMultipleObjects( 0, NULL, FALSE, 100, QS_ALLEVENTS);
+		::MsgWaitForMultipleObjects( 0, NULL, FALSE, 100, QS_ALLEVENTS);
 
 		while ( TRUE == ::PeekMessage( &msg , NULL , 0 , 0 , PM_REMOVE ) )
 		{
@@ -103,3 +103,4 @@ STDMETHODIMP CTest::Run(void)
 
 	return S_OK;
 }
+
