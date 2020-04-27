@@ -2,7 +2,7 @@ HKCR
 {
 	VideoProvider.Server.1 = s 'Server Class'
 	{
-		CLSID = s '{272CF257-4D9D-47BB-8176-8F92C1D5F8BB}'
+		CLSID = s '{7BBB6084-1385-4099-8289-1CEC1A95B383}'
 	}
 	VideoProvider.Server = s 'Server Class'
 	{		
@@ -10,7 +10,7 @@ HKCR
 	}
 	NoRemove CLSID
 	{
-		ForceRemove {272CF257-4D9D-47BB-8176-8F92C1D5F8BB} = s 'Server Class'
+		ForceRemove {7BBB6084-1385-4099-8289-1CEC1A95B383} = s 'Server Class'
 		{
 			ProgID = s 'VideoProvider.Server.1'
 			VersionIndependentProgID = s 'VideoProvider.Server'

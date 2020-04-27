@@ -48,7 +48,7 @@ public:
 
 		hr = m_thread.CoCreateInstance( CLSID_BackgroundThread );
 
-		if ( FAILED( hr ) || NULL == m_settings.p )
+		if ( FAILED( hr ) || NULL == m_thread.p )
 		{
 			return E_FAIL;
 		}

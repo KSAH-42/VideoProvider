@@ -584,7 +584,7 @@ interface IConfigurationPersistence : IDispatch
 
 [
 	object,
-	uuid(2E34548B-80D1-4436-8F39-238A57B1B347),
+	uuid(00D8E0D4-CAA2-4C3E-93A9-EEB1CF683754),
 	dual,
 	nonextensible,
 	pointer_default(unique)
@@ -898,7 +898,7 @@ library VideoProviderLib
 	
 	//**************************************************************************************
 	[
-		uuid(272CF257-4D9D-47BB-8176-8F92C1D5F8BB)		
+		uuid(7BBB6084-1385-4099-8289-1CEC1A95B383)		
 	]
 	coclass Server
 	{
