@@ -114,6 +114,8 @@
   <ItemGroup>
     <ClCompile Include="BackgroundThread.cpp" />
     <ClCompile Include="CoInitializer.cpp" />
+    <ClCompile Include="ConfigurationPersistence.cpp" />
+    <ClCompile Include="ConfigurationService.cpp" />
     <ClCompile Include="DataConverter.cpp" />
     <ClCompile Include="DeviceVideoPlayer.cpp" />
     <ClCompile Include="dllmain.cpp">
@@ -130,6 +132,7 @@
     <ClCompile Include="MediaMonikerStore.cpp" />
     <ClCompile Include="NullService.cpp" />
     <ClCompile Include="NullVideoChannel.cpp" />
+    <ClCompile Include="Server.cpp" />
     <ClCompile Include="ServiceList.cpp" />
     <ClCompile Include="Setting.cpp" />
     <ClCompile Include="SettingFactory.cpp" />
@@ -169,6 +172,8 @@
   <ItemGroup>
     <ClInclude Include="BackgroundThread.h" />
     <ClInclude Include="CoInitializer.h" />
+    <ClInclude Include="ConfigurationPersistence.h" />
+    <ClInclude Include="ConfigurationService.h" />
     <ClInclude Include="DataConverter.h" />
     <ClInclude Include="DeviceVideoPlayer.h" />
     <ClInclude Include="dllmain.h" />
@@ -180,6 +185,7 @@
     <ClInclude Include="NullVideoChannel.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SampleGrabber.h" />
+    <ClInclude Include="Server.h" />
     <ClInclude Include="ServiceList.h" />
     <ClInclude Include="Setting.h" />
     <ClInclude Include="SettingFactory.h" />
@@ -198,6 +204,7 @@
     <ClInclude Include="VideoGraphScope.h" />
     <ClInclude Include="VideoProvider_i.h" />
     <ClInclude Include="xdlldata.h" />
+    <ClInclude Include="_IServerEvents_CP.h" />
     <ClInclude Include="_IServiceListEvents_CP.h" />
     <ClInclude Include="_ISettingListEvents_CP.h" />
     <ClInclude Include="_IVideoChannelListEvents_CP.h" />
@@ -207,6 +214,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BackgroundThread.rgs" />
+    <None Include="ConfigurationPersistence.rgs" />
+    <None Include="ConfigurationService.rgs" />
     <None Include="DeviceVideoPlayer.rgs" />
     <None Include="Frame.rgs" />
     <None Include="FrameBuffer.rgs" />
@@ -215,6 +224,7 @@
     <None Include="NullService.rgs" />
     <None Include="NullVideoChannel.rgs" />
     <None Include="ReadMe.txt" />
+    <None Include="Server.rgs" />
     <None Include="ServiceList.rgs" />
     <None Include="Setting.rgs" />
     <None Include="SettingFactory.rgs" />

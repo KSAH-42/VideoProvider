@@ -106,6 +106,15 @@
     <ClCompile Include="ServiceList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ConfigurationService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigurationPersistence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Server.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -210,6 +219,18 @@
     <ClInclude Include="_IServiceListEvents_CP.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ConfigurationService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigurationPersistence.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_IServerEvents_CP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Server.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VideoProvider.rc">
@@ -285,6 +306,15 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="ServiceList.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ConfigurationService.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ConfigurationPersistence.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Server.rgs">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

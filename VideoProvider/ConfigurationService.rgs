@@ -1,0 +1,26 @@
+HKCR
+{
+	MediaProvider.ConfigurationService.1 = s 'ConfigurationService Class'
+	{
+		CLSID = s '{463DB7A1-02DE-47CF-ABA0-F50B4974A444}'
+	}
+	MediaProvider.ConfigurationService = s 'ConfigurationService Class'
+	{		
+		CurVer = s 'MediaProvider.ConfigurationService.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {463DB7A1-02DE-47CF-ABA0-F50B4974A444} = s 'ConfigurationService Class'
+		{
+			ProgID = s 'MediaProvider.ConfigurationService.1'
+			VersionIndependentProgID = s 'MediaProvider.ConfigurationService'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			TypeLib = s '{93C65461-1197-476A-BF43-E7267C5BD30A}'
+			Version = s '1.0'
+		}
+	}
+}

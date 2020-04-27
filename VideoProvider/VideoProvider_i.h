@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Sun Apr 26 12:42:23 2020
+/* at Mon Apr 27 12:35:08 2020
  */
 /* Compiler settings for VideoProvider.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
@@ -189,10 +189,34 @@ typedef interface INullService INullService;
 #endif 	/* __INullService_FWD_DEFINED__ */
 
 
+#ifndef __IConfigurationService_FWD_DEFINED__
+#define __IConfigurationService_FWD_DEFINED__
+typedef interface IConfigurationService IConfigurationService;
+#endif 	/* __IConfigurationService_FWD_DEFINED__ */
+
+
 #ifndef __IServiceList_FWD_DEFINED__
 #define __IServiceList_FWD_DEFINED__
 typedef interface IServiceList IServiceList;
 #endif 	/* __IServiceList_FWD_DEFINED__ */
+
+
+#ifndef __IConfigurationPersistence_FWD_DEFINED__
+#define __IConfigurationPersistence_FWD_DEFINED__
+typedef interface IConfigurationPersistence IConfigurationPersistence;
+#endif 	/* __IConfigurationPersistence_FWD_DEFINED__ */
+
+
+#ifndef __IServer_FWD_DEFINED__
+#define __IServer_FWD_DEFINED__
+typedef interface IServer IServer;
+#endif 	/* __IServer_FWD_DEFINED__ */
+
+
+#ifndef __IServerSite_FWD_DEFINED__
+#define __IServerSite_FWD_DEFINED__
+typedef interface IServerSite IServerSite;
+#endif 	/* __IServerSite_FWD_DEFINED__ */
 
 
 #ifndef __IVideoPlayer_FWD_DEFINED__
@@ -465,6 +489,18 @@ typedef struct NullService NullService;
 #endif 	/* __NullService_FWD_DEFINED__ */
 
 
+#ifndef __ConfigurationService_FWD_DEFINED__
+#define __ConfigurationService_FWD_DEFINED__
+
+#ifdef __cplusplus
+typedef class ConfigurationService ConfigurationService;
+#else
+typedef struct ConfigurationService ConfigurationService;
+#endif /* __cplusplus */
+
+#endif 	/* __ConfigurationService_FWD_DEFINED__ */
+
+
 #ifndef ___IServiceListEvents_FWD_DEFINED__
 #define ___IServiceListEvents_FWD_DEFINED__
 typedef interface _IServiceListEvents _IServiceListEvents;
@@ -481,6 +517,36 @@ typedef struct ServiceList ServiceList;
 #endif /* __cplusplus */
 
 #endif 	/* __ServiceList_FWD_DEFINED__ */
+
+
+#ifndef __ConfigurationPersistence_FWD_DEFINED__
+#define __ConfigurationPersistence_FWD_DEFINED__
+
+#ifdef __cplusplus
+typedef class ConfigurationPersistence ConfigurationPersistence;
+#else
+typedef struct ConfigurationPersistence ConfigurationPersistence;
+#endif /* __cplusplus */
+
+#endif 	/* __ConfigurationPersistence_FWD_DEFINED__ */
+
+
+#ifndef ___IServerEvents_FWD_DEFINED__
+#define ___IServerEvents_FWD_DEFINED__
+typedef interface _IServerEvents _IServerEvents;
+#endif 	/* ___IServerEvents_FWD_DEFINED__ */
+
+
+#ifndef __Server_FWD_DEFINED__
+#define __Server_FWD_DEFINED__
+
+#ifdef __cplusplus
+typedef class Server Server;
+#else
+typedef struct Server Server;
+#endif /* __cplusplus */
+
+#endif 	/* __Server_FWD_DEFINED__ */
 
 
 /* header files for imported files */
@@ -504,7 +570,8 @@ enum VIDEO_CHANNEL_TYPES
 
 typedef 
 enum SERVICE_TYPES
-    {	SERVICE_UNKNOWN	= 0
+    {	SERVICE_UNKNOWN	= 0,
+	SERVICE_CONFIGURATION	= ( SERVICE_UNKNOWN + 1 ) 
     } 	SERVICE_TYPES;
 
 
@@ -4678,6 +4745,255 @@ EXTERN_C const IID IID_INullService;
 #endif 	/* __INullService_INTERFACE_DEFINED__ */
 
 
+#ifndef __IConfigurationService_INTERFACE_DEFINED__
+#define __IConfigurationService_INTERFACE_DEFINED__
+
+/* interface IConfigurationService */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IConfigurationService;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("1F5A6B21-00A1-4585-BD32-C394BB0124CD")
+    IConfigurationService : public IDispatch
+    {
+    public:
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE LoadConfiguration( 
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE LoadConfigurationFromFile( 
+            /* [in] */ BSTR fileName,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE SaveConfiguration( 
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE SaveConfigurationFromFile( 
+            /* [in] */ BSTR fileName,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE ResetConfiguration( void) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE ClearAsSettings( void) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE ReadSetting( 
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ BSTR *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE ReadSettingAsBool( 
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE ReadSettingAsLong( 
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ LONG *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE WriteSetting( 
+            /* [in] */ BSTR setting,
+            /* [in] */ BSTR value,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE WriteSettingAsBool( 
+            /* [in] */ BSTR uniqueID,
+            /* [in] */ VARIANT_BOOL value,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE WriteSettingAsLong( 
+            /* [in] */ BSTR uniqueID,
+            /* [in] */ LONG value,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct IConfigurationServiceVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IConfigurationService * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IConfigurationService * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IConfigurationService * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            IConfigurationService * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            IConfigurationService * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            IConfigurationService * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            IConfigurationService * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *LoadConfiguration )( 
+            IConfigurationService * This,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *LoadConfigurationFromFile )( 
+            IConfigurationService * This,
+            /* [in] */ BSTR fileName,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *SaveConfiguration )( 
+            IConfigurationService * This,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *SaveConfigurationFromFile )( 
+            IConfigurationService * This,
+            /* [in] */ BSTR fileName,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *ResetConfiguration )( 
+            IConfigurationService * This);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *ClearAsSettings )( 
+            IConfigurationService * This);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *ReadSetting )( 
+            IConfigurationService * This,
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ BSTR *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *ReadSettingAsBool )( 
+            IConfigurationService * This,
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *ReadSettingAsLong )( 
+            IConfigurationService * This,
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ LONG *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *WriteSetting )( 
+            IConfigurationService * This,
+            /* [in] */ BSTR setting,
+            /* [in] */ BSTR value,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *WriteSettingAsBool )( 
+            IConfigurationService * This,
+            /* [in] */ BSTR uniqueID,
+            /* [in] */ VARIANT_BOOL value,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *WriteSettingAsLong )( 
+            IConfigurationService * This,
+            /* [in] */ BSTR uniqueID,
+            /* [in] */ LONG value,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        END_INTERFACE
+    } IConfigurationServiceVtbl;
+
+    interface IConfigurationService
+    {
+        CONST_VTBL struct IConfigurationServiceVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IConfigurationService_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IConfigurationService_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IConfigurationService_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IConfigurationService_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define IConfigurationService_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define IConfigurationService_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define IConfigurationService_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#define IConfigurationService_LoadConfiguration(This,out_result)	\
+    ( (This)->lpVtbl -> LoadConfiguration(This,out_result) ) 
+
+#define IConfigurationService_LoadConfigurationFromFile(This,fileName,out_result)	\
+    ( (This)->lpVtbl -> LoadConfigurationFromFile(This,fileName,out_result) ) 
+
+#define IConfigurationService_SaveConfiguration(This,out_result)	\
+    ( (This)->lpVtbl -> SaveConfiguration(This,out_result) ) 
+
+#define IConfigurationService_SaveConfigurationFromFile(This,fileName,out_result)	\
+    ( (This)->lpVtbl -> SaveConfigurationFromFile(This,fileName,out_result) ) 
+
+#define IConfigurationService_ResetConfiguration(This)	\
+    ( (This)->lpVtbl -> ResetConfiguration(This) ) 
+
+#define IConfigurationService_ClearAsSettings(This)	\
+    ( (This)->lpVtbl -> ClearAsSettings(This) ) 
+
+#define IConfigurationService_ReadSetting(This,uniqueID,out_result)	\
+    ( (This)->lpVtbl -> ReadSetting(This,uniqueID,out_result) ) 
+
+#define IConfigurationService_ReadSettingAsBool(This,uniqueID,out_result)	\
+    ( (This)->lpVtbl -> ReadSettingAsBool(This,uniqueID,out_result) ) 
+
+#define IConfigurationService_ReadSettingAsLong(This,uniqueID,out_result)	\
+    ( (This)->lpVtbl -> ReadSettingAsLong(This,uniqueID,out_result) ) 
+
+#define IConfigurationService_WriteSetting(This,setting,value,out_result)	\
+    ( (This)->lpVtbl -> WriteSetting(This,setting,value,out_result) ) 
+
+#define IConfigurationService_WriteSettingAsBool(This,uniqueID,value,out_result)	\
+    ( (This)->lpVtbl -> WriteSettingAsBool(This,uniqueID,value,out_result) ) 
+
+#define IConfigurationService_WriteSettingAsLong(This,uniqueID,value,out_result)	\
+    ( (This)->lpVtbl -> WriteSettingAsLong(This,uniqueID,value,out_result) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IConfigurationService_INTERFACE_DEFINED__ */
+
+
 #ifndef __IServiceList_INTERFACE_DEFINED__
 #define __IServiceList_INTERFACE_DEFINED__
 
@@ -4945,6 +5261,417 @@ EXTERN_C const IID IID_IServiceList;
 
 
 #endif 	/* __IServiceList_INTERFACE_DEFINED__ */
+
+
+#ifndef __IConfigurationPersistence_INTERFACE_DEFINED__
+#define __IConfigurationPersistence_INTERFACE_DEFINED__
+
+/* interface IConfigurationPersistence */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IConfigurationPersistence;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("E1EA218F-2020-43AC-A88F-7361D63E9AE4")
+    IConfigurationPersistence : public IDispatch
+    {
+    public:
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct IConfigurationPersistenceVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IConfigurationPersistence * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IConfigurationPersistence * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IConfigurationPersistence * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            IConfigurationPersistence * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            IConfigurationPersistence * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            IConfigurationPersistence * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            IConfigurationPersistence * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        END_INTERFACE
+    } IConfigurationPersistenceVtbl;
+
+    interface IConfigurationPersistence
+    {
+        CONST_VTBL struct IConfigurationPersistenceVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IConfigurationPersistence_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IConfigurationPersistence_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IConfigurationPersistence_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IConfigurationPersistence_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define IConfigurationPersistence_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define IConfigurationPersistence_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define IConfigurationPersistence_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IConfigurationPersistence_INTERFACE_DEFINED__ */
+
+
+#ifndef __IServer_INTERFACE_DEFINED__
+#define __IServer_INTERFACE_DEFINED__
+
+/* interface IServer */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IServer;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("2E34548B-80D1-4436-8F39-238A57B1B347")
+    IServer : public IDispatch
+    {
+    public:
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Settings( 
+            /* [retval][out] */ ISettingList **pVal) = 0;
+        
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_VideoChannels( 
+            /* [retval][out] */ IVideoChannelList **pVal) = 0;
+        
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Services( 
+            /* [retval][out] */ IServiceList **pVal) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE IsRunning( 
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Run( 
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Shutdown( void) = 0;
+        
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct IServerVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IServer * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IServer * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IServer * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            IServer * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            IServer * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            IServer * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            IServer * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Settings )( 
+            IServer * This,
+            /* [retval][out] */ ISettingList **pVal);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_VideoChannels )( 
+            IServer * This,
+            /* [retval][out] */ IVideoChannelList **pVal);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Services )( 
+            IServer * This,
+            /* [retval][out] */ IServiceList **pVal);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *IsRunning )( 
+            IServer * This,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Run )( 
+            IServer * This,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Shutdown )( 
+            IServer * This);
+        
+        END_INTERFACE
+    } IServerVtbl;
+
+    interface IServer
+    {
+        CONST_VTBL struct IServerVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IServer_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IServer_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IServer_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IServer_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define IServer_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define IServer_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define IServer_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#define IServer_get_Settings(This,pVal)	\
+    ( (This)->lpVtbl -> get_Settings(This,pVal) ) 
+
+#define IServer_get_VideoChannels(This,pVal)	\
+    ( (This)->lpVtbl -> get_VideoChannels(This,pVal) ) 
+
+#define IServer_get_Services(This,pVal)	\
+    ( (This)->lpVtbl -> get_Services(This,pVal) ) 
+
+#define IServer_IsRunning(This,out_result)	\
+    ( (This)->lpVtbl -> IsRunning(This,out_result) ) 
+
+#define IServer_Run(This,out_result)	\
+    ( (This)->lpVtbl -> Run(This,out_result) ) 
+
+#define IServer_Shutdown(This)	\
+    ( (This)->lpVtbl -> Shutdown(This) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IServer_INTERFACE_DEFINED__ */
+
+
+#ifndef __IServerSite_INTERFACE_DEFINED__
+#define __IServerSite_INTERFACE_DEFINED__
+
+/* interface IServerSite */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IServerSite;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("899A9697-4F5F-4D62-844D-6399C8CBEF49")
+    IServerSite : public IDispatch
+    {
+    public:
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Server( 
+            /* [retval][out] */ IServer **pVal) = 0;
+        
+        virtual /* [id][propput] */ HRESULT STDMETHODCALLTYPE put_Server( 
+            /* [in] */ IServer *newVal) = 0;
+        
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct IServerSiteVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IServerSite * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IServerSite * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IServerSite * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            IServerSite * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            IServerSite * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            IServerSite * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            IServerSite * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Server )( 
+            IServerSite * This,
+            /* [retval][out] */ IServer **pVal);
+        
+        /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Server )( 
+            IServerSite * This,
+            /* [in] */ IServer *newVal);
+        
+        END_INTERFACE
+    } IServerSiteVtbl;
+
+    interface IServerSite
+    {
+        CONST_VTBL struct IServerSiteVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IServerSite_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IServerSite_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IServerSite_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IServerSite_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define IServerSite_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define IServerSite_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define IServerSite_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#define IServerSite_get_Server(This,pVal)	\
+    ( (This)->lpVtbl -> get_Server(This,pVal) ) 
+
+#define IServerSite_put_Server(This,newVal)	\
+    ( (This)->lpVtbl -> put_Server(This,newVal) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IServerSite_INTERFACE_DEFINED__ */
 
 
 
@@ -5334,6 +6061,14 @@ class DECLSPEC_UUID("890BFF23-9E26-4974-8A55-D57F9CDDC35B")
 NullService;
 #endif
 
+EXTERN_C const CLSID CLSID_ConfigurationService;
+
+#ifdef __cplusplus
+
+class DECLSPEC_UUID("463DB7A1-02DE-47CF-ABA0-F50B4974A444")
+ConfigurationService;
+#endif
+
 #ifndef ___IServiceListEvents_DISPINTERFACE_DEFINED__
 #define ___IServiceListEvents_DISPINTERFACE_DEFINED__
 
@@ -5447,6 +6182,129 @@ EXTERN_C const CLSID CLSID_ServiceList;
 
 class DECLSPEC_UUID("B9BE617D-F6C4-48E7-BFDF-507EA5DD8174")
 ServiceList;
+#endif
+
+EXTERN_C const CLSID CLSID_ConfigurationPersistence;
+
+#ifdef __cplusplus
+
+class DECLSPEC_UUID("1F6B6C21-67B8-45E5-B39F-BA8E6EE1A24C")
+ConfigurationPersistence;
+#endif
+
+#ifndef ___IServerEvents_DISPINTERFACE_DEFINED__
+#define ___IServerEvents_DISPINTERFACE_DEFINED__
+
+/* dispinterface _IServerEvents */
+/* [uuid] */ 
+
+
+EXTERN_C const IID DIID__IServerEvents;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+
+    MIDL_INTERFACE("6F28AF56-D1CB-4E04-ABAF-A05E892F90CA")
+    _IServerEvents : public IDispatch
+    {
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct _IServerEventsVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            _IServerEvents * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            _IServerEvents * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            _IServerEvents * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            _IServerEvents * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            _IServerEvents * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            _IServerEvents * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            _IServerEvents * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        END_INTERFACE
+    } _IServerEventsVtbl;
+
+    interface _IServerEvents
+    {
+        CONST_VTBL struct _IServerEventsVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define _IServerEvents_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define _IServerEvents_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define _IServerEvents_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define _IServerEvents_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define _IServerEvents_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define _IServerEvents_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define _IServerEvents_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+#endif 	/* ___IServerEvents_DISPINTERFACE_DEFINED__ */
+
+
+EXTERN_C const CLSID CLSID_Server;
+
+#ifdef __cplusplus
+
+class DECLSPEC_UUID("272CF257-4D9D-47BB-8176-8F92C1D5F8BB")
+Server;
 #endif
 #endif /* __VideoProviderLib_LIBRARY_DEFINED__ */
 

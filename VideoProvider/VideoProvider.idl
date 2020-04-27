@@ -18,6 +18,8 @@ typedef enum SERVICE_TYPES
 {
 	SERVICE_UNKNOWN = 0 ,
 
+	SERVICE_CONFIGURATION ,
+
 } SERVICE_TYPES;
 
 //==========================================================================================
@@ -517,6 +519,31 @@ interface INullService : IDispatch
 
 [
 	object,
+	uuid(1F5A6B21-00A1-4585-BD32-C394BB0124CD),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IConfigurationService : IDispatch
+{
+	[id(1)]        HRESULT LoadConfiguration          ([out,retval] VARIANT_BOOL* out_result);
+	[id(2)]        HRESULT LoadConfigurationFromFile  ([in] BSTR fileName, [out,retval] VARIANT_BOOL* out_result);
+	[id(3)]        HRESULT SaveConfiguration          ([out,retval] VARIANT_BOOL* out_result);
+	[id(4)]        HRESULT SaveConfigurationFromFile  ([in] BSTR fileName, [out,retval] VARIANT_BOOL* out_result);
+	[id(5)]        HRESULT ResetConfiguration         (void);
+	[id(6)]        HRESULT ClearAsSettings            (void);
+	[id(7)]        HRESULT ReadSetting                ([in] BSTR uniqueID, [out,retval] BSTR* out_result);
+	[id(8)]        HRESULT ReadSettingAsBool          ([in] BSTR uniqueID, [out,retval] VARIANT_BOOL* out_result);
+	[id(9)]        HRESULT ReadSettingAsLong          ([in] BSTR uniqueID, [out,retval] LONG* out_result);
+	[id(10)]       HRESULT WriteSetting               ([in] BSTR setting, [in] BSTR value, [out,retval] VARIANT_BOOL* out_result);
+	[id(11)]       HRESULT WriteSettingAsBool         ([in] BSTR uniqueID, [in] VARIANT_BOOL value, [out,retval] VARIANT_BOOL* out_result);
+	[id(12)]       HRESULT WriteSettingAsLong         ([in] BSTR uniqueID, [in] LONG value, [out,retval] VARIANT_BOOL* out_result);
+};
+
+//==========================================================================================
+
+[
+	object,
 	uuid(25B97B5F-DF9F-49AC-A0DF-A96F3E24FFB4),
 	dual,
 	nonextensible,
@@ -540,10 +567,60 @@ interface IServiceList : IDispatch
 	[id(14)]         HRESULT Clear         (void);
 };
 
+//==========================================================================================
+
+[
+	object,
+	uuid(E1EA218F-2020-43AC-A88F-7361D63E9AE4),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IConfigurationPersistence : IDispatch
+{
+};
+
+//==========================================================================================
+
+[
+	object,
+	uuid(2E34548B-80D1-4436-8F39-238A57B1B347),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IServer : IDispatch
+{
+	[propget, id(1)] HRESULT Settings       ([out, retval] ISettingList** pVal);
+	[propget, id(2)] HRESULT VideoChannels  ([out, retval] IVideoChannelList** pVal);
+	[propget, id(3)] HRESULT Services       ([out, retval] IServiceList** pVal);
+	[id(4)]          HRESULT IsRunning      ([out,retval] VARIANT_BOOL* out_result);
+	[id(5)]          HRESULT Run            ([out,retval] VARIANT_BOOL* out_result);
+	[id(6)]          HRESULT Shutdown       (void);
+};
+
+//==========================================================================================
+
+[
+	object,
+	uuid(899A9697-4F5F-4D62-844D-6399C8CBEF49),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IServerSite : IDispatch
+{
+	[propget, id(2)] HRESULT Server     ([out, retval] IServer** pVal);
+	
+	[propput, id(2)] HRESULT Server     ([in] IServer* newVal);
+	
+};
 
 //******************************************************************************************
 // LIBRARY
 //******************************************************************************************
+
+
 
 
 
@@ -768,6 +845,16 @@ library VideoProviderLib
 
 	//**************************************************************************************
 	[
+		uuid(463DB7A1-02DE-47CF-ABA0-F50B4974A444)		
+	]
+	coclass ConfigurationService
+	{
+		[default] interface IConfigurationService;
+		          interface IService;
+	};
+
+	//**************************************************************************************
+	[
 		uuid(1169736D-92A2-4351-A53C-E69E4814D065)		
 	]
 	dispinterface _IServiceListEvents
@@ -778,6 +865,7 @@ library VideoProviderLib
 			[id(2)] HRESULT OnRemoved  ([in] SERVICE_TYPES type);
 	};
 
+	//**************************************************************************************
 	[
 		uuid(B9BE617D-F6C4-48E7-BFDF-507EA5DD8174)		
 	]
@@ -785,5 +873,36 @@ library VideoProviderLib
 	{
 		[default] interface IServiceList;
 		[default, source] dispinterface _IServiceListEvents;
+	};
+	
+	//**************************************************************************************
+	[
+		uuid(1F6B6C21-67B8-45E5-B39F-BA8E6EE1A24C)		
+	]
+	coclass ConfigurationPersistence
+	{
+		[default] interface IConfigurationPersistence;
+	};
+	
+	//**************************************************************************************
+	[
+		uuid(6F28AF56-D1CB-4E04-ABAF-A05E892F90CA)		
+	]
+	dispinterface _IServerEvents
+	{
+		properties:
+		methods:
+			[id(1)] HRESULT OnStarted  ([in] SERVICE_TYPES type);
+			[id(2)] HRESULT OnStopped  ([in] SERVICE_TYPES type);
+	};
+	
+	//**************************************************************************************
+	[
+		uuid(272CF257-4D9D-47BB-8176-8F92C1D5F8BB)		
+	]
+	coclass Server
+	{
+		[default] interface IServer;
+		[default, source] dispinterface _IServerEvents;
 	};
 };
