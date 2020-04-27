@@ -118,11 +118,11 @@ STDMETHODIMP CFrame::Create( LONG size , VARIANT_BOOL initToZero , VARIANT_BOOL*
 		
 	if ( VARIANT_TRUE == initToZero )
 	{
-		(BYTE*) ::calloc( size , sizeof( BYTE ) );
+		pBuffer = (BYTE*) ::calloc( size , sizeof( BYTE ) );
 	}
 	else
 	{
-		(BYTE*) ::malloc( size );
+		pBuffer = (BYTE*) ::malloc( size );
 	}		
 
 	if ( NULL == pBuffer )
@@ -132,6 +132,8 @@ STDMETHODIMP CFrame::Create( LONG size , VARIANT_BOOL initToZero , VARIANT_BOOL*
 
 	m_data = pBuffer;
 	m_size = size;
+
+	*out_result = VARIANT_TRUE;
 
 	return S_OK;
 }
