@@ -17,95 +17,71 @@ STDMETHODIMP CConfigurationService::get_Type(SERVICE_TYPES* pVal)
 
 STDMETHODIMP CConfigurationService::LoadConfiguration(VARIANT_BOOL* out_result)
 {
-	// TODO: Add your implementation code here
-
-	return S_OK;
+	return E_NOTIMPL;
 }
 
 
 STDMETHODIMP CConfigurationService::LoadConfigurationFromFile(BSTR fileName, VARIANT_BOOL* out_result)
 {
-	// TODO: Add your implementation code here
-
-	return S_OK;
+	return E_NOTIMPL;
 }
 
 
 STDMETHODIMP CConfigurationService::SaveConfiguration(VARIANT_BOOL* out_result)
 {
-	// TODO: Add your implementation code here
-
-	return S_OK;
+	return E_NOTIMPL;
 }
 
 
 STDMETHODIMP CConfigurationService::SaveConfigurationFromFile(BSTR fileName, VARIANT_BOOL* out_result)
 {
-	// TODO: Add your implementation code here
-
-	return S_OK;
+	return E_NOTIMPL;
 }
 
 
 STDMETHODIMP CConfigurationService::ResetConfiguration(void)
 {
-	// TODO: Add your implementation code here
-
-	return S_OK;
+	return E_NOTIMPL;
 }
 
 
 STDMETHODIMP CConfigurationService::ClearAsSettings(void)
 {
-	// TODO: Add your implementation code here
-
-	return S_OK;
+	return E_NOTIMPL;
 }
 
 
 STDMETHODIMP CConfigurationService::ReadSetting(BSTR uniqueID, BSTR* out_result)
 {
-	// TODO: Add your implementation code here
-
-	return S_OK;
+	return E_NOTIMPL;
 }
 
 
 STDMETHODIMP CConfigurationService::ReadSettingAsBool(BSTR uniqueID, VARIANT_BOOL* out_result)
 {
-	// TODO: Add your implementation code here
-
-	return S_OK;
+	return E_NOTIMPL;
 }
 
 
 STDMETHODIMP CConfigurationService::ReadSettingAsLong(BSTR uniqueID, LONG* out_result)
 {
-	// TODO: Add your implementation code here
-
-	return S_OK;
+	return E_NOTIMPL;
 }
 
 
 STDMETHODIMP CConfigurationService::WriteSetting(BSTR setting, BSTR value, VARIANT_BOOL* out_result)
 {
-	// TODO: Add your implementation code here
-
-	return S_OK;
+	return E_NOTIMPL;
 }
 
 
 STDMETHODIMP CConfigurationService::WriteSettingAsBool(BSTR uniqueID, VARIANT_BOOL value, VARIANT_BOOL* out_result)
 {
-	// TODO: Add your implementation code here
-
-	return S_OK;
+	return E_NOTIMPL;
 }
 
 
 STDMETHODIMP CConfigurationService::WriteSettingAsLong(BSTR uniqueID, LONG value, VARIANT_BOOL* out_result)
 {
-	// TODO: Add your implementation code here
-
-	return S_OK;
+	return E_NOTIMPL;
 }
