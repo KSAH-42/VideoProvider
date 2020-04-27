@@ -7,7 +7,7 @@ CCoInitializer::CCoInitializer(void)
 {
 	HRESULT hr = ::CoInitializeEx( NULL , COINIT_MULTITHREADED );
 
-	if ( SUCCEEDED( hr ) )
+	if ( S_OK == hr )
 	{
 		m_isInitialized = true;
 	}
