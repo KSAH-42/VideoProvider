@@ -26,7 +26,7 @@ STDMETHODIMP CVideoDeviceInfoDiscovery::SearchDevices(IVideoDeviceInfoList** out
 	{
 		return E_FAIL;
 	}
-
+	
 	CComPtr<IMediaMonikerStore> monikerStore;
 
 	hr = monikerStore.CoCreateInstance( CLSID_MediaMonikerStore );
@@ -38,15 +38,8 @@ STDMETHODIMP CVideoDeviceInfoDiscovery::SearchDevices(IVideoDeviceInfoList** out
 
 	CComPtr<IMediaMonikerList> monikerList;
 
-	hr = monikerList.CoCreateInstance( CLSID_MediaMonikerList );
-
-	if ( FAILED( hr ) || NULL == monikerList.p )
-	{
-		return S_FALSE;
-	}
-
 	hr = monikerStore->FindAll( &monikerList.p );
-
+	
 	if ( FAILED( hr ) || NULL == monikerList.p )
 	{
 		return S_FALSE;
@@ -60,7 +53,7 @@ STDMETHODIMP CVideoDeviceInfoDiscovery::SearchDevices(IVideoDeviceInfoList** out
 	{
 		return S_FALSE;
 	}
-
+	
 	LONG numberOfMonikers = 0;
 
 	hr = monikerList->get_Count( &numberOfMonikers );
@@ -69,7 +62,7 @@ STDMETHODIMP CVideoDeviceInfoDiscovery::SearchDevices(IVideoDeviceInfoList** out
 	{
 		return S_FALSE;
 	}
-
+	
 	for ( LONG index = 0 ; index < numberOfMonikers ; ++ index )
 	{
 		CComPtr<IMoniker> moniker;

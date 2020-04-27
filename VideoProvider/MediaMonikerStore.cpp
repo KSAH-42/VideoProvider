@@ -10,23 +10,23 @@ STDMETHODIMP CMediaMonikerStore::FindAll(IMediaMonikerList** out_result)
 	}
 
 	*out_result = NULL;
-
+	
 	CComPtr<IMediaMonikerList> monikers;
 
 	HRESULT hr = monikers.CoCreateInstance( CLSID_MediaMonikerList );
-
+		
 	if ( FAILED( hr ) || NULL == monikers.p )
 	{
 		return E_OUTOFMEMORY;
 	}
-
+	
 	hr = monikers.CopyTo( out_result );
-
+	
 	if ( FAILED( hr ) )
 	{
 		return E_ABORT;
 	}
-
+	
 	CComPtr<ICreateDevEnum> deviceEnumerator;
 
 	hr = deviceEnumerator.CoCreateInstance( CLSID_SystemDeviceEnum );
@@ -44,9 +44,9 @@ STDMETHODIMP CMediaMonikerStore::FindAll(IMediaMonikerList** out_result)
 	{
 		return S_FALSE;
 	}
-
+	
 	CComPtr<IMoniker> moniker;
-
+	
 	while ( S_OK == monikerEnumerator->Next( 1 , &moniker.p , NULL ) )
 	{
 		if ( NULL == moniker.p )
