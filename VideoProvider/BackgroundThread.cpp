@@ -141,6 +141,11 @@ STDMETHODIMP CBackgroundThread::Start(void* lpRoutine, void* lpRoutineArg, VARIA
 
 STDMETHODIMP CBackgroundThread::Stop()
 {
+	if ( NULL == m_hHandle )
+	{
+		return S_OK;
+	}
+
 	bool success = false;
 
 	if ( NULL != this->m_hExit )
