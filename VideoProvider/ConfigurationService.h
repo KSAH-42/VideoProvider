@@ -55,7 +55,7 @@ public:
 	
 	STDMETHOD     (ResetConfiguration)        (void);
 
-	STDMETHOD     (ClearAsSettings)           (void);
+	STDMETHOD     (ClearAllSettings)          (void);
 
 	STDMETHOD     (ReadSetting)               (BSTR uniqueID, BSTR* out_result);
 	

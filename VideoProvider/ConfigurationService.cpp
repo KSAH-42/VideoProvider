@@ -45,7 +45,7 @@ STDMETHODIMP CConfigurationService::ResetConfiguration(void)
 }
 
 
-STDMETHODIMP CConfigurationService::ClearAsSettings(void)
+STDMETHODIMP CConfigurationService::ClearAllSettings(void)
 {
 	return E_NOTIMPL;
 }

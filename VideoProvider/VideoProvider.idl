@@ -531,7 +531,7 @@ interface IConfigurationService : IDispatch
 	[id(3)]        HRESULT SaveConfiguration          ([out,retval] VARIANT_BOOL* out_result);
 	[id(4)]        HRESULT SaveConfigurationFromFile  ([in] BSTR fileName, [out,retval] VARIANT_BOOL* out_result);
 	[id(5)]        HRESULT ResetConfiguration         (void);
-	[id(6)]        HRESULT ClearAsSettings            (void);
+	[id(6)]        HRESULT ClearAllSettings           (void);
 	[id(7)]        HRESULT ReadSetting                ([in] BSTR uniqueID, [out,retval] BSTR* out_result);
 	[id(8)]        HRESULT ReadSettingAsBool          ([in] BSTR uniqueID, [out,retval] VARIANT_BOOL* out_result);
 	[id(9)]        HRESULT ReadSettingAsLong          ([in] BSTR uniqueID, [out,retval] LONG* out_result);
