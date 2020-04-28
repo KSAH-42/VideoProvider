@@ -535,7 +535,7 @@ interface IConfigurationService : IDispatch
 	[id(7)]        HRESULT ReadSetting                ([in] BSTR uniqueID, [out,retval] BSTR* out_result);
 	[id(8)]        HRESULT ReadSettingAsBool          ([in] BSTR uniqueID, [out,retval] VARIANT_BOOL* out_result);
 	[id(9)]        HRESULT ReadSettingAsLong          ([in] BSTR uniqueID, [out,retval] LONG* out_result);
-	[id(10)]       HRESULT WriteSetting               ([in] BSTR setting, [in] BSTR value, [out,retval] VARIANT_BOOL* out_result);
+	[id(10)]       HRESULT WriteSetting               ([in] BSTR uniqueID, [in] BSTR value, [out,retval] VARIANT_BOOL* out_result);
 	[id(11)]       HRESULT WriteSettingAsBool         ([in] BSTR uniqueID, [in] VARIANT_BOOL value, [out,retval] VARIANT_BOOL* out_result);
 	[id(12)]       HRESULT WriteSettingAsLong         ([in] BSTR uniqueID, [in] LONG value, [out,retval] VARIANT_BOOL* out_result);
 };

@@ -69,7 +69,7 @@ STDMETHODIMP CConfigurationService::ReadSettingAsLong(BSTR uniqueID, LONG* out_r
 }
 
 
-STDMETHODIMP CConfigurationService::WriteSetting(BSTR setting, BSTR value, VARIANT_BOOL* out_result)
+STDMETHODIMP CConfigurationService::WriteSetting(BSTR uniqueID, BSTR value, VARIANT_BOOL* out_result)
 {
 	return E_NOTIMPL;
 }

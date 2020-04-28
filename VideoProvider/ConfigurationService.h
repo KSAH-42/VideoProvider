@@ -63,7 +63,7 @@ public:
 	
 	STDMETHOD     (ReadSettingAsLong)         (BSTR uniqueID, LONG* out_result);
 	
-	STDMETHOD     (WriteSetting)              (BSTR setting, BSTR value, VARIANT_BOOL* out_result);
+	STDMETHOD     (WriteSetting)              (BSTR uniqueID, BSTR value, VARIANT_BOOL* out_result);
 	
 	STDMETHOD     (WriteSettingAsBool)        (BSTR uniqueID, VARIANT_BOOL value, VARIANT_BOOL* out_result);
 	
