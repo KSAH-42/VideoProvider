@@ -592,7 +592,7 @@ interface IConfigurationPersistence : IDispatch
 interface IServer : IDispatch
 {
 	[propget, id(1)] HRESULT Settings       ([out, retval] ISettingList** pVal);
-	[propget, id(2)] HRESULT VideoChannels  ([out, retval] IVideoChannelList** pVal);
+	[propget, id(2)] HRESULT Channels       ([out, retval] IVideoChannelList** pVal);
 	[propget, id(3)] HRESULT Services       ([out, retval] IServiceList** pVal);
 	[id(4)]          HRESULT IsRunning      ([out,retval] VARIANT_BOOL* out_result);
 	[id(5)]          HRESULT Run            ([out,retval] VARIANT_BOOL* out_result);

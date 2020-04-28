@@ -18,7 +18,7 @@ private:
 	CComPtr<IBackgroundThread>      m_thread;
 
 	CComPtr<ISettingList>           m_settings;
-	CComPtr<IVideoChannelList>      m_videoChannels;
+	CComPtr<IVideoChannelList>      m_channels;
 	CComPtr<IServiceList>           m_services;
 
 public:
@@ -60,9 +60,9 @@ public:
 			return E_FAIL;
 		}
 
-		hr = m_videoChannels.CoCreateInstance( CLSID_VideoChannelList );
+		hr = m_channels.CoCreateInstance( CLSID_VideoChannelList );
 
-		if ( FAILED( hr ) || NULL == m_videoChannels.p )
+		if ( FAILED( hr ) || NULL == m_channels.p )
 		{
 			return E_FAIL;
 		}
@@ -86,7 +86,7 @@ public:
 
 	STDMETHOD    (get_Settings)        (ISettingList** pVal);
 	
-	STDMETHOD    (get_VideoChannels)   (IVideoChannelList** pVal);
+	STDMETHOD    (get_Channels)        (IVideoChannelList** pVal);
 	
 	STDMETHOD    (get_Services)        (IServiceList** pVal);
 	

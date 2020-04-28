@@ -8,9 +8,9 @@ STDMETHODIMP CServer::get_Settings(ISettingList** pVal)
 }
 
 
-STDMETHODIMP CServer::get_VideoChannels(IVideoChannelList** pVal)
+STDMETHODIMP CServer::get_Channels(IVideoChannelList** pVal)
 {
-	return m_videoChannels.CopyTo( pVal );
+	return m_channels.CopyTo( pVal );
 }
 
 
