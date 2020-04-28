@@ -47,14 +47,14 @@ interface IInitializer : IUnknown
 ]
 interface IBackgroundThread : IDispatch
 {
-	[propget, id(1)]    HRESULT Handle          ([out, retval]	ULONG*						pVal);
-	[propget, id(2)]    HRESULT HandleEventExit ([out, retval]	ULONG*						pVal);
-	[propget, id(3)]    HRESULT Identifier      ([out, retval]	ULONG*						pVal);
-	[id(4)]             HRESULT IsStarted       ([out,retval]	VARIANT_BOOL*				out_result);
-	[id(5)]             HRESULT IsAlive         ([out,retval]	VARIANT_BOOL*				out_result);
-	[id(6),local]       HRESULT Start           ([in]			void*						lpRoutine ,			[in]		 void*			lpRoutineArg		, [out,retval]	 VARIANT_BOOL*	out_result);
+	[propget, id(1)]    HRESULT Handle          ([out, retval]  ULONG*           pVal);
+	[propget, id(2)]    HRESULT HandleEventExit ([out, retval]  ULONG*           pVal);
+	[propget, id(3)]    HRESULT Identifier      ([out, retval]  ULONG*           pVal);
+	[id(4)]             HRESULT IsStarted       ([out,retval]   VARIANT_BOOL*    out_result);
+	[id(5)]             HRESULT IsAlive         ([out,retval]   VARIANT_BOOL*    out_result);
+	[id(6),local]       HRESULT Start           ([in]           void*            lpRoutine , [in] void*	lpRoutineArg , [out,retval] VARIANT_BOOL* out_result);
 	[id(7)]             HRESULT Stop            (void);
-	[id(8)]             HRESULT CanContinue     ([in]			ULONG						timeout,			[out,retval] VARIANT_BOOL*	out_result);
+	[id(8)]             HRESULT CanContinue     ([in]           ULONG            timeout, [out,retval] VARIANT_BOOL* out_result);
 	[id(9)]             HRESULT PumpEvents      (void);
 };
 
@@ -299,17 +299,11 @@ interface IVideoGraphRunner : IDispatch
 interface ISetting : IDispatch
 {
 	[propget, id(1)] HRESULT UniqueID   ([out, retval] BSTR* pVal);
-	
 	[propget, id(2)] HRESULT Value      ([out, retval] BSTR* pVal);
-	
 	[propput, id(2)] HRESULT Value      ([in] BSTR newVal);
-	
 	[propget, id(3)] HRESULT IsDirty    ([out, retval] VARIANT_BOOL* pVal);
-	
 	[propput, id(3)] HRESULT IsDirty    ([in] VARIANT_BOOL newVal);
-	
 	[id(4)]          HRESULT Validate   ([out,retval] VARIANT_BOOL* out_result);
-	
 	[id(5)]          HRESULT Reset      (void);
 };
 
@@ -367,25 +361,15 @@ interface ISettingFactory : IDispatch
 interface IFrame : IDispatch
 {
 	[propget, id(1)] HRESULT Size       ([out, retval] LONG* pVal);
-	
 	[propget, id(2)] HRESULT IsEmpty    ([out, retval] VARIANT_BOOL* pVal);
-	
 	[propget, id(3)] HRESULT Values     ([out, retval] BYTE** pVal);
-	
 	[id(4)]          HRESULT IsCreated  ([out,retval] VARIANT_BOOL* out_result);
-
 	[id(5)]          HRESULT Create     ([in] LONG size , [in] VARIANT_BOOL initToZero , [out,retval] VARIANT_BOOL* out_result);
-	
 	[id(6)]          HRESULT CopyFrom   ([in] BYTE* values , [in] LONG size , [out,retval] VARIANT_BOOL* out_result);
-	
 	[id(7)]          HRESULT GetAt      ([in] LONG index , [out,retval] BYTE* out_result );
-	
 	[id(8)]          HRESULT SetAt      ([in] LONG index , [in] BYTE value , [out,retval] VARIANT_BOOL* out_result );
-	
 	[id(9)]          HRESULT Clear      ();
-	
 	[id(10)]         HRESULT Destroy    ();
-
 };
 
 //==========================================================================================
@@ -400,25 +384,15 @@ interface IFrame : IDispatch
 interface IFrameBuffer : IDispatch
 {
 	[propget, id(1)] HRESULT CanWrite        ([out, retval] VARIANT_BOOL* pVal);
-	
 	[propput, id(1)] HRESULT CanWrite        ([in] VARIANT_BOOL newVal);
-
 	[propget, id(2)] HRESULT Limit           ([out, retval] LONG* pVal);
-	
 	[propput, id(2)] HRESULT Limit           ([in] LONG newVal);
-	
 	[propget, id(3)] HRESULT Size            ([out, retval] LONG* pVal);
-	
 	[propget, id(4)] HRESULT IsEmpty         ([out, retval] VARIANT_BOOL* pVal);
-
 	[propget, id(5)] HRESULT IsFull          ([out, retval] VARIANT_BOOL* pVal);
-	
 	[id(6)]          HRESULT Read            ([out,retval] IFrame** out_result);
-	
-	[id(7)]          HRESULT Write           ([in] IFrame* frame, [out,retval] VARIANT_BOOL* out_result);
-	
-	[id(8)]          HRESULT Clear           (void);
-	
+	[id(7)]          HRESULT Write           ([in] IFrame* frame, [out,retval] VARIANT_BOOL* out_result);	
+	[id(8)]          HRESULT Clear           (void);	
 	[id(9)]          HRESULT Synchronize     ([in] ULONG timeout, [in] ULONG cancelationHandle, [out,retval] VARIANT_BOOL* out_result);
 
 };
@@ -434,16 +408,11 @@ interface IFrameBuffer : IDispatch
 ]
 interface IVideoChannel : IDispatch
 {
-	[propget, id(1)] HRESULT Type          ([out, retval] VIDEO_CHANNEL_TYPES* pVal);
-	
+	[propget, id(1)] HRESULT Type          ([out, retval] VIDEO_CHANNEL_TYPES* pVal);	
 	[propget, id(2)] HRESULT UniqueID      ([out, retval] BSTR* pVal);
-	
 	[propget, id(3)] HRESULT Buffer        ([out, retval] IFrameBuffer** pVal);
-	
 	[id(4)]          HRESULT IsStarted     ([out,retval]  VARIANT_BOOL* out_result);
-	
 	[id(5)]          HRESULT Start         ([out,retval]  VARIANT_BOOL* out_result);
-	
 	[id(6)]          HRESULT Stop          ();
 };
 

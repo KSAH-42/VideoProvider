@@ -243,14 +243,9 @@ STDMETHODIMP CFrame::Clear()
 {
 	CCritSecLock lock( m_cs );
 
-	if ( NULL == m_data )
+	if ( NULL == m_data || 0 >= m_size )
 	{
-		return S_OK;
-	}
-
-	if ( 0 >= m_size )
-	{
-		return E_ABORT;
+		return S_FALSE;
 	}
 
 	memset( (void*) m_data , 0 , m_size );
