@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Mon Apr 27 12:35:08 2020
+/* at Fri May 01 12:29:20 2020
  */
 /* Compiler settings for VideoProvider.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
@@ -4776,7 +4776,7 @@ EXTERN_C const IID IID_IConfigurationService;
         
         virtual /* [id] */ HRESULT STDMETHODCALLTYPE ResetConfiguration( void) = 0;
         
-        virtual /* [id] */ HRESULT STDMETHODCALLTYPE ClearAsSettings( void) = 0;
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE ClearAllSettings( void) = 0;
         
         virtual /* [id] */ HRESULT STDMETHODCALLTYPE ReadSetting( 
             /* [in] */ BSTR uniqueID,
@@ -4791,7 +4791,7 @@ EXTERN_C const IID IID_IConfigurationService;
             /* [retval][out] */ LONG *out_result) = 0;
         
         virtual /* [id] */ HRESULT STDMETHODCALLTYPE WriteSetting( 
-            /* [in] */ BSTR setting,
+            /* [in] */ BSTR uniqueID,
             /* [in] */ BSTR value,
             /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
         
@@ -4875,7 +4875,7 @@ EXTERN_C const IID IID_IConfigurationService;
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *ResetConfiguration )( 
             IConfigurationService * This);
         
-        /* [id] */ HRESULT ( STDMETHODCALLTYPE *ClearAsSettings )( 
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *ClearAllSettings )( 
             IConfigurationService * This);
         
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *ReadSetting )( 
@@ -4895,7 +4895,7 @@ EXTERN_C const IID IID_IConfigurationService;
         
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *WriteSetting )( 
             IConfigurationService * This,
-            /* [in] */ BSTR setting,
+            /* [in] */ BSTR uniqueID,
             /* [in] */ BSTR value,
             /* [retval][out] */ VARIANT_BOOL *out_result);
         
@@ -4962,8 +4962,8 @@ EXTERN_C const IID IID_IConfigurationService;
 #define IConfigurationService_ResetConfiguration(This)	\
     ( (This)->lpVtbl -> ResetConfiguration(This) ) 
 
-#define IConfigurationService_ClearAsSettings(This)	\
-    ( (This)->lpVtbl -> ClearAsSettings(This) ) 
+#define IConfigurationService_ClearAllSettings(This)	\
+    ( (This)->lpVtbl -> ClearAllSettings(This) ) 
 
 #define IConfigurationService_ReadSetting(This,uniqueID,out_result)	\
     ( (This)->lpVtbl -> ReadSetting(This,uniqueID,out_result) ) 
@@ -4974,8 +4974,8 @@ EXTERN_C const IID IID_IConfigurationService;
 #define IConfigurationService_ReadSettingAsLong(This,uniqueID,out_result)	\
     ( (This)->lpVtbl -> ReadSettingAsLong(This,uniqueID,out_result) ) 
 
-#define IConfigurationService_WriteSetting(This,setting,value,out_result)	\
-    ( (This)->lpVtbl -> WriteSetting(This,setting,value,out_result) ) 
+#define IConfigurationService_WriteSetting(This,uniqueID,value,out_result)	\
+    ( (This)->lpVtbl -> WriteSetting(This,uniqueID,value,out_result) ) 
 
 #define IConfigurationService_WriteSettingAsBool(This,uniqueID,value,out_result)	\
     ( (This)->lpVtbl -> WriteSettingAsBool(This,uniqueID,value,out_result) ) 
@@ -5385,14 +5385,14 @@ EXTERN_C const IID IID_IServer;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
-    MIDL_INTERFACE("2E34548B-80D1-4436-8F39-238A57B1B347")
+    MIDL_INTERFACE("00D8E0D4-CAA2-4C3E-93A9-EEB1CF683754")
     IServer : public IDispatch
     {
     public:
         virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Settings( 
             /* [retval][out] */ ISettingList **pVal) = 0;
         
-        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_VideoChannels( 
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Channels( 
             /* [retval][out] */ IVideoChannelList **pVal) = 0;
         
         virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Services( 
@@ -5459,7 +5459,7 @@ EXTERN_C const IID IID_IServer;
             IServer * This,
             /* [retval][out] */ ISettingList **pVal);
         
-        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_VideoChannels )( 
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Channels )( 
             IServer * This,
             /* [retval][out] */ IVideoChannelList **pVal);
         
@@ -5517,8 +5517,8 @@ EXTERN_C const IID IID_IServer;
 #define IServer_get_Settings(This,pVal)	\
     ( (This)->lpVtbl -> get_Settings(This,pVal) ) 
 
-#define IServer_get_VideoChannels(This,pVal)	\
-    ( (This)->lpVtbl -> get_VideoChannels(This,pVal) ) 
+#define IServer_get_Channels(This,pVal)	\
+    ( (This)->lpVtbl -> get_Channels(This,pVal) ) 
 
 #define IServer_get_Services(This,pVal)	\
     ( (This)->lpVtbl -> get_Services(This,pVal) ) 
@@ -6303,7 +6303,7 @@ EXTERN_C const CLSID CLSID_Server;
 
 #ifdef __cplusplus
 
-class DECLSPEC_UUID("272CF257-4D9D-47BB-8176-8F92C1D5F8BB")
+class DECLSPEC_UUID("7BBB6084-1385-4099-8289-1CEC1A95B383")
 Server;
 #endif
 #endif /* __VideoProviderLib_LIBRARY_DEFINED__ */
