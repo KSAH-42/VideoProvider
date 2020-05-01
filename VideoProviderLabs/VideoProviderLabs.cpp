@@ -1,4 +1,3 @@
-#define _CRTDBG_MAP_ALLOC
 
 #include "stdafx.h"
 #include <conio.h>
@@ -7,6 +6,8 @@
 #include <deque>
 #include <stdlib.h>
 #include <crtdbg.h>
+
+#define _CRTDBG_MAP_ALLOC
 
 #import <VideoProvider.dll>
 

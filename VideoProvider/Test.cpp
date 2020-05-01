@@ -36,7 +36,7 @@ STDMETHODIMP CTest::Run(void)
 		::OutputDebugString( L"CTest::Run no devices found \n" );
 		return S_FALSE;
 	}
-
+	
 	VARIANT_BOOL boolResult = VARIANT_FALSE;
 
 	hr = deviceInfo->Validate( &boolResult );
@@ -53,7 +53,7 @@ STDMETHODIMP CTest::Run(void)
 	deviceInfo->get_Name( &deviceName );
 
 	CComPtr<IVideoPlayer> player;
-
+	
 	hr = player.CoCreateInstance( CLSID_DeviceVideoPlayer );
 
 	if ( FAILED( hr ) || NULL == player.p )
@@ -91,8 +91,8 @@ STDMETHODIMP CTest::Run(void)
 	while ( 0 == _kbhit() )
 	{
 		::MsgWaitForMultipleObjects( 0, NULL, FALSE, 100, QS_ALLEVENTS);
-
-		while ( TRUE == ::PeekMessage( &msg , NULL , 0 , 0 , PM_REMOVE ) )
+		
+		while ( ::PeekMessage( &msg , NULL , 0 , 0 , PM_REMOVE ) )
 		{
 			::DispatchMessage( &msg );
 			::TranslateMessage( &msg );
@@ -100,7 +100,7 @@ STDMETHODIMP CTest::Run(void)
 	}
 	
 	player->Stop();
-
+	
 	return S_OK;
 }
 

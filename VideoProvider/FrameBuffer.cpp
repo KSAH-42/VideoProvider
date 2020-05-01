@@ -176,7 +176,7 @@ STDMETHODIMP CFrameBuffer::Write(IFrame* frame, VARIANT_BOOL* out_result)
 
 	CCritSecLock lock( m_cs );
 
-	if ( VARIANT_FALSE == m_canWrite )
+	if ( ! m_canWrite )
 	{
 		return S_OK;
 	}
