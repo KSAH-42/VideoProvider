@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Fri May 01 12:29:20 2020
+/* at Wed Jul 01 17:37:12 2020
  */
 /* Compiler settings for VideoProvider.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
@@ -49,6 +49,18 @@
 #define __IInitializer_FWD_DEFINED__
 typedef interface IInitializer IInitializer;
 #endif 	/* __IInitializer_FWD_DEFINED__ */
+
+
+#ifndef __IObjectInitializer_FWD_DEFINED__
+#define __IObjectInitializer_FWD_DEFINED__
+typedef interface IObjectInitializer IObjectInitializer;
+#endif 	/* __IObjectInitializer_FWD_DEFINED__ */
+
+
+#ifndef __IObjectFactory_FWD_DEFINED__
+#define __IObjectFactory_FWD_DEFINED__
+typedef interface IObjectFactory IObjectFactory;
+#endif 	/* __IObjectFactory_FWD_DEFINED__ */
 
 
 #ifndef __IBackgroundThread_FWD_DEFINED__
@@ -235,6 +247,18 @@ typedef interface IVideoChannel IVideoChannel;
 #define __IService_FWD_DEFINED__
 typedef interface IService IService;
 #endif 	/* __IService_FWD_DEFINED__ */
+
+
+#ifndef __ObjectFactory_FWD_DEFINED__
+#define __ObjectFactory_FWD_DEFINED__
+
+#ifdef __cplusplus
+typedef class ObjectFactory ObjectFactory;
+#else
+typedef struct ObjectFactory ObjectFactory;
+#endif /* __cplusplus */
+
+#endif 	/* __ObjectFactory_FWD_DEFINED__ */
 
 
 #ifndef __BackgroundThread_FWD_DEFINED__
@@ -656,6 +680,222 @@ EXTERN_C const IID IID_IInitializer;
 
 
 #endif 	/* __IInitializer_INTERFACE_DEFINED__ */
+
+
+#ifndef __IObjectInitializer_INTERFACE_DEFINED__
+#define __IObjectInitializer_INTERFACE_DEFINED__
+
+/* interface IObjectInitializer */
+/* [unique][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IObjectInitializer;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("FB5F1C5E-401A-47C4-A970-EC963C5D166A")
+    IObjectInitializer : public IUnknown
+    {
+    public:
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Initialize( 
+            /* [in] */ BSTR uniqueID) = 0;
+        
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct IObjectInitializerVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IObjectInitializer * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IObjectInitializer * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IObjectInitializer * This);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Initialize )( 
+            IObjectInitializer * This,
+            /* [in] */ BSTR uniqueID);
+        
+        END_INTERFACE
+    } IObjectInitializerVtbl;
+
+    interface IObjectInitializer
+    {
+        CONST_VTBL struct IObjectInitializerVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IObjectInitializer_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IObjectInitializer_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IObjectInitializer_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IObjectInitializer_Initialize(This,uniqueID)	\
+    ( (This)->lpVtbl -> Initialize(This,uniqueID) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IObjectInitializer_INTERFACE_DEFINED__ */
+
+
+#ifndef __IObjectFactory_INTERFACE_DEFINED__
+#define __IObjectFactory_INTERFACE_DEFINED__
+
+/* interface IObjectFactory */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IObjectFactory;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("EEDF965F-F2A9-4DD5-A0CE-05B8C17673C0")
+    IObjectFactory : public IDispatch
+    {
+    public:
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE CreateObject( 
+            /* [in] */ GUID classID,
+            /* [retval][out] */ IDispatch **out_result) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE CreateObjectByID( 
+            /* [in] */ GUID classID,
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ IDispatch **out_result) = 0;
+        
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct IObjectFactoryVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IObjectFactory * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IObjectFactory * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IObjectFactory * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            IObjectFactory * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            IObjectFactory * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            IObjectFactory * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            IObjectFactory * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *CreateObject )( 
+            IObjectFactory * This,
+            /* [in] */ GUID classID,
+            /* [retval][out] */ IDispatch **out_result);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *CreateObjectByID )( 
+            IObjectFactory * This,
+            /* [in] */ GUID classID,
+            /* [in] */ BSTR uniqueID,
+            /* [retval][out] */ IDispatch **out_result);
+        
+        END_INTERFACE
+    } IObjectFactoryVtbl;
+
+    interface IObjectFactory
+    {
+        CONST_VTBL struct IObjectFactoryVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IObjectFactory_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IObjectFactory_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IObjectFactory_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IObjectFactory_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define IObjectFactory_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define IObjectFactory_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define IObjectFactory_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#define IObjectFactory_CreateObject(This,classID,out_result)	\
+    ( (This)->lpVtbl -> CreateObject(This,classID,out_result) ) 
+
+#define IObjectFactory_CreateObjectByID(This,classID,uniqueID,out_result)	\
+    ( (This)->lpVtbl -> CreateObjectByID(This,classID,uniqueID,out_result) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IObjectFactory_INTERFACE_DEFINED__ */
 
 
 #ifndef __IBackgroundThread_INTERFACE_DEFINED__
@@ -5686,6 +5926,14 @@ EXTERN_C const IID IID_IServerSite;
 
 
 EXTERN_C const IID LIBID_VideoProviderLib;
+
+EXTERN_C const CLSID CLSID_ObjectFactory;
+
+#ifdef __cplusplus
+
+class DECLSPEC_UUID("9A710360-14AE-4DBA-958D-F144DE451CD4")
+ObjectFactory;
+#endif
 
 EXTERN_C const CLSID CLSID_BackgroundThread;
 

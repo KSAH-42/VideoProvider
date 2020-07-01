@@ -40,6 +40,33 @@ interface IInitializer : IUnknown
 
 [
 	object,
+	uuid(FB5F1C5E-401A-47C4-A970-EC963C5D166A),
+	pointer_default(unique)
+]
+interface IObjectInitializer : IUnknown
+{
+	[id(1)]   HRESULT Initialize ([in] BSTR uniqueID );
+};
+
+//==========================================================================================
+
+[
+	object,
+	uuid(EEDF965F-F2A9-4DD5-A0CE-05B8C17673C0),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IObjectFactory : IDispatch
+{
+	[id(1)]             HRESULT CreateObject       ([in] GUID classID , [out,retval]   IDispatch** out_result);
+	[id(2)]             HRESULT CreateObjectByID   ([in] GUID classID , [in]           BSTR        uniqueID , [out,retval]   IDispatch** out_result);
+};
+
+//==========================================================================================
+
+[
+	object,
 	uuid(942603F1-4744-4C1A-B35B-0D4164E82B9E),
 	dual,
 	nonextensible,
@@ -585,13 +612,10 @@ interface IServerSite : IDispatch
 	
 };
 
+
 //******************************************************************************************
 // LIBRARY
 //******************************************************************************************
-
-
-
-
 
 
 [
@@ -605,6 +629,15 @@ library VideoProviderLib
     interface IVideoPlayer;
 	interface IVideoChannel;
 	interface IService;
+
+	//**************************************************************************************
+	[
+		uuid(9A710360-14AE-4DBA-958D-F144DE451CD4)		
+	]
+	coclass ObjectFactory
+	{
+		[default] interface IObjectFactory;
+	};
 
     //**************************************************************************************
     [

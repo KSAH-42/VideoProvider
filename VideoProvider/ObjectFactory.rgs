@@ -1,0 +1,26 @@
+HKCR
+{
+	VideoProvider.ObjectFactory.1 = s 'ObjectFactory Class'
+	{
+		CLSID = s '{9A710360-14AE-4DBA-958D-F144DE451CD4}'
+	}
+	VideoProvider.ObjectFactory = s 'ObjectFactory Class'
+	{		
+		CurVer = s 'VideoProvider.ObjectFactory.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9A710360-14AE-4DBA-958D-F144DE451CD4} = s 'ObjectFactory Class'
+		{
+			ProgID = s 'VideoProvider.ObjectFactory.1'
+			VersionIndependentProgID = s 'VideoProvider.ObjectFactory'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			TypeLib = s '{93C65461-1197-476A-BF43-E7267C5BD30A}'
+			Version = s '1.0'
+		}
+	}
+}

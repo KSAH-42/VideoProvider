@@ -115,6 +115,9 @@
     <ClCompile Include="Server.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -231,6 +234,9 @@
     <ClInclude Include="Server.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ObjectFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VideoProvider.rc">
@@ -315,6 +321,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="Server.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ObjectFactory.rgs">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

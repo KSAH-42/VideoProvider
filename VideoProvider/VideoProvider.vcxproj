@@ -132,6 +132,7 @@
     <ClCompile Include="MediaMonikerStore.cpp" />
     <ClCompile Include="NullService.cpp" />
     <ClCompile Include="NullVideoChannel.cpp" />
+    <ClCompile Include="ObjectFactory.cpp" />
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="ServiceList.cpp" />
     <ClCompile Include="Setting.cpp" />
@@ -183,6 +184,7 @@
     <ClInclude Include="MediaMonikerStore.h" />
     <ClInclude Include="NullService.h" />
     <ClInclude Include="NullVideoChannel.h" />
+    <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SampleGrabber.h" />
     <ClInclude Include="Server.h" />
@@ -223,6 +225,7 @@
     <None Include="MediaMonikerStore.rgs" />
     <None Include="NullService.rgs" />
     <None Include="NullVideoChannel.rgs" />
+    <None Include="ObjectFactory.rgs" />
     <None Include="ReadMe.txt" />
     <None Include="Server.rgs" />
     <None Include="ServiceList.rgs" />

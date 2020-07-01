@@ -119,12 +119,12 @@ STDMETHODIMP CBackgroundThread::Start(void* lpRoutine, void* lpRoutineArg, VARIA
 		return S_FALSE;
 	}
 		
-	if ( TRUE != ResetEvent( this->m_hExit ) )
+	if ( TRUE != ::ResetEvent( this->m_hExit ) )
 	{
 		return S_FALSE;
 	}
-				
-	this->m_hHandle = CreateThread( NULL , 0 , (LPTHREAD_START_ROUTINE) lpRoutine , lpRoutineArg , 0 , &this->m_identifer );
+	
+	this->m_hHandle = ::CreateThread( NULL , 0 , (LPTHREAD_START_ROUTINE) lpRoutine , lpRoutineArg , 0 , &this->m_identifer );
 
 	if ( NULL == this->m_hHandle )
 	{
@@ -150,7 +150,7 @@ STDMETHODIMP CBackgroundThread::Stop()
 
 	if ( NULL != this->m_hExit )
 	{
-		if ( TRUE == SetEvent( this->m_hExit ) )
+		if ( TRUE == ::SetEvent( this->m_hExit ) )
 		{
 			if ( WAIT_OBJECT_0 == ::WaitForSingleObject( this->m_hHandle , INFINITE ) )
 			{
