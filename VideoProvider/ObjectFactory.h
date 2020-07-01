@@ -9,9 +9,9 @@ class ATL_NO_VTABLE CObjectFactory :
 	public CComCoClass<CObjectFactory, &CLSID_ObjectFactory>,
 	public IDispatchImpl<IObjectFactory, &IID_IObjectFactory, &LIBID_VideoProviderLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
 {
-	CRITICAL_SECTION m_cs;
-
+	
 public:
+
 	CObjectFactory()
 	{
 	}
@@ -27,14 +27,11 @@ public:
 
 	HRESULT FinalConstruct()
 	{
-		::InitializeCriticalSection( &m_cs );
-
 		return S_OK;
 	}
 
 	void FinalRelease()
 	{
-		::DeleteCriticalSection( &m_cs );
 	}
 
 public:
