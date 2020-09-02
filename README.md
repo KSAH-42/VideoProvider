@@ -27,6 +27,8 @@ You must have the administrator privilege to allow visual studio to perform a CO
 
 The second thing is purely hardware. On windows, you can't have two applications that used at the same time your web camera. The access of your web camera is controlled by the operating system. And Windows can deny the access of the web cam, if there is an another application that used the camera. So make sure that any application on any windows accounts is not actually using the web camera.
 
+For instance, during the initialization of some workfows, if you don't have enougth privileges to access to the camera, some COM objects will return E_ACCESSDENIED value.
+
 # What is actually completed ?
 
 If your run the application test, you see the video stream of your camera. The application will discovered and select the first installed web camera of your computer.
