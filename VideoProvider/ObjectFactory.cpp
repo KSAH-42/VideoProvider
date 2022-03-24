@@ -15,7 +15,7 @@ STDMETHODIMP CObjectFactory::CreateObject( GUID classID , IDispatch** out_result
 
 	HRESULT hr = object.CoCreateInstance( classID );
 
-	if ( FAILED( hr ) || NULL == object.p )
+	if ( S_OK != hr || NULL == object.p )
 	{
 		return E_FAIL;
 	}
@@ -47,7 +47,7 @@ STDMETHODIMP CObjectFactory::CreateObjectByID( GUID classID , BSTR uniqueID , ID
 
 	HRESULT hr = object.CoCreateInstance( classID );
 
-	if ( FAILED( hr ) || NULL == object.p )
+	if ( S_OK != hr || NULL == object.p )
 	{
 		return E_FAIL;
 	}
@@ -56,14 +56,14 @@ STDMETHODIMP CObjectFactory::CreateObjectByID( GUID classID , BSTR uniqueID , ID
 
 	hr = object.QueryInterface( &initializer.p );
 
-	if ( FAILED( hr ) || NULL == initializer.p )
+	if ( S_OK != hr || NULL == initializer.p )
 	{
 		return E_NOINTERFACE;
 	}
 
 	hr = initializer->Initialize( uniqueID );
 
-	if ( FAILED( hr ) )
+	if ( S_OK != hr )
 	{
 		return E_FAIL;
 	}

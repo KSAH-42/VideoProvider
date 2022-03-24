@@ -50,11 +50,17 @@ void Run()
 
 	if ( NULL != test.p )
 	{
-		test->Run();
+		HRESULT hr = test->Run();
+
+		if (hr != S_OK)
+		{
+			cout << "Please verify if the camera is not used by an another application\n" << endl;
+			cout << "Verify if the camera is not deactivated: please note, that many labtops include a hardware button which can be used for a quick activation/deactivation without to move on the windows settings panel\n" << endl;
+		}
 	}
 	else
 	{
-		cout << ( L"Please make sure that the COM VideoProvider.dll is registered \n" ) << endl;
+		cout << "Please make sure that the COM VideoProvider.dll is registered \n" << endl;
 	}
 }
 

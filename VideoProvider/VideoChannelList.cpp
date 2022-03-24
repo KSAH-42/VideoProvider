@@ -169,7 +169,7 @@ STDMETHODIMP CVideoChannelList::Add(IVideoChannel* channel, VARIANT_BOOL* out_re
 
 	HRESULT hr = spVideoChannel->get_Type( &type );
 
-	if ( FAILED( hr ) || VIDEO_CHANNEL_UNKNOWN == type )
+	if ( S_OK != hr || VIDEO_CHANNEL_UNKNOWN == type )
 	{
 		return S_OK;
 	}
@@ -178,7 +178,7 @@ STDMETHODIMP CVideoChannelList::Add(IVideoChannel* channel, VARIANT_BOOL* out_re
 
 	hr = spVideoChannel->get_UniqueID( &id );
 
-	if ( FAILED( hr ) || NULL == id.m_str || 0 >= id.Length() )
+	if ( S_OK != hr || NULL == id.m_str || 0 >= id.Length() )
 	{
 		return S_OK;
 	}

@@ -20,7 +20,7 @@ STDMETHODIMP CVideoDeviceInfoAdapter::Adapt(IMoniker* moniker, IVideoDeviceInfo*
 
 	HRESULT hr = deviceInfo.CoCreateInstance( CLSID_VideoDeviceInfo );
 
-	if ( FAILED( hr ) || NULL == deviceInfo.p )
+	if ( S_OK != hr || NULL == deviceInfo.p )
 	{
 		return E_OUTOFMEMORY;
 	}

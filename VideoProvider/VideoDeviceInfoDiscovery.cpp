@@ -15,14 +15,14 @@ STDMETHODIMP CVideoDeviceInfoDiscovery::SearchDevices(IVideoDeviceInfoList** out
 
 	HRESULT hr = devices.CoCreateInstance( CLSID_VideoDeviceInfoList );
 
-	if ( FAILED( hr ) || NULL == devices.p )
+	if ( S_OK != hr || NULL == devices.p )
 	{
 		return E_FAIL;
 	}
 
 	hr = devices.CopyTo( out_result );
 
-	if ( FAILED( hr ) )
+	if ( S_OK != hr)
 	{
 		return E_FAIL;
 	}
@@ -31,7 +31,7 @@ STDMETHODIMP CVideoDeviceInfoDiscovery::SearchDevices(IVideoDeviceInfoList** out
 
 	hr = monikerStore.CoCreateInstance( CLSID_MediaMonikerStore );
 
-	if ( FAILED( hr ) || NULL == monikerStore.p )
+	if ( S_OK != hr || NULL == monikerStore.p )
 	{
 		return S_FALSE;
 	}
@@ -40,7 +40,7 @@ STDMETHODIMP CVideoDeviceInfoDiscovery::SearchDevices(IVideoDeviceInfoList** out
 
 	hr = monikerStore->FindAll( &monikerList.p );
 	
-	if ( FAILED( hr ) || NULL == monikerList.p )
+	if ( S_OK != hr || NULL == monikerList.p )
 	{
 		return S_FALSE;
 	}
@@ -49,7 +49,7 @@ STDMETHODIMP CVideoDeviceInfoDiscovery::SearchDevices(IVideoDeviceInfoList** out
 
 	hr = deviceAdapter.CoCreateInstance( CLSID_VideoDeviceInfoAdapter );
 
-	if ( FAILED( hr ) || NULL == deviceAdapter.p )
+	if ( S_OK != hr || NULL == deviceAdapter.p )
 	{
 		return S_FALSE;
 	}
@@ -58,7 +58,7 @@ STDMETHODIMP CVideoDeviceInfoDiscovery::SearchDevices(IVideoDeviceInfoList** out
 
 	hr = monikerList->get_Count( &numberOfMonikers );
 
-	if ( FAILED( hr ) )
+	if ( S_OK != hr )
 	{
 		return S_FALSE;
 	}
@@ -69,7 +69,7 @@ STDMETHODIMP CVideoDeviceInfoDiscovery::SearchDevices(IVideoDeviceInfoList** out
 
 		hr = monikerList->FindAt( index , &moniker.p );
 
-		if ( FAILED( hr ) || NULL == moniker.p )
+		if ( S_OK != hr || NULL == moniker.p )
 		{
 			continue;
 		}
@@ -78,7 +78,7 @@ STDMETHODIMP CVideoDeviceInfoDiscovery::SearchDevices(IVideoDeviceInfoList** out
 
 		hr = deviceAdapter->Adapt( moniker , &device.p );
 
-		if ( FAILED( hr ) || NULL == device.p )
+		if ( S_OK != hr || NULL == device.p )
 		{
 			continue;
 		}

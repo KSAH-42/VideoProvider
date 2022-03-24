@@ -28,6 +28,13 @@ STDMETHODIMP CServer::IsRunning(VARIANT_BOOL* out_result)
 
 STDMETHODIMP CServer::Run(VARIANT_BOOL* out_result)
 {
+	if ( out_result == NULL )
+	{
+		return E_POINTER;
+	}
+
+	*out_result = VARIANT_FALSE;
+
 	return E_NOTIMPL;
 }
 

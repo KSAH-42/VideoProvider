@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "ConfigurationService.h"
 
+#pragma warning ( disable : 4100 )
+
 
 STDMETHODIMP CConfigurationService::get_Type(SERVICE_TYPES* pVal)
 {
@@ -85,3 +87,6 @@ STDMETHODIMP CConfigurationService::WriteSettingAsLong(BSTR uniqueID, LONG value
 {
 	return E_NOTIMPL;
 }
+
+
+#pragma warning ( enable : 4100 )

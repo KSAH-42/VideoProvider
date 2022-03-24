@@ -35,17 +35,18 @@ public:
 	{
 		HRESULT hr = m_graph.CoCreateInstance( CLSID_VideoGraph );
 
-		if ( FAILED( hr ) || NULL == m_graph.p )
+		if ( S_OK != hr || NULL == m_graph.p )
 		{
 			return E_FAIL;
 		}
 
 		hr = m_graph->get_Configuration( &m_configuration.p );
 
-		if ( FAILED( hr ) || NULL == m_configuration.p )
+		if ( S_OK != hr || NULL == m_configuration.p )
 		{
 			return E_FAIL;
 		}
+		
 		return S_OK;
 	}
 

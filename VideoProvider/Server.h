@@ -48,28 +48,28 @@ public:
 
 		hr = m_thread.CoCreateInstance( CLSID_BackgroundThread );
 
-		if ( FAILED( hr ) || NULL == m_thread.p )
+		if ( S_OK != hr || NULL == m_thread.p )
 		{
 			return E_FAIL;
 		}
 
 		hr = m_settings.CoCreateInstance( CLSID_SettingList );
 
-		if ( FAILED( hr ) || NULL == m_settings.p )
+		if ( S_OK != hr || NULL == m_settings.p )
 		{
 			return E_FAIL;
 		}
 
 		hr = m_channels.CoCreateInstance( CLSID_VideoChannelList );
 
-		if ( FAILED( hr ) || NULL == m_channels.p )
+		if ( S_OK != hr || NULL == m_channels.p )
 		{
 			return E_FAIL;
 		}
 
 		hr = m_services.CoCreateInstance( CLSID_ServiceList );
 
-		if ( FAILED( hr ) || NULL == m_services.p )
+		if ( S_OK != hr || NULL == m_services.p )
 		{
 			return E_FAIL;
 		}

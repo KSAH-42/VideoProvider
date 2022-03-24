@@ -15,14 +15,14 @@ STDMETHODIMP CMediaMonikerStore::FindAll(IMediaMonikerList** out_result)
 
 	HRESULT hr = monikers.CoCreateInstance( CLSID_MediaMonikerList );
 		
-	if ( FAILED( hr ) || NULL == monikers.p )
+	if ( S_OK != hr || NULL == monikers.p )
 	{
 		return E_OUTOFMEMORY;
 	}
 	
 	hr = monikers.CopyTo( out_result );
 	
-	if ( FAILED( hr ) )
+	if ( S_OK != hr )
 	{
 		return E_ABORT;
 	}
@@ -31,7 +31,7 @@ STDMETHODIMP CMediaMonikerStore::FindAll(IMediaMonikerList** out_result)
 
 	hr = deviceEnumerator.CoCreateInstance( CLSID_SystemDeviceEnum );
 
-	if ( FAILED( hr ) || NULL == deviceEnumerator.p )
+	if ( S_OK != hr || NULL == deviceEnumerator.p )
 	{
 		return S_FALSE;
 	}
@@ -40,7 +40,7 @@ STDMETHODIMP CMediaMonikerStore::FindAll(IMediaMonikerList** out_result)
 
 	hr = deviceEnumerator->CreateClassEnumerator( CLSID_VideoInputDeviceCategory , &monikerEnumerator.p , 0 );
 
-	if ( FAILED( hr ) || NULL == deviceEnumerator.p )
+	if ( S_OK != hr || NULL == deviceEnumerator.p )
 	{
 		return S_FALSE;
 	}
@@ -90,7 +90,7 @@ STDMETHODIMP CMediaMonikerStore::FindByName(BSTR deviceName, IMoniker** out_resu
 
 	HRESULT hr = deviceEnumerator.CoCreateInstance( CLSID_SystemDeviceEnum );
 
-	if ( FAILED( hr ) || NULL == deviceEnumerator.p )
+	if ( S_OK != hr || NULL == deviceEnumerator.p )
 	{
 		return S_FALSE;
 	}
@@ -99,7 +99,7 @@ STDMETHODIMP CMediaMonikerStore::FindByName(BSTR deviceName, IMoniker** out_resu
 
 	hr = deviceEnumerator->CreateClassEnumerator( CLSID_VideoInputDeviceCategory , &monikerEnumerator.p , 0 );
 
-	if ( FAILED( hr ) || NULL == deviceEnumerator.p )
+	if ( S_OK != hr || NULL == deviceEnumerator.p )
 	{
 		return S_FALSE;
 	}

@@ -3,11 +3,11 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 7.00.0555 */
-/* at Wed Jul 01 17:37:12 2020
+ /* File created by MIDL compiler version 8.01.0622 */
+/* at Tue Jan 19 04:14:07 2038
  */
 /* Compiler settings for VideoProvider.idl:
-    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
+    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.01.0622 
     protocol : dce , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
@@ -16,12 +16,11 @@
 */
 /* @@MIDL_FILE_HEADING(  ) */
 
-#pragma warning( disable: 4049 )  /* more than 64k source lines */
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 475
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 #include "rpc.h"
@@ -29,7 +28,7 @@
 
 #ifndef __RPCNDR_H_VERSION__
 #error this stub requires an updated version of <rpcndr.h>
-#endif // __RPCNDR_H_VERSION__
+#endif /* __RPCNDR_H_VERSION__ */
 
 #ifndef COM_NO_WINDOWS_H
 #include "windows.h"
@@ -48,204 +47,238 @@
 #ifndef __IInitializer_FWD_DEFINED__
 #define __IInitializer_FWD_DEFINED__
 typedef interface IInitializer IInitializer;
+
 #endif 	/* __IInitializer_FWD_DEFINED__ */
 
 
 #ifndef __IObjectInitializer_FWD_DEFINED__
 #define __IObjectInitializer_FWD_DEFINED__
 typedef interface IObjectInitializer IObjectInitializer;
+
 #endif 	/* __IObjectInitializer_FWD_DEFINED__ */
 
 
 #ifndef __IObjectFactory_FWD_DEFINED__
 #define __IObjectFactory_FWD_DEFINED__
 typedef interface IObjectFactory IObjectFactory;
+
 #endif 	/* __IObjectFactory_FWD_DEFINED__ */
 
 
 #ifndef __IBackgroundThread_FWD_DEFINED__
 #define __IBackgroundThread_FWD_DEFINED__
 typedef interface IBackgroundThread IBackgroundThread;
+
 #endif 	/* __IBackgroundThread_FWD_DEFINED__ */
 
 
 #ifndef __IVideoGraphConfiguration_FWD_DEFINED__
 #define __IVideoGraphConfiguration_FWD_DEFINED__
 typedef interface IVideoGraphConfiguration IVideoGraphConfiguration;
+
 #endif 	/* __IVideoGraphConfiguration_FWD_DEFINED__ */
 
 
 #ifndef __IVideoGraph_FWD_DEFINED__
 #define __IVideoGraph_FWD_DEFINED__
 typedef interface IVideoGraph IVideoGraph;
+
 #endif 	/* __IVideoGraph_FWD_DEFINED__ */
 
 
 #ifndef __IMediaMonikerList_FWD_DEFINED__
 #define __IMediaMonikerList_FWD_DEFINED__
 typedef interface IMediaMonikerList IMediaMonikerList;
+
 #endif 	/* __IMediaMonikerList_FWD_DEFINED__ */
 
 
 #ifndef __IMediaMonikerStore_FWD_DEFINED__
 #define __IMediaMonikerStore_FWD_DEFINED__
 typedef interface IMediaMonikerStore IMediaMonikerStore;
+
 #endif 	/* __IMediaMonikerStore_FWD_DEFINED__ */
 
 
 #ifndef __IVideoDeviceInfo_FWD_DEFINED__
 #define __IVideoDeviceInfo_FWD_DEFINED__
 typedef interface IVideoDeviceInfo IVideoDeviceInfo;
+
 #endif 	/* __IVideoDeviceInfo_FWD_DEFINED__ */
 
 
 #ifndef __IVideoDeviceInfoList_FWD_DEFINED__
 #define __IVideoDeviceInfoList_FWD_DEFINED__
 typedef interface IVideoDeviceInfoList IVideoDeviceInfoList;
+
 #endif 	/* __IVideoDeviceInfoList_FWD_DEFINED__ */
 
 
 #ifndef __IVideoDeviceInfoAdapter_FWD_DEFINED__
 #define __IVideoDeviceInfoAdapter_FWD_DEFINED__
 typedef interface IVideoDeviceInfoAdapter IVideoDeviceInfoAdapter;
+
 #endif 	/* __IVideoDeviceInfoAdapter_FWD_DEFINED__ */
 
 
 #ifndef __IVideoDeviceInfoDiscovery_FWD_DEFINED__
 #define __IVideoDeviceInfoDiscovery_FWD_DEFINED__
 typedef interface IVideoDeviceInfoDiscovery IVideoDeviceInfoDiscovery;
+
 #endif 	/* __IVideoDeviceInfoDiscovery_FWD_DEFINED__ */
 
 
 #ifndef __IVideoPlayer_FWD_DEFINED__
 #define __IVideoPlayer_FWD_DEFINED__
 typedef interface IVideoPlayer IVideoPlayer;
+
 #endif 	/* __IVideoPlayer_FWD_DEFINED__ */
 
 
 #ifndef __IDeviceVideoPlayer_FWD_DEFINED__
 #define __IDeviceVideoPlayer_FWD_DEFINED__
 typedef interface IDeviceVideoPlayer IDeviceVideoPlayer;
+
 #endif 	/* __IDeviceVideoPlayer_FWD_DEFINED__ */
 
 
 #ifndef __ITest_FWD_DEFINED__
 #define __ITest_FWD_DEFINED__
 typedef interface ITest ITest;
+
 #endif 	/* __ITest_FWD_DEFINED__ */
 
 
 #ifndef __IVideoGraphRunner_FWD_DEFINED__
 #define __IVideoGraphRunner_FWD_DEFINED__
 typedef interface IVideoGraphRunner IVideoGraphRunner;
+
 #endif 	/* __IVideoGraphRunner_FWD_DEFINED__ */
 
 
 #ifndef __ISetting_FWD_DEFINED__
 #define __ISetting_FWD_DEFINED__
 typedef interface ISetting ISetting;
+
 #endif 	/* __ISetting_FWD_DEFINED__ */
 
 
 #ifndef __ISettingList_FWD_DEFINED__
 #define __ISettingList_FWD_DEFINED__
 typedef interface ISettingList ISettingList;
+
 #endif 	/* __ISettingList_FWD_DEFINED__ */
 
 
 #ifndef __ISettingFactory_FWD_DEFINED__
 #define __ISettingFactory_FWD_DEFINED__
 typedef interface ISettingFactory ISettingFactory;
+
 #endif 	/* __ISettingFactory_FWD_DEFINED__ */
 
 
 #ifndef __IFrame_FWD_DEFINED__
 #define __IFrame_FWD_DEFINED__
 typedef interface IFrame IFrame;
+
 #endif 	/* __IFrame_FWD_DEFINED__ */
 
 
 #ifndef __IFrameBuffer_FWD_DEFINED__
 #define __IFrameBuffer_FWD_DEFINED__
 typedef interface IFrameBuffer IFrameBuffer;
+
 #endif 	/* __IFrameBuffer_FWD_DEFINED__ */
 
 
 #ifndef __IVideoChannel_FWD_DEFINED__
 #define __IVideoChannel_FWD_DEFINED__
 typedef interface IVideoChannel IVideoChannel;
+
 #endif 	/* __IVideoChannel_FWD_DEFINED__ */
 
 
 #ifndef __IVideoChannelList_FWD_DEFINED__
 #define __IVideoChannelList_FWD_DEFINED__
 typedef interface IVideoChannelList IVideoChannelList;
+
 #endif 	/* __IVideoChannelList_FWD_DEFINED__ */
 
 
 #ifndef __INullVideoChannel_FWD_DEFINED__
 #define __INullVideoChannel_FWD_DEFINED__
 typedef interface INullVideoChannel INullVideoChannel;
+
 #endif 	/* __INullVideoChannel_FWD_DEFINED__ */
 
 
 #ifndef __IService_FWD_DEFINED__
 #define __IService_FWD_DEFINED__
 typedef interface IService IService;
+
 #endif 	/* __IService_FWD_DEFINED__ */
 
 
 #ifndef __INullService_FWD_DEFINED__
 #define __INullService_FWD_DEFINED__
 typedef interface INullService INullService;
+
 #endif 	/* __INullService_FWD_DEFINED__ */
 
 
 #ifndef __IConfigurationService_FWD_DEFINED__
 #define __IConfigurationService_FWD_DEFINED__
 typedef interface IConfigurationService IConfigurationService;
+
 #endif 	/* __IConfigurationService_FWD_DEFINED__ */
 
 
 #ifndef __IServiceList_FWD_DEFINED__
 #define __IServiceList_FWD_DEFINED__
 typedef interface IServiceList IServiceList;
+
 #endif 	/* __IServiceList_FWD_DEFINED__ */
 
 
 #ifndef __IConfigurationPersistence_FWD_DEFINED__
 #define __IConfigurationPersistence_FWD_DEFINED__
 typedef interface IConfigurationPersistence IConfigurationPersistence;
+
 #endif 	/* __IConfigurationPersistence_FWD_DEFINED__ */
 
 
 #ifndef __IServer_FWD_DEFINED__
 #define __IServer_FWD_DEFINED__
 typedef interface IServer IServer;
+
 #endif 	/* __IServer_FWD_DEFINED__ */
 
 
 #ifndef __IServerSite_FWD_DEFINED__
 #define __IServerSite_FWD_DEFINED__
 typedef interface IServerSite IServerSite;
+
 #endif 	/* __IServerSite_FWD_DEFINED__ */
 
 
 #ifndef __IVideoPlayer_FWD_DEFINED__
 #define __IVideoPlayer_FWD_DEFINED__
 typedef interface IVideoPlayer IVideoPlayer;
+
 #endif 	/* __IVideoPlayer_FWD_DEFINED__ */
 
 
 #ifndef __IVideoChannel_FWD_DEFINED__
 #define __IVideoChannel_FWD_DEFINED__
 typedef interface IVideoChannel IVideoChannel;
+
 #endif 	/* __IVideoChannel_FWD_DEFINED__ */
 
 
 #ifndef __IService_FWD_DEFINED__
 #define __IService_FWD_DEFINED__
 typedef interface IService IService;
+
 #endif 	/* __IService_FWD_DEFINED__ */
 
 
@@ -420,6 +453,7 @@ typedef struct Setting Setting;
 #ifndef ___ISettingListEvents_FWD_DEFINED__
 #define ___ISettingListEvents_FWD_DEFINED__
 typedef interface _ISettingListEvents _ISettingListEvents;
+
 #endif 	/* ___ISettingListEvents_FWD_DEFINED__ */
 
 
@@ -474,6 +508,7 @@ typedef struct FrameBuffer FrameBuffer;
 #ifndef ___IVideoChannelListEvents_FWD_DEFINED__
 #define ___IVideoChannelListEvents_FWD_DEFINED__
 typedef interface _IVideoChannelListEvents _IVideoChannelListEvents;
+
 #endif 	/* ___IVideoChannelListEvents_FWD_DEFINED__ */
 
 
@@ -528,6 +563,7 @@ typedef struct ConfigurationService ConfigurationService;
 #ifndef ___IServiceListEvents_FWD_DEFINED__
 #define ___IServiceListEvents_FWD_DEFINED__
 typedef interface _IServiceListEvents _IServiceListEvents;
+
 #endif 	/* ___IServiceListEvents_FWD_DEFINED__ */
 
 
@@ -558,6 +594,7 @@ typedef struct ConfigurationPersistence ConfigurationPersistence;
 #ifndef ___IServerEvents_FWD_DEFINED__
 #define ___IServerEvents_FWD_DEFINED__
 typedef interface _IServerEvents _IServerEvents;
+
 #endif 	/* ___IServerEvents_FWD_DEFINED__ */
 
 
@@ -588,14 +625,16 @@ extern "C"{
 
 typedef 
 enum VIDEO_CHANNEL_TYPES
-    {	VIDEO_CHANNEL_UNKNOWN	= 0,
-	VIDEO_CHANNEL_CAMERA	= ( VIDEO_CHANNEL_UNKNOWN + 1 ) 
+    {
+        VIDEO_CHANNEL_UNKNOWN	= 0,
+        VIDEO_CHANNEL_CAMERA	= ( VIDEO_CHANNEL_UNKNOWN + 1 ) 
     } 	VIDEO_CHANNEL_TYPES;
 
 typedef 
 enum SERVICE_TYPES
-    {	SERVICE_UNKNOWN	= 0,
-	SERVICE_CONFIGURATION	= ( SERVICE_UNKNOWN + 1 ) 
+    {
+        SERVICE_UNKNOWN	= 0,
+        SERVICE_CONFIGURATION	= ( SERVICE_UNKNOWN + 1 ) 
     } 	SERVICE_TYPES;
 
 
@@ -623,6 +662,7 @@ EXTERN_C const IID IID_IInitializer;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IInitializerVtbl
@@ -633,7 +673,7 @@ EXTERN_C const IID IID_IInitializer;
             IInitializer * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IInitializer * This);
@@ -702,6 +742,7 @@ EXTERN_C const IID IID_IObjectInitializer;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IObjectInitializerVtbl
@@ -712,7 +753,7 @@ EXTERN_C const IID IID_IObjectInitializer;
             IObjectInitializer * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IObjectInitializer * This);
@@ -787,6 +828,7 @@ EXTERN_C const IID IID_IObjectFactory;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IObjectFactoryVtbl
@@ -797,7 +839,7 @@ EXTERN_C const IID IID_IObjectFactory;
             IObjectFactory * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IObjectFactory * This);
@@ -825,14 +867,22 @@ EXTERN_C const IID IID_IObjectFactory;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IObjectFactory * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *CreateObject )( 
             IObjectFactory * This,
@@ -943,6 +993,7 @@ EXTERN_C const IID IID_IBackgroundThread;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IBackgroundThreadVtbl
@@ -953,7 +1004,7 @@ EXTERN_C const IID IID_IBackgroundThread;
             IBackgroundThread * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBackgroundThread * This);
@@ -981,14 +1032,22 @@ EXTERN_C const IID IID_IBackgroundThread;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IBackgroundThread * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Handle )( 
             IBackgroundThread * This,
@@ -1150,6 +1209,7 @@ EXTERN_C const IID IID_IVideoGraphConfiguration;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IVideoGraphConfigurationVtbl
@@ -1160,7 +1220,7 @@ EXTERN_C const IID IID_IVideoGraphConfiguration;
             IVideoGraphConfiguration * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IVideoGraphConfiguration * This);
@@ -1188,14 +1248,22 @@ EXTERN_C const IID IID_IVideoGraphConfiguration;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IVideoGraphConfiguration * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Window )( 
             IVideoGraphConfiguration * This,
@@ -1390,6 +1458,7 @@ EXTERN_C const IID IID_IVideoGraph;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IVideoGraphVtbl
@@ -1400,7 +1469,7 @@ EXTERN_C const IID IID_IVideoGraph;
             IVideoGraph * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IVideoGraph * This);
@@ -1428,14 +1497,22 @@ EXTERN_C const IID IID_IVideoGraph;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IVideoGraph * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Configuration )( 
             IVideoGraph * This,
@@ -1664,6 +1741,7 @@ EXTERN_C const IID IID_IMediaMonikerList;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IMediaMonikerListVtbl
@@ -1674,7 +1752,7 @@ EXTERN_C const IID IID_IMediaMonikerList;
             IMediaMonikerList * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMediaMonikerList * This);
@@ -1702,14 +1780,22 @@ EXTERN_C const IID IID_IMediaMonikerList;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IMediaMonikerList * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Count )( 
             IMediaMonikerList * This,
@@ -1856,6 +1942,7 @@ EXTERN_C const IID IID_IMediaMonikerStore;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IMediaMonikerStoreVtbl
@@ -1866,7 +1953,7 @@ EXTERN_C const IID IID_IMediaMonikerStore;
             IMediaMonikerStore * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMediaMonikerStore * This);
@@ -1894,14 +1981,22 @@ EXTERN_C const IID IID_IMediaMonikerStore;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IMediaMonikerStore * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *FindAll )( 
             IMediaMonikerStore * This,
@@ -2003,6 +2098,7 @@ EXTERN_C const IID IID_IVideoDeviceInfo;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IVideoDeviceInfoVtbl
@@ -2013,7 +2109,7 @@ EXTERN_C const IID IID_IVideoDeviceInfo;
             IVideoDeviceInfo * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IVideoDeviceInfo * This);
@@ -2041,14 +2137,22 @@ EXTERN_C const IID IID_IVideoDeviceInfo;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IVideoDeviceInfo * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Name )( 
             IVideoDeviceInfo * This,
@@ -2197,6 +2301,7 @@ EXTERN_C const IID IID_IVideoDeviceInfoList;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IVideoDeviceInfoListVtbl
@@ -2207,7 +2312,7 @@ EXTERN_C const IID IID_IVideoDeviceInfoList;
             IVideoDeviceInfoList * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IVideoDeviceInfoList * This);
@@ -2235,14 +2340,22 @@ EXTERN_C const IID IID_IVideoDeviceInfoList;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IVideoDeviceInfoList * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Count )( 
             IVideoDeviceInfoList * This,
@@ -2386,6 +2499,7 @@ EXTERN_C const IID IID_IVideoDeviceInfoAdapter;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IVideoDeviceInfoAdapterVtbl
@@ -2396,7 +2510,7 @@ EXTERN_C const IID IID_IVideoDeviceInfoAdapter;
             IVideoDeviceInfoAdapter * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IVideoDeviceInfoAdapter * This);
@@ -2424,14 +2538,22 @@ EXTERN_C const IID IID_IVideoDeviceInfoAdapter;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IVideoDeviceInfoAdapter * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Adapt )( 
             IVideoDeviceInfoAdapter * This,
@@ -2508,6 +2630,7 @@ EXTERN_C const IID IID_IVideoDeviceInfoDiscovery;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IVideoDeviceInfoDiscoveryVtbl
@@ -2518,7 +2641,7 @@ EXTERN_C const IID IID_IVideoDeviceInfoDiscovery;
             IVideoDeviceInfoDiscovery * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IVideoDeviceInfoDiscovery * This);
@@ -2546,14 +2669,22 @@ EXTERN_C const IID IID_IVideoDeviceInfoDiscovery;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IVideoDeviceInfoDiscovery * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SearchDevices )( 
             IVideoDeviceInfoDiscovery * This,
@@ -2642,6 +2773,7 @@ EXTERN_C const IID IID_IVideoPlayer;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IVideoPlayerVtbl
@@ -2652,7 +2784,7 @@ EXTERN_C const IID IID_IVideoPlayer;
             IVideoPlayer * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IVideoPlayer * This);
@@ -2680,14 +2812,22 @@ EXTERN_C const IID IID_IVideoPlayer;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IVideoPlayer * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Window )( 
             IVideoPlayer * This,
@@ -2799,6 +2939,7 @@ EXTERN_C const IID IID_IDeviceVideoPlayer;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IDeviceVideoPlayerVtbl
@@ -2809,7 +2950,7 @@ EXTERN_C const IID IID_IDeviceVideoPlayer;
             IDeviceVideoPlayer * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IDeviceVideoPlayer * This);
@@ -2837,14 +2978,22 @@ EXTERN_C const IID IID_IDeviceVideoPlayer;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IDeviceVideoPlayer * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DeviceName )( 
             IDeviceVideoPlayer * This,
@@ -2926,6 +3075,7 @@ EXTERN_C const IID IID_ITest;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct ITestVtbl
@@ -2936,7 +3086,7 @@ EXTERN_C const IID IID_ITest;
             ITest * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ITest * This);
@@ -2964,14 +3114,22 @@ EXTERN_C const IID IID_ITest;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             ITest * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Run )( 
             ITest * This);
@@ -3052,6 +3210,7 @@ EXTERN_C const IID IID_IVideoGraphRunner;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IVideoGraphRunnerVtbl
@@ -3062,7 +3221,7 @@ EXTERN_C const IID IID_IVideoGraphRunner;
             IVideoGraphRunner * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IVideoGraphRunner * This);
@@ -3090,14 +3249,22 @@ EXTERN_C const IID IID_IVideoGraphRunner;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IVideoGraphRunner * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *IsStarted )( 
             IVideoGraphRunner * This,
@@ -3204,6 +3371,7 @@ EXTERN_C const IID IID_ISetting;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct ISettingVtbl
@@ -3214,7 +3382,7 @@ EXTERN_C const IID IID_ISetting;
             ISetting * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ISetting * This);
@@ -3242,14 +3410,22 @@ EXTERN_C const IID IID_ISetting;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             ISetting * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_UniqueID )( 
             ISetting * This,
@@ -3417,6 +3593,7 @@ EXTERN_C const IID IID_ISettingList;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct ISettingListVtbl
@@ -3427,7 +3604,7 @@ EXTERN_C const IID IID_ISettingList;
             ISettingList * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ISettingList * This);
@@ -3455,14 +3632,22 @@ EXTERN_C const IID IID_ISettingList;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             ISettingList * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Count )( 
             ISettingList * This,
@@ -3646,6 +3831,7 @@ EXTERN_C const IID IID_ISettingFactory;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct ISettingFactoryVtbl
@@ -3656,7 +3842,7 @@ EXTERN_C const IID IID_ISettingFactory;
             ISettingFactory * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ISettingFactory * This);
@@ -3684,14 +3870,22 @@ EXTERN_C const IID IID_ISettingFactory;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             ISettingFactory * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *CreateSetting )( 
             ISettingFactory * This,
@@ -3800,6 +3994,7 @@ EXTERN_C const IID IID_IFrame;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IFrameVtbl
@@ -3810,7 +4005,7 @@ EXTERN_C const IID IID_IFrame;
             IFrame * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IFrame * This);
@@ -3838,14 +4033,22 @@ EXTERN_C const IID IID_IFrame;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IFrame * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Size )( 
             IFrame * This,
@@ -4021,6 +4224,7 @@ EXTERN_C const IID IID_IFrameBuffer;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IFrameBufferVtbl
@@ -4031,7 +4235,7 @@ EXTERN_C const IID IID_IFrameBuffer;
             IFrameBuffer * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IFrameBuffer * This);
@@ -4059,14 +4263,22 @@ EXTERN_C const IID IID_IFrameBuffer;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IFrameBuffer * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_CanWrite )( 
             IFrameBuffer * This,
@@ -4228,6 +4440,7 @@ EXTERN_C const IID IID_IVideoChannel;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IVideoChannelVtbl
@@ -4238,7 +4451,7 @@ EXTERN_C const IID IID_IVideoChannel;
             IVideoChannel * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IVideoChannel * This);
@@ -4266,14 +4479,22 @@ EXTERN_C const IID IID_IVideoChannel;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IVideoChannel * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Type )( 
             IVideoChannel * This,
@@ -4434,6 +4655,7 @@ EXTERN_C const IID IID_IVideoChannelList;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IVideoChannelListVtbl
@@ -4444,7 +4666,7 @@ EXTERN_C const IID IID_IVideoChannelList;
             IVideoChannelList * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IVideoChannelList * This);
@@ -4472,14 +4694,22 @@ EXTERN_C const IID IID_IVideoChannelList;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IVideoChannelList * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Count )( 
             IVideoChannelList * This,
@@ -4659,6 +4889,7 @@ EXTERN_C const IID IID_INullVideoChannel;
     public:
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct INullVideoChannelVtbl
@@ -4669,7 +4900,7 @@ EXTERN_C const IID IID_INullVideoChannel;
             INullVideoChannel * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             INullVideoChannel * This);
@@ -4697,14 +4928,22 @@ EXTERN_C const IID IID_INullVideoChannel;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             INullVideoChannel * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         END_INTERFACE
     } INullVideoChannelVtbl;
@@ -4773,6 +5012,7 @@ EXTERN_C const IID IID_IService;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IServiceVtbl
@@ -4783,7 +5023,7 @@ EXTERN_C const IID IID_IService;
             IService * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IService * This);
@@ -4811,14 +5051,22 @@ EXTERN_C const IID IID_IService;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IService * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Type )( 
             IService * This,
@@ -4891,6 +5139,7 @@ EXTERN_C const IID IID_INullService;
     public:
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct INullServiceVtbl
@@ -4901,7 +5150,7 @@ EXTERN_C const IID IID_INullService;
             INullService * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             INullService * This);
@@ -4929,14 +5178,22 @@ EXTERN_C const IID IID_INullService;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             INullService * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         END_INTERFACE
     } INullServiceVtbl;
@@ -5047,6 +5304,7 @@ EXTERN_C const IID IID_IConfigurationService;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IConfigurationServiceVtbl
@@ -5057,7 +5315,7 @@ EXTERN_C const IID IID_IConfigurationService;
             IConfigurationService * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IConfigurationService * This);
@@ -5085,14 +5343,22 @@ EXTERN_C const IID IID_IConfigurationService;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IConfigurationService * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *LoadConfiguration )( 
             IConfigurationService * This,
@@ -5302,6 +5568,7 @@ EXTERN_C const IID IID_IServiceList;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IServiceListVtbl
@@ -5312,7 +5579,7 @@ EXTERN_C const IID IID_IServiceList;
             IServiceList * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IServiceList * This);
@@ -5340,14 +5607,22 @@ EXTERN_C const IID IID_IServiceList;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IServiceList * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Count )( 
             IServiceList * This,
@@ -5520,6 +5795,7 @@ EXTERN_C const IID IID_IConfigurationPersistence;
     public:
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IConfigurationPersistenceVtbl
@@ -5530,7 +5806,7 @@ EXTERN_C const IID IID_IConfigurationPersistence;
             IConfigurationPersistence * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IConfigurationPersistence * This);
@@ -5558,14 +5834,22 @@ EXTERN_C const IID IID_IConfigurationPersistence;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IConfigurationPersistence * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         END_INTERFACE
     } IConfigurationPersistenceVtbl;
@@ -5648,6 +5932,7 @@ EXTERN_C const IID IID_IServer;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IServerVtbl
@@ -5658,7 +5943,7 @@ EXTERN_C const IID IID_IServer;
             IServer * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IServer * This);
@@ -5686,14 +5971,22 @@ EXTERN_C const IID IID_IServer;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IServer * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Settings )( 
             IServer * This,
@@ -5806,6 +6099,7 @@ EXTERN_C const IID IID_IServerSite;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IServerSiteVtbl
@@ -5816,7 +6110,7 @@ EXTERN_C const IID IID_IServerSite;
             IServerSite * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IServerSite * This);
@@ -5844,14 +6138,22 @@ EXTERN_C const IID IID_IServerSite;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IServerSite * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Server )( 
             IServerSite * This,
@@ -6065,7 +6367,7 @@ EXTERN_C const IID DIID__ISettingListEvents;
             _ISettingListEvents * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             _ISettingListEvents * This);
@@ -6093,14 +6395,22 @@ EXTERN_C const IID DIID__ISettingListEvents;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             _ISettingListEvents * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         END_INTERFACE
     } _ISettingListEventsVtbl;
@@ -6204,7 +6514,7 @@ EXTERN_C const IID DIID__IVideoChannelListEvents;
             _IVideoChannelListEvents * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             _IVideoChannelListEvents * This);
@@ -6232,14 +6542,22 @@ EXTERN_C const IID DIID__IVideoChannelListEvents;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             _IVideoChannelListEvents * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         END_INTERFACE
     } _IVideoChannelListEventsVtbl;
@@ -6343,7 +6661,7 @@ EXTERN_C const IID DIID__IServiceListEvents;
             _IServiceListEvents * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             _IServiceListEvents * This);
@@ -6371,14 +6689,22 @@ EXTERN_C const IID DIID__IServiceListEvents;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             _IServiceListEvents * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         END_INTERFACE
     } _IServiceListEventsVtbl;
@@ -6466,7 +6792,7 @@ EXTERN_C const IID DIID__IServerEvents;
             _IServerEvents * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             _IServerEvents * This);
@@ -6494,14 +6820,22 @@ EXTERN_C const IID DIID__IServerEvents;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             _IServerEvents * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         END_INTERFACE
     } _IServerEventsVtbl;
@@ -6567,6 +6901,16 @@ unsigned long             __RPC_USER  VARIANT_UserSize(     unsigned long *, uns
 unsigned char * __RPC_USER  VARIANT_UserMarshal(  unsigned long *, unsigned char *, VARIANT * ); 
 unsigned char * __RPC_USER  VARIANT_UserUnmarshal(unsigned long *, unsigned char *, VARIANT * ); 
 void                      __RPC_USER  VARIANT_UserFree(     unsigned long *, VARIANT * ); 
+
+unsigned long             __RPC_USER  BSTR_UserSize64(     unsigned long *, unsigned long            , BSTR * ); 
+unsigned char * __RPC_USER  BSTR_UserMarshal64(  unsigned long *, unsigned char *, BSTR * ); 
+unsigned char * __RPC_USER  BSTR_UserUnmarshal64(unsigned long *, unsigned char *, BSTR * ); 
+void                      __RPC_USER  BSTR_UserFree64(     unsigned long *, BSTR * ); 
+
+unsigned long             __RPC_USER  VARIANT_UserSize64(     unsigned long *, unsigned long            , VARIANT * ); 
+unsigned char * __RPC_USER  VARIANT_UserMarshal64(  unsigned long *, unsigned char *, VARIANT * ); 
+unsigned char * __RPC_USER  VARIANT_UserUnmarshal64(unsigned long *, unsigned char *, VARIANT * ); 
+void                      __RPC_USER  VARIANT_UserFree64(     unsigned long *, VARIANT * ); 
 
 /* end of Additional Prototypes */
 

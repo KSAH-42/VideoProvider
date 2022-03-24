@@ -45,7 +45,7 @@ STDMETHODIMP CDeviceVideoPlayer::Play( VARIANT_BOOL* out_result )
 	
 	HRESULT hr = m_graph->IsRunning( &boolResult );
 
-	if ( FAILED( hr ) || VARIANT_TRUE == boolResult )
+	if ( S_OK != hr || VARIANT_TRUE == boolResult )
 	{
 		return S_FALSE;
 	}
@@ -54,28 +54,28 @@ STDMETHODIMP CDeviceVideoPlayer::Play( VARIANT_BOOL* out_result )
 
 	hr = m_graph->SelectDevice( &boolResult );
 
-	if ( FAILED( hr ) || VARIANT_FALSE == boolResult )
+	if ( S_OK != hr || VARIANT_FALSE == boolResult )
 	{
 		return S_FALSE;
 	}
 	
 	hr = m_graph->Create( &boolResult );
 
-	if ( FAILED( hr ) || VARIANT_FALSE == boolResult )
+	if ( S_OK != hr || VARIANT_FALSE == boolResult )
 	{
 		return S_FALSE;
 	}
 	
 	hr = m_graph->AddDeviceFilter( &boolResult );
 
-	if ( FAILED( hr ) || VARIANT_FALSE == boolResult )
+	if ( S_OK != hr || VARIANT_FALSE == boolResult )
 	{
 		return S_FALSE;
 	}
 	
 	hr = m_graph->RenderDevicePreviewStream( &boolResult );
 
-	if ( FAILED( hr ) || VARIANT_FALSE == boolResult )
+	if ( S_OK != hr || VARIANT_FALSE == boolResult )
 	{
 		return S_FALSE;
 	}
@@ -84,11 +84,11 @@ STDMETHODIMP CDeviceVideoPlayer::Play( VARIANT_BOOL* out_result )
 
 	hr = m_configuration->get_Window( &window );
 	
-	if ( SUCCEEDED( hr ) && NULL != window )
+	if ( S_OK == hr && NULL != window )
 	{
 		hr = m_graph->SetupWindow( &boolResult );
 
-		if ( FAILED( hr ) || VARIANT_FALSE == boolResult )
+		if ( S_OK != hr || VARIANT_FALSE == boolResult )
 		{
 			return S_FALSE;
 		}
@@ -96,7 +96,7 @@ STDMETHODIMP CDeviceVideoPlayer::Play( VARIANT_BOOL* out_result )
 	
 	hr = m_graph->Run( &boolResult );
 
-	if ( FAILED( hr ) || VARIANT_FALSE == boolResult )
+	if ( S_OK != hr || VARIANT_FALSE == boolResult )
 	{
 		return S_FALSE;
 	}

@@ -4,7 +4,9 @@
 
 // This test search the local cameras installed on your computer
 // and select the first video camera 
-// Make sure that you web cam is not actually used
+// Make sure that you web cam is not actually used 
+// AND
+// Make sure that the camera is activated (Please note that many labtops include a hardware button used to make a quick activation or deactivation without to search on windows settings)
 
 STDMETHODIMP CTest::Run(void)
 {
@@ -12,7 +14,7 @@ STDMETHODIMP CTest::Run(void)
 
 	HRESULT hr = discovery.CoCreateInstance( CLSID_VideoDeviceInfoDiscovery );
 
-	if ( FAILED( hr ) || NULL == discovery.p )
+	if ( S_OK != hr || NULL == discovery.p )
 	{
 		return S_FALSE;
 	}
@@ -21,7 +23,7 @@ STDMETHODIMP CTest::Run(void)
 
 	hr = discovery->SearchDevices( &devices.p );
 
-	if ( FAILED( hr ) || NULL == devices.p )
+	if ( S_OK != hr || NULL == devices.p )
 	{
 		::OutputDebugString( L"CTest::Run no devices found \n" );
 		return S_FALSE;
@@ -31,7 +33,7 @@ STDMETHODIMP CTest::Run(void)
 
 	hr = devices->FindAt( 0 , &deviceInfo.p );
 
-	if ( FAILED( hr ) || NULL == deviceInfo.p )
+	if ( S_OK != hr || NULL == deviceInfo.p )
 	{
 		::OutputDebugString( L"CTest::Run no devices found \n" );
 		return S_FALSE;
@@ -41,7 +43,7 @@ STDMETHODIMP CTest::Run(void)
 
 	hr = deviceInfo->Validate( &boolResult );
 
-	if ( FAILED( hr ) || VARIANT_FALSE == boolResult )
+	if ( S_OK != hr || VARIANT_FALSE == boolResult )
 	{
 		::OutputDebugString( L"CTest::Run invalid device infos \n" );
 
@@ -56,7 +58,7 @@ STDMETHODIMP CTest::Run(void)
 	
 	hr = player.CoCreateInstance( CLSID_DeviceVideoPlayer );
 
-	if ( FAILED( hr ) || NULL == player.p )
+	if ( S_OK != hr || NULL == player.p )
 	{
 		::OutputDebugString( L"CTest::Run not create a render \n" );
 		return S_FALSE;
@@ -66,7 +68,7 @@ STDMETHODIMP CTest::Run(void)
 
 	hr = player.QueryInterface( &devicePlayer.p );
 
-	if ( FAILED( hr ) || NULL == devicePlayer.p )
+	if ( S_OK != hr || NULL == devicePlayer.p )
 	{
 		::OutputDebugString( L"CTest::Run get and interface \n" );
 		return S_FALSE;
@@ -76,7 +78,7 @@ STDMETHODIMP CTest::Run(void)
 
 	hr = player->Play( &boolResult );
 
-	if ( FAILED( hr ) || VARIANT_TRUE != boolResult )
+	if ( S_OK != hr || VARIANT_TRUE != boolResult )
 	{
 		::OutputDebugString( L"CTest::Run can not start the rendering \n" );
 		return S_FALSE;

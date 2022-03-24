@@ -34,7 +34,7 @@ public:
 	{
 		HRESULT hr = m_buffer.CoCreateInstance( CLSID_FrameBuffer );
 
-		if ( FAILED( hr ) || NULL == m_buffer.p )
+		if ( S_OK != hr || NULL == m_buffer.p )
 		{
 			return E_FAIL;
 		}

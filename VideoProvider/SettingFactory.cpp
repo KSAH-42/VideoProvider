@@ -22,7 +22,7 @@ STDMETHODIMP CSettingFactory::CreateSetting(BSTR uniqueID, ISetting** out_result
 
 	HRESULT hr = setting.CoCreateInstance( CLSID_Setting );
 
-	if ( FAILED( hr ) || NULL == setting.p )
+	if ( S_OK != hr || NULL == setting.p )
 	{
 		return E_OUTOFMEMORY;
 	}
@@ -31,14 +31,14 @@ STDMETHODIMP CSettingFactory::CreateSetting(BSTR uniqueID, ISetting** out_result
 
 	hr = setting.QueryInterface( &initializer.p );
 
-	if ( FAILED( hr ) || NULL == setting.p )
+	if ( S_OK != hr || NULL == setting.p )
 	{
 		return E_NOINTERFACE;
 	}
 
 	hr = initializer->Initialize( CComVariant( (LPCTSTR) uniqueID ) );
 
-	if ( FAILED( hr ) )
+	if ( S_OK != hr )
 	{
 		return E_ABORT;
 	}

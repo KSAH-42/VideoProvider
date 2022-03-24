@@ -50,7 +50,7 @@ STDMETHODIMP CVideoGraphRunner::Start(IVideoGraph* graph, VARIANT_BOOL* out_resu
 
 	HRESULT hr = m_thread->IsStarted( &boolResult );
 
-	if ( FAILED( hr ) || VARIANT_TRUE == boolResult )
+	if ( S_OK != hr || VARIANT_TRUE == boolResult )
 	{
 		return S_FALSE;
 	}
@@ -59,7 +59,7 @@ STDMETHODIMP CVideoGraphRunner::Start(IVideoGraph* graph, VARIANT_BOOL* out_resu
 
 	hr = m_thread->Start( (void*) &CVideoGraphRunner::Processing , (void*) this , &boolResult );
 
-	if ( FAILED( hr ) || VARIANT_FALSE == boolResult )
+	if ( S_OK != hr || VARIANT_FALSE == boolResult )
 	{
 		m_graph.Release();
 		m_graph.p = NULL;

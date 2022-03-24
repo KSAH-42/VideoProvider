@@ -40,7 +40,7 @@ STDMETHODIMP CVideoGraph::Create(VARIANT_BOOL* out_result)
 
 	HRESULT hr = graph.CoCreateInstance( CLSID_FilterGraph );
 
-	if ( FAILED( hr ) || NULL == graph.p )
+	if ( S_OK != hr || NULL == graph.p )
 	{
 		return S_FALSE;
 	}
@@ -49,7 +49,7 @@ STDMETHODIMP CVideoGraph::Create(VARIANT_BOOL* out_result)
 
 	hr = graph.QueryInterface( &mediaControl.p );
 
-	if ( FAILED( hr ) || NULL == mediaControl.p )
+	if ( S_OK != hr || NULL == mediaControl.p )
 	{
 		return S_FALSE;
 	}
@@ -58,7 +58,7 @@ STDMETHODIMP CVideoGraph::Create(VARIANT_BOOL* out_result)
 
 	hr = graph.QueryInterface( &mediaEvents.p );
 
-	if ( FAILED( hr ) || NULL == mediaEvents.p )
+	if ( S_OK != hr || NULL == mediaEvents.p )
 	{
 		return S_FALSE;
 	}
@@ -161,7 +161,7 @@ STDMETHODIMP CVideoGraph::SelectDevice(VARIANT_BOOL* out_result)
 
 	HRESULT hr = m_configuration->get_DeviceName( &deviceName );
 
-	if ( FAILED( hr ) )
+	if ( S_OK != hr )
 	{
 		return S_FALSE;
 	}
@@ -175,7 +175,7 @@ STDMETHODIMP CVideoGraph::SelectDevice(VARIANT_BOOL* out_result)
 
 	hr = m_monikerStore->FindByName( deviceName , &moniker.p );
 
-	if ( FAILED( hr ) || NULL == moniker.p )
+	if ( S_OK != hr || NULL == moniker.p )
 	{
 		return S_FALSE;
 	}
@@ -184,7 +184,7 @@ STDMETHODIMP CVideoGraph::SelectDevice(VARIANT_BOOL* out_result)
 
 	hr = moniker->BindToObject( NULL , NULL , IID_IBaseFilter, (void**) &deviceFilter.p );
 
-	if ( FAILED( hr ) || NULL == deviceFilter.p )
+	if ( S_OK != hr || NULL == deviceFilter.p )
 	{
 		return S_FALSE;
 	}
