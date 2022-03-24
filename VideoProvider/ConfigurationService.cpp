@@ -89,4 +89,4 @@ STDMETHODIMP CConfigurationService::WriteSettingAsLong(BSTR uniqueID, LONG value
 }
 
 
-#pragma warning ( enable : 4100 )
+#pragma warning ( suppress : 4100 )

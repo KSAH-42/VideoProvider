@@ -196,11 +196,14 @@ STDMETHODIMP CVideoGraph::SelectDevice(VARIANT_BOOL* out_result)
 	return S_OK;
 }
 
+#pragma warning ( disable : 4100 )
 
 STDMETHODIMP CVideoGraph::SelectDeviceFormat(VARIANT_BOOL* out_result)
 {
 	return E_NOTIMPL;
 }	
+
+#pragma warning ( suppress : 4100 )
 
 
 STDMETHODIMP CVideoGraph::AddDeviceFilter(VARIANT_BOOL* out_result)

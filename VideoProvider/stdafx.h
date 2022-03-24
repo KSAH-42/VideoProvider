@@ -37,4 +37,8 @@
 
 #pragma comment( lib , "Strmiids" )
 
+#pragma warning ( disable : 4091 )
+
 extern "C" const GUID ;
+
+#pragma warning ( suppress : 4091 )
