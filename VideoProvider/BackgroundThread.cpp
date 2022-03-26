@@ -1,6 +1,23 @@
 #include "stdafx.h"
 #include "BackgroundThread.h"
 
+// To start a thread I prefered to used Win32 instead of STL, even I used some STL class (containers) in this project in different places.
+// For me, the major reseaon is because, Win32 functions for threading are much more better, Win32 is more flexible than STL thread
+// For instance it is actually not possible to suspend, resume a thread using the actual STL
+// And many other people say, that is a small wrapper around OS functions.
+// I don't use also a boolean flag to stop the thread, I used a sync object like the Event handle to stop a thread
+// For more details, I strongly recommends to read the Jeffrey Richter books from microsoft press. It is an old books
+// But it is really interesting to read.
+// Just to complete my answer against the STL thread:
+// You can have many benefit using the Event handle to stop a thread, for instance, it is possible to introduce
+// a stop method with a timeout value to avoid a blocking call on the calling thread
+// You can implement a similar pattern used in the .Net framework represented by the IAsyncResult where the behind the class which 
+// implement this interface, you will problably discovered an internal event handle object perhaps a EventWaitHandle
+
+// you will notice some statement written like this: if ( true == myBool { doSomething(); } where the lvalue is constant
+// I don't do this in C#, and even in C++ I am not a great fan to used this stylistic approach but it is possible to produce compilation error on the following 
+// that used a single equal operator:  if ( myBool = true )
+
 
 STDMETHODIMP CBackgroundThread::get_Handle(ULONG* pVal)
 {
