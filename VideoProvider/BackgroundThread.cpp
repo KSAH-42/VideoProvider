@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "BackgroundThread.h"
 
-// To start a thread I prefered to used Win32 instead of STL, even I used some STL class (containers) in this project in different places.
+// To start a thread I prefered to used Win32 OS function instead of using the STL, even I used some STL class (containers) in this project in different places.
 // For me, the major reseaon is because, Win32 functions for threading are much more better, Win32 is more flexible than STL thread
 // For instance it is actually not possible to suspend, resume a thread using the actual STL
 // And many other people say, that is a small wrapper around OS functions.
