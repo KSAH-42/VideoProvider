@@ -14,7 +14,7 @@
 // You can implement a similar pattern used in the .Net framework represented by the IAsyncResult where the behind the class which 
 // implement this interface, you will problably discovered an internal event handle object perhaps a EventWaitHandle
 
-// you will notice some statement written like this: if ( true == myBool { doSomething(); } where the lvalue is constant
+// you will notice some statement written like this: if ( true == myBool { doSomething(); } where the constant is located at the left
 // I don't do this in C#, and even in C++ I am not a great fan to used this stylistic approach but it is possible to produce compilation error on the following 
 // that used a single equal operator:  if ( myBool = true )
 
