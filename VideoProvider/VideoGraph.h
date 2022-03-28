@@ -28,6 +28,7 @@ private:
 	CComPtr<ICaptureGraphBuilder2>      m_deviceGraph;
 	CComPtr<IBaseFilter>                m_deviceFilter;
 	CComPtr<IBaseFilter>			    m_sourceFilter;	
+	CComPtr<IBaseFilter>			    m_videoRenderFilter;
 	
 	VARIANT_BOOL     				    m_isRunning;
 
@@ -93,6 +94,8 @@ public:
 	
 	STDMETHOD    (AddGrabberFilter)             (VARIANT_BOOL* out_result);
 
+	STDMETHOD    (AddVideoRenderFilter)         (VARIANT_BOOL* out_result);
+
 	STDMETHOD    (RenderDeviceStream)           (BSTR pinCategoryId , VARIANT_BOOL* out_result);
 	
 	STDMETHOD    (RenderDeviceCaptureStream)    (VARIANT_BOOL* out_result);
@@ -102,9 +105,11 @@ public:
 	STDMETHOD    (RenderFileStream)             (VARIANT_BOOL* out_result);
 	
 	STDMETHOD    (SetupWindow)                  (VARIANT_BOOL* out_result);
-	
+
 	STDMETHOD    (CloseWindow)                  ();
 	
+	STDMETHOD    (SetKeepRatioMode)             (VARIANT_BOOL keepRatioStatus, VARIANT_BOOL* out_result);
+
 	STDMETHOD    (IsRunning)                    (VARIANT_BOOL* out_result);
 	
 	STDMETHOD    (Run)                          (VARIANT_BOOL* out_result);

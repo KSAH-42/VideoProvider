@@ -1426,6 +1426,9 @@ EXTERN_C const IID IID_IVideoGraph;
         virtual /* [id] */ HRESULT STDMETHODCALLTYPE AddGrabberFilter( 
             /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
         
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE AddVideoRenderFilter( 
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
+        
         virtual /* [id] */ HRESULT STDMETHODCALLTYPE RenderDeviceStream( 
             /* [in] */ BSTR pinCategoryId,
             /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
@@ -1443,6 +1446,10 @@ EXTERN_C const IID IID_IVideoGraph;
             /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
         
         virtual /* [id] */ HRESULT STDMETHODCALLTYPE CloseWindow( void) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE SetKeepRatioMode( 
+            /* [in] */ VARIANT_BOOL keepRatioStatus,
+            /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
         
         virtual /* [id] */ HRESULT STDMETHODCALLTYPE IsRunning( 
             /* [retval][out] */ VARIANT_BOOL *out_result) = 0;
@@ -1545,6 +1552,10 @@ EXTERN_C const IID IID_IVideoGraph;
             IVideoGraph * This,
             /* [retval][out] */ VARIANT_BOOL *out_result);
         
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *AddVideoRenderFilter )( 
+            IVideoGraph * This,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
+        
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *RenderDeviceStream )( 
             IVideoGraph * This,
             /* [in] */ BSTR pinCategoryId,
@@ -1568,6 +1579,11 @@ EXTERN_C const IID IID_IVideoGraph;
         
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *CloseWindow )( 
             IVideoGraph * This);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *SetKeepRatioMode )( 
+            IVideoGraph * This,
+            /* [in] */ VARIANT_BOOL keepRatioStatus,
+            /* [retval][out] */ VARIANT_BOOL *out_result);
         
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *IsRunning )( 
             IVideoGraph * This,
@@ -1646,6 +1662,9 @@ EXTERN_C const IID IID_IVideoGraph;
 #define IVideoGraph_AddGrabberFilter(This,out_result)	\
     ( (This)->lpVtbl -> AddGrabberFilter(This,out_result) ) 
 
+#define IVideoGraph_AddVideoRenderFilter(This,out_result)	\
+    ( (This)->lpVtbl -> AddVideoRenderFilter(This,out_result) ) 
+
 #define IVideoGraph_RenderDeviceStream(This,pinCategoryId,out_result)	\
     ( (This)->lpVtbl -> RenderDeviceStream(This,pinCategoryId,out_result) ) 
 
@@ -1663,6 +1682,9 @@ EXTERN_C const IID IID_IVideoGraph;
 
 #define IVideoGraph_CloseWindow(This)	\
     ( (This)->lpVtbl -> CloseWindow(This) ) 
+
+#define IVideoGraph_SetKeepRatioMode(This,keepRatioStatus,out_result)	\
+    ( (This)->lpVtbl -> SetKeepRatioMode(This,keepRatioStatus,out_result) ) 
 
 #define IVideoGraph_IsRunning(This,out_result)	\
     ( (This)->lpVtbl -> IsRunning(This,out_result) ) 

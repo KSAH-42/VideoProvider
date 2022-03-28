@@ -72,14 +72,14 @@ STDMETHODIMP CDeviceVideoPlayer::Play( VARIANT_BOOL* out_result )
 	{
 		return S_FALSE;
 	}
-	
+
 	hr = m_graph->RenderDevicePreviewStream( &boolResult );
 
 	if ( S_OK != hr || VARIANT_FALSE == boolResult )
 	{
 		return S_FALSE;
 	}
-	
+
 	OLE_HANDLE window = NULL;
 
 	hr = m_configuration->get_Window( &window );

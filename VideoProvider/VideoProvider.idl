@@ -128,12 +128,14 @@ interface IVideoGraph : IDispatch
 	[id(6)]          HRESULT AddDeviceFilter             ([out,retval] VARIANT_BOOL* out_result);
 	[id(7)]          HRESULT AddFileSourceFilter         ([out,retval] VARIANT_BOOL* out_result);
 	[id(8)]          HRESULT AddGrabberFilter            ([out,retval] VARIANT_BOOL* out_result);
+	[id(9)]          HRESULT AddVideoRenderFilter        ([out, retval] VARIANT_BOOL* out_result);
 	[id(10)]         HRESULT RenderDeviceStream          ([in] BSTR pinCategoryId , [out,retval] VARIANT_BOOL* out_result);
 	[id(11)]         HRESULT RenderDeviceCaptureStream   ([out,retval] VARIANT_BOOL* out_result);
 	[id(12)]         HRESULT RenderDevicePreviewStream   ([out,retval] VARIANT_BOOL* out_result);
 	[id(13)]         HRESULT RenderFileStream            ([out,retval] VARIANT_BOOL* out_result);
 	[id(14)]         HRESULT SetupWindow                 ([out,retval] VARIANT_BOOL* out_result);
-	[id(16)]         HRESULT CloseWindow                 (void);
+	[id(15)]         HRESULT CloseWindow                 (void);
+	[id(16)]         HRESULT SetKeepRatioMode            ([in]         VARIANT_BOOL  keepRatioStatus , [out, retval] VARIANT_BOOL* out_result);
 	[id(17)]         HRESULT IsRunning                   ([out,retval] VARIANT_BOOL* out_result);
 	[id(18)]         HRESULT Run                         ([out,retval] VARIANT_BOOL* out_result);
 	[id(19)]         HRESULT Shutdown                    (void);

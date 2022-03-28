@@ -276,12 +276,17 @@ STDMETHODIMP CVideoGraph::AddFileSourceFilter(VARIANT_BOOL* out_result)
 
 	if ( NULL == m_mainGraph.p )
 	{
-		return S_OK;
+		return S_FALSE;
 	}
 
 	if ( NULL == m_configuration.p )
 	{
-		return E_ABORT;
+		return S_FALSE;
+	}
+
+	if (NULL != m_sourceFilter.p)
+	{
+		return S_FALSE;
 	}
 
 	CComBSTR fileSource;
@@ -326,6 +331,11 @@ STDMETHODIMP CVideoGraph::AddGrabberFilter(VARIANT_BOOL* out_result)
 		return S_FALSE;
 	}
 
+	if (NULL != m_sampleGrabber.p)
+	{
+		return S_FALSE;
+	}
+
 	CComPtr<IBaseFilter> sampleGrabberFilter;
 
 	HRESULT hr = sampleGrabberFilter.CoCreateInstance( CLSID_SampleGrabber );
@@ -352,6 +362,51 @@ STDMETHODIMP CVideoGraph::AddGrabberFilter(VARIANT_BOOL* out_result)
 	}
 
 	m_sampleGrabber = sampleGrabberFilter;
+
+	*out_result = VARIANT_TRUE;
+
+	return S_OK;
+}
+
+
+STDMETHODIMP CVideoGraph::AddVideoRenderFilter(VARIANT_BOOL* out_result)
+{
+	if (NULL == out_result)
+	{
+		return E_POINTER;
+	}
+
+	*out_result = VARIANT_FALSE;
+
+	CCritSecLock lock(m_cs);
+
+	if ( NULL == m_mainGraph.p )
+	{
+		return S_FALSE;
+	}
+
+	if ( NULL != m_videoRenderFilter.p)
+	{
+		return S_FALSE;
+	}
+
+	CComPtr<IBaseFilter> spVideoRender;
+
+	HRESULT hr = spVideoRender.CoCreateInstance(CLSID_VideoMixingRenderer);
+
+	if (S_OK != hr || NULL == spVideoRender.p)
+	{
+		return S_FALSE;
+	}
+
+	hr = m_mainGraph->AddFilter(spVideoRender, CComBSTR(L"Video render"));
+
+	if ( S_OK != hr )
+	{
+		return S_FALSE;
+	}
+
+	m_videoRenderFilter = spVideoRender;
 
 	*out_result = VARIANT_TRUE;
 
@@ -543,7 +598,7 @@ STDMETHODIMP CVideoGraph::SetupWindow(VARIANT_BOOL* out_result)
 	m_videoWindow   = videoWindow;
 	m_currentWindow = handle;
 
-	*out_result     = VARIANT_TRUE;
+	*out_result = VARIANT_TRUE;
 
 	return S_OK;
 }
@@ -564,6 +619,45 @@ STDMETHODIMP CVideoGraph::CloseWindow()
 	}
 
 	m_currentWindow = NULL;
+
+	return S_OK;
+}
+
+
+STDMETHODIMP CVideoGraph::SetKeepRatioMode( VARIANT_BOOL keepRatioStatus , VARIANT_BOOL* out_result)
+{
+	if (NULL == out_result)
+	{
+		return E_POINTER;
+	}
+
+	*out_result = VARIANT_FALSE;
+
+	CCritSecLock lock(m_cs);
+
+	if ( NULL == m_videoRenderFilter.p )
+	{
+		return S_FALSE;
+	}
+
+
+	CComPtr<IVMRAspectRatioControl> spVMRControl;
+
+	HRESULT hr = m_videoRenderFilter.QueryInterface(&spVMRControl);
+
+	if (S_OK != hr || NULL == spVMRControl.p)
+	{
+		return S_FALSE;
+	}
+
+	hr = spVMRControl->SetAspectRatioMode( VARIANT_TRUE == keepRatioStatus ? VMR_ARMODE_LETTER_BOX : VMR_ARMODE_NONE );
+
+	if ( S_OK != hr )
+	{
+		return S_FALSE;
+	}
+
+	*out_result = VARIANT_TRUE;
 
 	return S_OK;
 }
@@ -641,6 +735,11 @@ STDMETHODIMP CVideoGraph::Shutdown()
 		hr = m_sourceFilter->Stop();
 	}
 	
+	if (NULL != m_videoRenderFilter.p)
+	{
+		hr = m_videoRenderFilter->Stop();
+	}
+
 	if ( NULL != m_mediaControl.p )
 	{
 		m_mediaControl->Stop();
