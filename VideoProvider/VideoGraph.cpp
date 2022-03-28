@@ -99,6 +99,12 @@ STDMETHODIMP CVideoGraph::Destroy(void)
 		m_videoWindow.p = NULL;
 	}
 
+	if (NULL != m_videoRenderFilter.p)
+	{
+		m_videoRenderFilter.Release();
+		m_videoRenderFilter.p = NULL;
+	}
+
 	if ( NULL != m_sampleGrabber.p )
 	{
 		m_sampleGrabber.Release();
