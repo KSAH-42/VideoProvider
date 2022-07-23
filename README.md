@@ -1,6 +1,6 @@
 # Introduction
 
-So here it's a personal project written in C++. Just go back in times, and returns to C++ using the famous MS COM framework called ATL (Active Template Library). I will problably make a version of this API in C# in a near future. 
+So here it's a personal project written in C++. Just go back in times, and returns to C++ using the MS COM framework called ATL (Active Template Library). I will problably make a version of this API in C# in a near future. 
 
 So what really represent this project ? I have written a COM API that turn you computer into a video server. Here the goal is to retrieve the video stream of any type of video capture like your webcam which are connected to your computer, and to distribute multiple copy of a video stream under the network.
 
