@@ -26,3 +26,8 @@ So here, we have actually the following projects :
 The network layer is not actually written. I will start this implementation in another moment.
 
 
+# Fondamentals things to know about COM
+
+COM Libraries must be registered on the windows registry. Please make sure that your windows account have enougth privilege to perform write operations on the registry. Visual C++ try to register the dll on the registry after a successfull build. 
+
+And don't forget to compile the dll first, and then the exe, otherwise change the build order.
