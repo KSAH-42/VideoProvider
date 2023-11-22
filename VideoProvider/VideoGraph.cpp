@@ -766,6 +766,10 @@ STDMETHODIMP CVideoGraph::PumpsEvents(void)
 		return S_FALSE;
 	}
 
+	// After many tests this loop end because a bad hresult will be detected
+	// but i think i to add WaitForSingleObject based on event handle on the while state
+	// it is more safe
+	
 	while ( true )
 	{
 		LONG eventCode  = 0;
