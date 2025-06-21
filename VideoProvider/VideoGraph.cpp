@@ -766,9 +766,9 @@ STDMETHODIMP CVideoGraph::PumpsEvents(void)
 		return S_FALSE;
 	}
 
-	// After many tests this loop end because a bad hresult will be detected
-	// but i think i to add WaitForSingleObject based on event handle on the while state
-	// it is more safe
+	// After many tests this loop ends due to a bad hresult produce by some DSF methods
+	// Something better can be used here like using a Win32 WaitForXYZ will probably better 
+	// And introducing new methods for stopping the collect of events could be usefull
 	
 	while ( true )
 	{
