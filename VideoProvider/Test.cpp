@@ -10,7 +10,7 @@
 
 STDMETHODIMP CTest::Run(void)
 {
-    CComPtr<IVideoDeviceInfoDiscovery> discovery;
+	CComPtr<IVideoDeviceInfoDiscovery> discovery;
 
 	HRESULT hr = discovery.CoCreateInstance( CLSID_VideoDeviceInfoDiscovery );
 
